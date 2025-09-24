@@ -2,15 +2,19 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-const DASH_SPEED = 1500.0
-@onready var timer: Timer = $Timer
+const DASH_SPEED = 2000.0
+@onready var dash_timer: Timer = $DashTimer
+@onready var morte_timer: Timer = $MorteTimer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var isdashing: bool = false
+var ismorrendo: bool = false
 var dash_direction: int = 0
 var direction
 
 func _physics_process(delta: float) -> void:
+	if ismorrendo:
+		return
 	# Gravidade
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -38,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	# Dash
 	if Input.is_action_just_pressed("dash2") and not isdashing:
 		isdashing = true
-		timer.start()
+		dash_timer.start()
 		
 		# Direção do dash (se estiver parado, usa o flip_h)
 		if direction != 0:
@@ -55,5 +59,29 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _on_timer_timeout() -> void:
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	var parent = area.get_parent()  # sobe um nível, já que o Area2D é filho do player
+	if not isdashing and parent.isdashing:
+		morrer()
+
+func _on_dash_timer_timeout() -> void:
 	isdashing = false
+
+func _on_morte_timer_timeout() -> void:
+	# volta pra posição inicial
+	global_position = Vector2(600, 94)  # ou guarda uma variável spawn_point
+	show()
+	$CollisionShape2D.disabled = false
+	ismorrendo = false
+	animated_sprite.play("idle")
+	
+func morrer():
+	ismorrendo = true
+	morte_timer.start()
+	animated_sprite.play("die")
+	await animated_sprite.animation_finished
+	
+	# esconde o personagem
+	hide()
+	# desativa colisão pra não interagir morto
+	$CollisionShape2D.disabled = true
