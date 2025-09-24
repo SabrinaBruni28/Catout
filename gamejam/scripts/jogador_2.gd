@@ -3,10 +3,12 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 const DASH_SPEED = 2000.0
+
 @onready var dash_timer: Timer = $DashTimer
 @onready var morte_timer: Timer = $MorteTimer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+signal morreu
 var isdashing: bool = false
 var ismorrendo: bool = false
 var dash_direction: int = 0
@@ -74,14 +76,16 @@ func _on_morte_timer_timeout() -> void:
 	$CollisionShape2D.disabled = false
 	ismorrendo = false
 	animated_sprite.play("idle")
-	
+
 func morrer():
+	if ismorrendo:
+		return
 	ismorrendo = true
 	morte_timer.start()
 	animated_sprite.play("die")
+	emit_signal("morreu")  # dispara o sinal só uma vez
 	await animated_sprite.animation_finished
 	
-	# esconde o personagem
 	hide()
-	# desativa colisão pra não interagir morto
 	$CollisionShape2D.disabled = true
+	

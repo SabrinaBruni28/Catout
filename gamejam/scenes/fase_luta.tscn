@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cle6y3v6ew47y"]
+[gd_scene load_steps=11 format=3 uid="uid://cle6y3v6ew47y"]
 
 [ext_resource type="PackedScene" uid="uid://dnjk0ba3xyl0k" path="res://scenes/jogador_1.tscn" id="1_o2822"]
+[ext_resource type="Script" uid="uid://blnyeillroi8j" path="res://scripts/fase_luta.gd" id="1_vvie0"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="2_dcvhq"]
 [ext_resource type="PackedScene" uid="uid://bbbpr7b6xrji8" path="res://scenes/jogador_2.tscn" id="3_o4bjq"]
+[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="5_0nnpm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4bjq"]
 texture = ExtResource("2_dcvhq")
@@ -186,6 +188,7 @@ distance = -1.0
 normal = Vector2(-1, 0)
 
 [node name="FaseLuta" type="Node2D"]
+script = ExtResource("1_vvie0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(485, 320)
@@ -218,3 +221,36 @@ physics_material_override = SubResource("PhysicsMaterial_o4bjq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDireita"]
 position = Vector2(26, 1)
 shape = SubResource("WorldBoundaryShape2D_o4bjq")
+
+[node name="LabelPontosJogador1" type="Label" parent="."]
+offset_left = 360.0
+offset_top = 242.0
+offset_right = 400.0
+offset_bottom = 265.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("5_0nnpm")
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="LabelPontosJogador2" type="Label" parent="."]
+offset_left = 598.0
+offset_top = 243.0
+offset_right = 638.0
+offset_bottom = 266.0
+theme_override_fonts/font = ExtResource("5_0nnpm")
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="LabelTempo" type="Label" parent="."]
+offset_left = 441.0
+offset_top = 242.0
+offset_right = 533.0
+offset_bottom = 265.0
+theme_override_fonts/font = ExtResource("5_0nnpm")
+theme_override_font_sizes/font_size = 8
+text = "Tempo: "
+
+[node name="TempoJogo" type="Timer" parent="."]
+wait_time = 32.0
+
+[connection signal="timeout" from="TempoJogo" to="." method="_on_tempo_jogo_timeout"]
