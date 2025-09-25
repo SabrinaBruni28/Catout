@@ -3,3 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://bvhptbeojtc8u" path="res://scenes/jogador_luta_base.tscn" id="1_jaomx"]
 
 [node name="Jogador1" instance=ExtResource("1_jaomx")]
+spawn_point = Vector2(150, 0)

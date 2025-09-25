@@ -4,6 +4,7 @@
 
 [node name="Jogador2" instance=ExtResource("1_pym6c")]
 input_prefix = "p2_"
+spawn_point = Vector2(1000, 0)
 
 [node name="Escudo" parent="." index="0"]
 position = Vector2(-2.75, -8.75)
