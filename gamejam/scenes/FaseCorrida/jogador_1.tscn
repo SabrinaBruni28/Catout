@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://csplp1krf1pob"]
+[gd_scene load_steps=3 format=3 uid="uid://cbmxermfagagb"]
 
 [ext_resource type="PackedScene" uid="uid://br0j1gpnu4vhj" path="res://scenes/FaseCorrida/jogador_corrida_base.tscn" id="1_xjoe1"]
 [ext_resource type="SpriteFrames" uid="uid://cmaowedgp3hft" path="res://scenes/tres/jogador1_corrida.tres" id="2_ltnmy"]
@@ -6,14 +6,14 @@
 [node name="Jogador_1" instance=ExtResource("1_xjoe1")]
 
 [node name="Jogador" parent="." index="0"]
-position = Vector2(0, -9.75)
+position = Vector2(0, -10.25)
 scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("2_ltnmy")
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.770871
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -8.125)
+position = Vector2(0, -8.25)
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(-8.61287e-06, -7.25)
+[node name="Area2D" parent="." index="2"]
+position = Vector2(0.5, 2)
