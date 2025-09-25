@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://duelttl0hyk0h"]
+[gd_scene load_steps=10 format=3 uid="uid://duelttl0hyk0h"]
 
 [ext_resource type="PackedScene" uid="uid://csplp1krf1pob" path="res://scenes/FaseCorrida/jogador_1.tscn" id="2_0glfh"]
 [ext_resource type="Script" uid="uid://clklmhuqfcy7j" path="res://scripts/camera_2d.gd" id="2_2mx4m"]
 [ext_resource type="PackedScene" uid="uid://diwhvjk06diif" path="res://scenes/FaseCorrida/jogador_2.tscn" id="3_2mx4m"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="4_3i0xp"]
+[ext_resource type="PackedScene" uid="uid://dj542qdln0l78" path="res://scenes/FaseCorrida/Objetos/lan.tscn" id="5_2mx4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pr2i"]
 texture = ExtResource("4_3i0xp")
@@ -208,3 +209,9 @@ physics_material_override = SubResource("PhysicsMaterial_o4bjq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsquerda"]
 shape = SubResource("WorldBoundaryShape2D_vvie0")
+
+[node name="Objetos" type="Node" parent="."]
+
+[node name="Lan" parent="Objetos" instance=ExtResource("5_2mx4m")]
+position = Vector2(1312, 570)
+scale = Vector2(2, 2)

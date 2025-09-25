@@ -2,7 +2,7 @@ extends Camera2D
 
 @onready var jogador_1: CharacterBody2D = $"../Jogador_1"
 @onready var jogador_2: CharacterBody2D = $"../Jogador_2"
-
+@onready var objetos: Node = $"../Objetos"
 @export var smooth_speed: float = 5.0
 
 func _process(delta: float) -> void:
@@ -24,8 +24,11 @@ func _process(delta: float) -> void:
 	# verifica se algum jogador saiu da tela
 	for player in [jogador_1, jogador_2]:
 		if player and not is_player_visible(player):
-			print("Saiu da tela:", player.name)
 			player.morre()
+			
+	#for obj in objetos:
+	#	if obj and not is_object_visible(obj):
+	#		obj.queue_free()
 
 # verifica se o jogador está visível na câmera
 func is_player_visible(player: Node2D) -> bool:
@@ -37,3 +40,7 @@ func is_player_visible(player: Node2D) -> bool:
 	
 	# considera a posição central do jogador (ou o tamanho se quiser)
 	return viewport_rect.has_point(player.global_position)
+	
+func is_object_visible(objeto: RigidBody2D) -> bool:
+	return 0
+	

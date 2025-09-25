@@ -7,14 +7,19 @@ const VELOCITY_MAX = 700.00
 
 var direction
 var morreu: bool = false
-var isdeslizando: bool = false
 var ispulando: bool = false
+var isdeslizando: bool = false
+
+var item
 
 @export var input_prefix: String = "p1_"   # cada jogador muda isso no Inspector
 @export var spawn_point: Vector2 = Vector2(0, 0)
 
 @onready var player: AnimatedSprite2D = $Jogador
 @onready var deslize_timer: Timer = $Timers/DeslizeTimer
+
+func _ready() -> void:
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	directions(delta)
@@ -45,6 +50,9 @@ func deslizar():
 		velocity.y = DELIZE_VELOCITY
 		deslize_timer.start()
 		
+func jogar_item():
+	item = null
+		
 func directions(delta):
 	if isdeslizando:
 		return
@@ -73,3 +81,6 @@ func morre():
 func _on_deslize_timer_timeout() -> void:
 	isdeslizando = false
 	player.play("idle")
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	item = area
