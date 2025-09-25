@@ -142,7 +142,7 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_4qhlp")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.241934
+frame_progress = 0.912852
 
 [node name="Jogador2" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(910, 405)
@@ -150,7 +150,7 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_sxkff")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.217654
+frame_progress = 0.888572
 flip_h = true
 
 [node name="Pontos1" type="Label" parent="." index="3"]
