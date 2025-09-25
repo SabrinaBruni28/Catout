@@ -190,32 +190,27 @@ normal = Vector2(-1, 0)
 [node name="FaseLuta" type="Node2D"]
 script = ExtResource("1_vvie0")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(485, 320)
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
-
 [node name="Jogador1" parent="." instance=ExtResource("1_o2822")]
-position = Vector2(407, 366)
+position = Vector2(226, 327)
 
 [node name="Jogador2" parent="." instance=ExtResource("3_o4bjq")]
-position = Vector2(553, 366)
+position = Vector2(852, 316)
 
 [node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_vvie0")
 format = 2
-layer_0/tile_data = PackedInt32Array(1507350, 1, 0, 1507351, 1, 0, 1507352, 1, 0, 1507353, 1, 0, 1507354, 1, 0, 1507355, 1, 0, 1507356, 1, 0, 1507358, 1, 0, 1507357, 1, 0, 1507359, 1, 0, 1507360, 1, 0, 1507361, 1, 0, 1507362, 1, 0, 1507363, 1, 0, 1507364, 1, 0, 1507365, 1, 0, 1507366, 1, 0, 1507367, 1, 0, 1507349, 1, 0, 1507348, 1, 0, 1507347, 1, 0, 1507368, 1, 0, 1507369, 1, 0, 1507370, 1, 0, 1507346, 1, 0, 1572882, 1, 1, 1572883, 1, 1, 1572884, 1, 1, 1572885, 1, 1, 1572886, 1, 1, 1572887, 1, 1, 1572888, 1, 1, 1572889, 1, 1, 1572890, 1, 1, 1572891, 1, 1, 1572892, 1, 1, 1572893, 1, 1, 1572894, 1, 1, 1572895, 1, 1, 1572896, 1, 1, 1572897, 1, 1, 1572898, 1, 1, 1572899, 1, 1, 1572900, 1, 1, 1572901, 1, 1, 1572902, 1, 1, 1572903, 1, 1, 1572904, 1, 1, 1572905, 1, 1, 1572906, 1, 1, 1638442, 1, 1, 1703978, 1, 1, 1769514, 1, 1, 1769513, 1, 1, 1769512, 1, 1, 1769511, 1, 1, 1769510, 1, 1, 1703974, 1, 1, 1638438, 1, 1, 1638439, 1, 1, 1638440, 1, 1, 1638441, 1, 1, 1703977, 1, 1, 1703976, 1, 1, 1638437, 1, 1, 1703975, 1, 1, 1703973, 1, 1, 1769509, 1, 1, 1769508, 1, 1, 1769507, 1, 1, 1703971, 1, 1, 1703972, 1, 1, 1638436, 1, 1, 1638435, 1, 1, 1638434, 1, 1, 1703970, 1, 1, 1769506, 1, 1, 1769505, 1, 1, 1703969, 1, 1, 1638433, 1, 1, 1638432, 1, 1, 1703968, 1, 1, 1769504, 1, 1, 1769503, 1, 1, 1703967, 1, 1, 1638431, 1, 1, 1638430, 1, 1, 1703966, 1, 1, 1769502, 1, 1, 1769501, 1, 1, 1703965, 1, 1, 1638429, 1, 1, 1638428, 1, 1, 1703964, 1, 1, 1769500, 1, 1, 1835036, 1, 1, 1835035, 1, 1, 1769499, 1, 1, 1703963, 1, 1, 1638427, 1, 1, 1638426, 1, 1, 1703962, 1, 1, 1703961, 1, 1, 1769497, 1, 1, 1703960, 1, 1, 1638424, 1, 1, 1638423, 1, 1, 1638422, 1, 1, 1638421, 1, 1, 1638420, 1, 1, 1638419, 1, 1, 1638418, 1, 1, 1703954, 1, 1, 1703955, 1, 1, 1703956, 1, 1, 1703957, 1, 1, 1703958, 1, 1, 1703959, 1, 1, 1638425, 1, 1, 1769498, 1, 1, 1769496, 1, 1, 1769495, 1, 1, 1769494, 1, 1, 1769493, 1, 1, 1769492, 1, 1, 1769491, 1, 1, 1769490, 1, 1, 1835026, 1, 1, 1835027, 1, 1, 1835028, 1, 1, 1835029, 1, 1, 1835030, 1, 1, 1835031, 1, 1, 1835032, 1, 1, 1835033, 1, 1, 1835034, 1, 1, 1835037, 1, 1, 1835038, 1, 1, 1835039, 1, 1, 1835040, 1, 1, 1835049, 1, 1, 1835050, 1, 1, 1835048, 1, 1, 1835047, 1, 1, 1835046, 1, 1, 1835045, 1, 1, 1835044, 1, 1, 1835043, 1, 1, 1835042, 1, 1, 1835041, 1, 1)
+layer_0/tile_data = PackedInt32Array(589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 655359, 1, 0, 720895, 1, 1, 786431, 1, 1, 655360, 1, 1, 720896, 1, 1, 655361, 1, 1, 720897, 1, 1, 655362, 1, 1, 720898, 1, 1, 655363, 1, 1, 720899, 1, 1, 655364, 1, 1, 720900, 1, 1, 655365, 1, 1, 720901, 1, 1, 655366, 1, 1, 720902, 1, 1, 655367, 1, 1, 720903, 1, 1, 655368, 1, 1, 720904, 1, 1, 655369, 1, 1, 720905, 1, 1, 655370, 1, 1, 720906, 1, 1, 655371, 1, 1, 720907, 1, 1, 655372, 1, 1, 720908, 1, 1, 655373, 1, 1, 720909, 1, 1, 655374, 1, 1, 720910, 1, 1, 655375, 1, 1, 720911, 1, 1, 655376, 1, 1, 720912, 1, 1, 655377, 1, 1, 720913, 1, 1, 655378, 1, 1, 720914, 1, 1)
 
 [node name="ParedeEsquerda" type="StaticBody2D" parent="."]
-position = Vector2(343, 302)
+position = Vector2(-2, 290)
 physics_material_override = SubResource("PhysicsMaterial_o4bjq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsquerda"]
 shape = SubResource("WorldBoundaryShape2D_vvie0")
 
 [node name="ParedeDireita" type="StaticBody2D" parent="."]
-position = Vector2(603, 300)
+position = Vector2(1125, 286)
 physics_material_override = SubResource("PhysicsMaterial_o4bjq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDireita"]
@@ -223,31 +218,31 @@ position = Vector2(26, 1)
 shape = SubResource("WorldBoundaryShape2D_o4bjq")
 
 [node name="LabelPontosJogador1" type="Label" parent="."]
-offset_left = 360.0
-offset_top = 242.0
-offset_right = 400.0
-offset_bottom = 265.0
+offset_left = 108.0
+offset_top = 45.0
+offset_right = 148.0
+offset_bottom = 77.0
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("5_0nnpm")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="LabelPontosJogador2" type="Label" parent="."]
-offset_left = 598.0
-offset_top = 243.0
-offset_right = 638.0
-offset_bottom = 266.0
+offset_left = 970.0
+offset_top = 47.0
+offset_right = 1010.0
+offset_bottom = 79.0
 theme_override_fonts/font = ExtResource("5_0nnpm")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="LabelTempo" type="Label" parent="."]
-offset_left = 441.0
-offset_top = 242.0
-offset_right = 533.0
-offset_bottom = 265.0
+offset_left = 470.0
+offset_top = 35.0
+offset_right = 608.0
+offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("5_0nnpm")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 24
 text = "Tempo: "
 
 [node name="TempoJogo" type="Timer" parent="."]

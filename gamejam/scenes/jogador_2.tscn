@@ -1,7 +1,72 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbbpr7b6xrji8"]
+[gd_scene load_steps=23 format=3 uid="uid://bbbpr7b6xrji8"]
 
 [ext_resource type="Script" uid="uid://iqm842tt56bn" path="res://scripts/jogador_2.gd" id="1_rldvg"]
 [ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="2_ad6b7"]
+[ext_resource type="Texture2D" uid="uid://ncj1grehkvat" path="res://assets/sprites/escudo.jpg" id="2_s4b87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xcnw"]
+atlas = ExtResource("2_s4b87")
+region = Rect2(231, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koovj"]
+atlas = ExtResource("2_s4b87")
+region = Rect2(128, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7c0g"]
+atlas = ExtResource("2_s4b87")
+region = Rect2(25, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apsaf"]
+atlas = ExtResource("2_s4b87")
+region = Rect2(231, 25, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iloh"]
+atlas = ExtResource("2_s4b87")
+region = Rect2(231, 25, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxhb4"]
+atlas = ExtResource("2_s4b87")
+region = Rect2(25, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kok0"]
+atlas = ExtResource("2_s4b87")
+region = Rect2(128, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg0ym"]
+atlas = ExtResource("2_s4b87")
+region = Rect2(231, 122, 103, 97)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lmh3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xcnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koovj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7c0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apsaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iloh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxhb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kok0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg0ym")
+}],
+"loop": true,
+"name": &"escudo",
+"speed": 20.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rldvg"]
 atlas = ExtResource("2_ad6b7")
@@ -72,14 +137,22 @@ size = Vector2(13, 19)
 size = Vector2(14.1667, 19.1667)
 
 [node name="Jogador2" type="CharacterBody2D"]
-scale = Vector2(1.2, 1.2)
+scale = Vector2(4, 4)
 script = ExtResource("1_rldvg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Escudo" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.66667, -9.16667)
+scale = Vector2(0.22, 0.22)
+sprite_frames = SubResource("SpriteFrames_lmh3o")
+animation = &"escudo"
+frame_progress = 0.102658
+
+[node name="Jogador" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_bybnt")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.497082
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -92,13 +165,28 @@ shape = SubResource("RectangleShape2D_p6aq4")
 position = Vector2(0.416667, -9.58333)
 shape = SubResource("RectangleShape2D_rldvg")
 
-[node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.3
+[node name="Timers" type="Node" parent="."]
+
+[node name="DashTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
 one_shot = true
 
-[node name="MorteTimer" type="Timer" parent="."]
+[node name="MorteTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="DefesaTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="AcaoTimer1" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="AcaoTimer2" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="AcaoTimer3" type="Timer" parent="Timers"]
 one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="MorteTimer" to="." method="_on_morte_timer_timeout"]
+[connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Timers/MorteTimer" to="." method="_on_morte_timer_timeout"]
+[connection signal="timeout" from="Timers/DefesaTimer" to="." method="_on_defesa_timer_timeout"]
