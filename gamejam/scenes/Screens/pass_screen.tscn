@@ -141,7 +141,7 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_7i0g3")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.855782
+frame_progress = 0.431219
 
 [node name="Jogador2" type="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(968, 424)
@@ -149,7 +149,7 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_muy6p")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.103884
+frame_progress = 0.391602
 flip_h = true
 
 [node name="MarginContainer" parent="." index="3"]
