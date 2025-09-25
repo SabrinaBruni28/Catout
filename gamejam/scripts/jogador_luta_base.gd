@@ -22,6 +22,9 @@ const KNOCKBACK_SPEED = 3000.0
 @onready var player: AnimatedSprite2D = $Jogador
 @onready var escudo: AnimatedSprite2D = $Escudo
 
+@onready var hurt_sound: AudioStreamPlayer2D = $Audios/HurtSound
+@onready var knockback_sound: AudioStreamPlayer2D = $Audios/KnockbackSound
+
 signal morreu
 
 var direction: float
@@ -109,14 +112,16 @@ func contradefesa():
 func morrer():
 	if ismorrendo: return
 	ismorrendo = true
-	morte_timer.start()
+	hurt_sound.play()
 	player.play("die")
 	emit_signal("morreu")
-	await player.animation_finished
+	morte_timer.start()
+	await player.animation_finished and hurt_sound.finished
 	hide()
 	$CollisionShape2D.disabled = true
 	
 func knockback():
+	knockback_sound.play()
 	var direcao_knockback = -1 * dash_direction
 	isdashing = false
 	iscontradefesa = false

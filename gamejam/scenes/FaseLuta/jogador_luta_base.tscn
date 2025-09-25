@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvhptbeojtc8u"]
+[gd_scene load_steps=17 format=3 uid="uid://bvhptbeojtc8u"]
 
 [ext_resource type="Script" uid="uid://bmuwpndysa32s" path="res://scripts/jogador_luta_base.gd" id="1_bg7jp"]
 [ext_resource type="Texture2D" uid="uid://ncj1grehkvat" path="res://assets/sprites/escudo.jpg" id="2_6hld4"]
+[ext_resource type="AudioStream" uid="uid://du6fmpm685fuv" path="res://assets/sounds/knockback.wav" id="3_4mkhl"]
+[ext_resource type="AudioStream" uid="uid://dp0eenx5dexug" path="res://assets/sounds/growl_0.wav" id="5_54i2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4xcnw"]
 atlas = ExtResource("2_6hld4")
@@ -96,7 +98,7 @@ animations = [{
 }, {
 "frames": [],
 "loop": true,
-"name": &"run",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -119,7 +121,7 @@ animation = &"escudo"
 [node name="Jogador" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_6hld4")
-animation = &"dash"
+animation = &"new_animation"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -157,6 +159,17 @@ one_shot = true
 
 [node name="AcaoTimerContraDefesa" type="Timer" parent="Timers"]
 one_shot = true
+
+[node name="Audios" type="Node" parent="."]
+
+[node name="KnockbackSound" type="AudioStreamPlayer2D" parent="Audios"]
+scale = Vector2(4, 4)
+stream = ExtResource("3_4mkhl")
+bus = &"Sounds"
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("5_54i2a")
+bus = &"Sounds"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
