@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj2fbn6luyiv8"]
+
+[ext_resource type="PackedScene" uid="uid://mm7endc3mrl0" path="res://scenes/Screens/base_screen.tscn" id="1_3u8iu"]
+[ext_resource type="Script" uid="uid://cxlkpxiaxnaau" path="res://scripts/final_screen.gd" id="2_ofgb8"]
+
+[node name="FinalScreen" instance=ExtResource("1_3u8iu")]
+script = ExtResource("2_ofgb8")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

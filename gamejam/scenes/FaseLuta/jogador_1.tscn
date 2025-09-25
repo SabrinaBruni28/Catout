@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnjk0ba3xyl0k"]
 
-[ext_resource type="PackedScene" uid="uid://bvhptbeojtc8u" path="res://scenes/jogador_luta_base.tscn" id="1_jaomx"]
+[ext_resource type="PackedScene" uid="uid://bvhptbeojtc8u" path="res://scenes/FaseLuta/jogador_luta_base.tscn" id="1_jaomx"]
 [ext_resource type="Texture2D" uid="uid://dij1wxtnfdbd0" path="res://assets/sprites/gato1.jpeg" id="2_6lgld"]
 [ext_resource type="Texture2D" uid="uid://myxmh6clsm2i" path="res://assets/sprites/gato1.png" id="2_kr248"]
 

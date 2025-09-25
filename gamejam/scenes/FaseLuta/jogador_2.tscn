@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bbbpr7b6xrji8"]
 
-[ext_resource type="PackedScene" uid="uid://bvhptbeojtc8u" path="res://scenes/jogador_luta_base.tscn" id="1_pym6c"]
+[ext_resource type="PackedScene" uid="uid://bvhptbeojtc8u" path="res://scenes/FaseLuta/jogador_luta_base.tscn" id="1_pym6c"]
 [ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="2_rldvg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rldvg"]
