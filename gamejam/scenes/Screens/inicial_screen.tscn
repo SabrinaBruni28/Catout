@@ -38,5 +38,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_qu5om")
 [node name="Button1" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
 text = "Jogar"
 
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bs83dhw8egqfl"
-path="res://.godot/imported/coin.wav-9081ee1c6d81d9c34d08bc916297b892.sample"
+uid="uid://b5gxq3ydlr20m"
+path="res://.godot/imported/growl_5.wav-375bb0874f6e2d8507b603d1ae351322.sample"
 
 [deps]
 
-source_file="res://assets/sounds/coin.wav"
-dest_files=["res://.godot/imported/coin.wav-9081ee1c6d81d9c34d08bc916297b892.sample"]
+source_file="res://assets/sounds/growl_5.wav"
+dest_files=["res://.godot/imported/growl_5.wav-375bb0874f6e2d8507b603d1ae351322.sample"]
 
 [params]
 
