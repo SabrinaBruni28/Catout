@@ -10,7 +10,7 @@ var morreu: bool = false
 var ispulando: bool = false
 var isdeslizando: bool = false
 
-var item
+var held_item = null
 
 @export var input_prefix: String = "p1_"   # cada jogador muda isso no Inspector
 @export var spawn_point: Vector2 = Vector2(0, 0)
@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	jump(delta)
 	deslizar()
 	move_and_slide()
+	jogar_item()
 
 func jump(delta: float) -> void:
 	if isdeslizando:
@@ -50,9 +51,15 @@ func deslizar():
 		velocity.y = DELIZE_VELOCITY
 		deslize_timer.start()
 		
+func pegar_item(area: Area2D):
+	held_item = area.get_parent()
+	held_item.pick_up(self)
+
 func jogar_item():
-	item = null
-		
+	if Input.is_action_just_pressed(input_prefix + "jogar") and held_item:
+		held_item.throw_item() # joga na direção que está virado
+		held_item = null
+
 func directions(delta):
 	if isdeslizando:
 		return
@@ -83,4 +90,6 @@ func _on_deslize_timer_timeout() -> void:
 	player.play("idle")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	item = area
+	if area.get_parent().is_in_group("item") and not held_item:
+		print("Item em contato")
+		pegar_item(area)

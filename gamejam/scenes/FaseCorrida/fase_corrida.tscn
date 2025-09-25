@@ -215,3 +215,4 @@ shape = SubResource("WorldBoundaryShape2D_vvie0")
 [node name="Lan" parent="Objetos" instance=ExtResource("5_2mx4m")]
 position = Vector2(1312, 570)
 scale = Vector2(2, 2)
+direction = 1
