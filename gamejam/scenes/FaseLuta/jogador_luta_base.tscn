@@ -71,6 +71,21 @@ animations = [{
 animations = [{
 "frames": [],
 "loop": true,
+"name": &"contradefesa",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"defesa",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
 "name": &"die",
 "speed": 5.0
 }, {
@@ -78,6 +93,11 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wnn"]
@@ -99,7 +119,7 @@ animation = &"escudo"
 [node name="Jogador" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_6hld4")
-animation = &"die"
+animation = &"dash"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

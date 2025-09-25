@@ -54,11 +54,18 @@ func _physics_process(delta: float) -> void:
 # Métodos comuns ---------------------------
 func diretions():
 	if isdashing or iscontradefesa: return
-	if isdefesa: direction = 0
+	if isdefesa: 
+		velocity.x = 0
+		return
 	else: 
 		direction = Input.get_axis(input_prefix + "esquerda", input_prefix + "direita")
 	if direction > 0: player.flip_h = false
 	elif direction < 0: player.flip_h = true
+	if direction != 0:
+		player.play("run")
+	else:
+		player.play("idle")
+		
 	velocity.x = direction * SPEED if direction else move_toward(velocity.x, 0, SPEED)
 
 func dash():
@@ -68,6 +75,7 @@ func dash():
 		return
 	if Input.is_action_just_pressed(input_prefix + "dash") and not isdashing:
 		isdashing = true
+		player.play("dash")
 		iniciar_acao(0)
 		dash_timer.start()
 		dash_direction = direction if direction != 0 else (-1 if player.flip_h else 1)
@@ -81,6 +89,7 @@ func defesa():
 		escudo.play("escudo")
 		defesa_timer.start()
 		isdefesa = true
+		player.play("defesa")
 		iniciar_acao(1)
 		
 func contradefesa():
@@ -90,6 +99,7 @@ func contradefesa():
 		return
 	if Input.is_action_just_pressed(input_prefix + "contradefesa") and not iscontradefesa:
 		iscontradefesa = true
+		player.play("contradefesa")
 		iniciar_acao(2)
 		contra_defesa_timer.start()
 		dash_direction = direction if direction != 0 else (-1 if player.flip_h else 1)
@@ -144,6 +154,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_dash_timer_timeout() -> void:
 	isdashing = false
 	velocity.x = 0
+	player.play("idle")
 
 func _on_morte_timer_timeout() -> void:
 	global_position = spawn_point
@@ -155,9 +166,11 @@ func _on_morte_timer_timeout() -> void:
 func _on_defesa_timer_timeout() -> void:
 	isdefesa = false
 	escudo.hide()
+	player.play("idle")
 
 func _on_contra_defesa_timer_timeout() -> void:
 	iscontradefesa = false
 	velocity.x = 0
 	# 🔑 reativa colisão com jogadores
 	set_collision_mask_value(1, true)
+	player.play("idle")

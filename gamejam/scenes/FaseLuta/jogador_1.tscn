@@ -1,35 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnjk0ba3xyl0k"]
+[gd_scene load_steps=3 format=3 uid="uid://dnjk0ba3xyl0k"]
 
 [ext_resource type="PackedScene" uid="uid://bvhptbeojtc8u" path="res://scenes/FaseLuta/jogador_luta_base.tscn" id="1_jaomx"]
-[ext_resource type="Texture2D" uid="uid://dij1wxtnfdbd0" path="res://assets/sprites/gato1.jpeg" id="2_6lgld"]
-[ext_resource type="Texture2D" uid="uid://myxmh6clsm2i" path="res://assets/sprites/gato1.png" id="2_kr248"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y10ef"]
-atlas = ExtResource("2_6lgld")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6lgld"]
-atlas = ExtResource("2_kr248")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_y10ef"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y10ef")
-}],
-"loop": true,
-"name": &"die",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6lgld")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://dw3hv3ovcu28q" path="res://scenes/tres/jogador1_luta.tres" id="2_3dbl6"]
 
 [node name="Jogador1" instance=ExtResource("1_jaomx")]
 spawn_point = Vector2(150, 0)
@@ -40,8 +12,7 @@ position = Vector2(-3.25, -9)
 [node name="Jogador" parent="." index="1"]
 position = Vector2(-1, -9.5)
 scale = Vector2(0.3, 0.3)
-sprite_frames = SubResource("SpriteFrames_y10ef")
-animation = &"idle"
+sprite_frames = ExtResource("2_3dbl6")
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(-0.75, -9.5)

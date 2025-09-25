@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://dw3hv3ovcu28q"]
+
+[ext_resource type="Texture2D" uid="uid://dij1wxtnfdbd0" path="res://assets/sprites/gato1.jpeg" id="1_tgnsy"]
+[ext_resource type="Texture2D" uid="uid://myxmh6clsm2i" path="res://assets/sprites/gato1.png" id="2_ar7s1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm55q"]
+atlas = ExtResource("1_tgnsy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la8o1"]
+atlas = ExtResource("1_tgnsy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okh0o"]
+atlas = ExtResource("1_tgnsy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y10ef"]
+atlas = ExtResource("1_tgnsy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lgld"]
+atlas = ExtResource("2_ar7s1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbdtu"]
+atlas = ExtResource("2_ar7s1")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm55q")
+}],
+"loop": true,
+"name": &"contradefesa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la8o1")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okh0o")
+}],
+"loop": true,
+"name": &"defesa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y10ef")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lgld")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbdtu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
