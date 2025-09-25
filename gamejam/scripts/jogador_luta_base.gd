@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name PlayerBase   # assim pode ser herdado facilmente
 
 const SPEED = 400.0
 const DASH_SPEED = 3000.0
@@ -22,6 +21,7 @@ const KNOCKBACK_SPEED = 3000.0
 @onready var player: AnimatedSprite2D = $Jogador
 @onready var escudo: AnimatedSprite2D = $Escudo
 
+@onready var tap_sound: AudioStreamPlayer2D = $Audios/TapSound
 @onready var hurt_sound: AudioStreamPlayer2D = $Audios/HurtSound
 @onready var knockback_sound: AudioStreamPlayer2D = $Audios/KnockbackSound
 

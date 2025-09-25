@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cle6y3v6ew47y"]
+[gd_scene load_steps=10 format=3 uid="uid://duelttl0hyk0h"]
 
-[ext_resource type="Script" uid="uid://blnyeillroi8j" path="res://scripts/fase_luta.gd" id="1_mka8o"]
-[ext_resource type="PackedScene" uid="uid://dnjk0ba3xyl0k" path="res://scenes/FaseLuta/jogador_1.tscn" id="2_yo6y5"]
-[ext_resource type="PackedScene" uid="uid://bbbpr7b6xrji8" path="res://scenes/FaseLuta/jogador_2.tscn" id="3_we0pj"]
-[ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="4_04wv2"]
-[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="5_x10q8"]
+[ext_resource type="Script" uid="uid://bxv1bhlf5xic7" path="res://scripts/fase_corrida.gd" id="1_0glfh"]
+[ext_resource type="PackedScene" uid="uid://csplp1krf1pob" path="res://scenes/FaseCorrida/jogador_1.tscn" id="2_0glfh"]
+[ext_resource type="Script" uid="uid://clklmhuqfcy7j" path="res://scripts/camera_2d.gd" id="2_2mx4m"]
+[ext_resource type="PackedScene" uid="uid://diwhvjk06diif" path="res://scenes/FaseCorrida/jogador_2.tscn" id="3_2mx4m"]
+[ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="4_3i0xp"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mka8o"]
-texture = ExtResource("4_04wv2")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pr2i"]
+texture = ExtResource("4_3i0xp")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -174,9 +174,9 @@ texture = ExtResource("4_04wv2")
 2:15/0 = 0
 3:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_vvie0"]
+[sub_resource type="TileSet" id="TileSet_g2fdo"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_mka8o")
+sources/1 = SubResource("TileSetAtlasSource_2pr2i")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o4bjq"]
 
@@ -184,23 +184,25 @@ sources/1 = SubResource("TileSetAtlasSource_mka8o")
 normal = Vector2(1, 0)
 distance = -1.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o4bjq"]
-normal = Vector2(-1, 0)
+[node name="FaseCorrida" type="Node2D"]
+script = ExtResource("1_0glfh")
 
-[node name="FaseLuta" type="Node2D"]
-script = ExtResource("1_mka8o")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(326, 396)
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("2_2mx4m")
 
-[node name="Jogador1" parent="." instance=ExtResource("2_yo6y5")]
-position = Vector2(226, 327)
+[node name="Jogador_1" parent="." instance=ExtResource("2_0glfh")]
+position = Vector2(61, 470)
 
-[node name="Jogador2" parent="." instance=ExtResource("3_we0pj")]
-position = Vector2(852, 316)
+[node name="Jogador_2" parent="." instance=ExtResource("3_2mx4m")]
+position = Vector2(60, 385)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
-tile_set = SubResource("TileSet_vvie0")
+tile_set = SubResource("TileSet_g2fdo")
 format = 2
-layer_0/tile_data = PackedInt32Array(589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 655359, 1, 0, 720895, 1, 1, 786431, 1, 1, 655360, 1, 1, 720896, 1, 1, 655361, 1, 1, 720897, 1, 1, 655362, 1, 1, 720898, 1, 1, 655363, 1, 1, 720899, 1, 1, 655364, 1, 1, 720900, 1, 1, 655365, 1, 1, 720901, 1, 1, 655366, 1, 1, 720902, 1, 1, 655367, 1, 1, 720903, 1, 1, 655368, 1, 1, 720904, 1, 1, 655369, 1, 1, 720905, 1, 1, 655370, 1, 1, 720906, 1, 1, 655371, 1, 1, 720907, 1, 1, 655372, 1, 1, 720908, 1, 1, 655373, 1, 1, 720909, 1, 1, 655374, 1, 1, 720910, 1, 1, 655375, 1, 1, 720911, 1, 1, 655376, 1, 1, 720912, 1, 1, 655377, 1, 1, 720913, 1, 1, 655378, 1, 1, 720914, 1, 1)
+layer_0/tile_data = PackedInt32Array(589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 655359, 1, 0, 720895, 1, 1, 786431, 1, 1, 655360, 1, 1, 720896, 1, 1, 655361, 1, 1, 720897, 1, 1, 655362, 1, 1, 720898, 1, 1, 655363, 1, 1, 720899, 1, 1, 655364, 1, 1, 720900, 1, 1, 655365, 1, 1, 720901, 1, 1, 655366, 1, 1, 720902, 1, 1, 655367, 1, 1, 720903, 1, 1, 655368, 1, 1, 720904, 1, 1, 655369, 1, 1, 720905, 1, 1, 655370, 1, 1, 720906, 1, 1, 655371, 1, 1, 720907, 1, 1, 655372, 1, 1, 720908, 1, 1, 655373, 1, 1, 720909, 1, 1, 655374, 1, 1, 720910, 1, 1, 655375, 1, 1, 720911, 1, 1, 655376, 1, 1, 720912, 1, 1, 655377, 1, 1, 720913, 1, 1, 655378, 1, 1, 720914, 1, 1, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 1, 0, 524316, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 1, 0, 524320, 1, 0, 524321, 1, 0, 524322, 1, 0, 458786, 1, 0, 458787, 1, 0, 458788, 1, 0, 393252, 1, 0, 393253, 1, 0, 327717, 1, 0, 327718, 1, 0, 262182, 1, 0, 262183, 1, 0, 196647, 1, 0, 196648, 1, 0, 786464, 1, 0, 196649, 1, 0, 196650, 1, 0, 196651, 1, 0, 196652, 1, 0, 196653, 1, 0, 196654, 1, 0, 196655, 1, 0, 196656, 1, 0, 196657, 1, 0, 196658, 1, 0, 196659, 1, 0, 196660, 1, 0, 196661, 1, 0, 196662, 1, 0, 196663, 1, 0, 131128, 1, 0, 131129, 1, 0, 131130, 1, 0, 131131, 1, 0, 131132, 1, 0, 65597, 1, 0, 65598, 1, 0, 65599, 1, 0, 65600, 1, 0, 65601, 1, 0, 65602, 1, 0, 65603, 1, 0, 65604, 1, 0, 65605, 1, 0, 65606, 1, 0, 65607, 1, 0, 71, 1, 0, -65465, 1, 0, -131001, 1, 0, -196537, 1, 0, -262073, 1, 0, -327609, 1, 0, -393145, 1, 0, -458681, 1, 0, -524216, 1, 0, -589752, 1, 0, -655287, 1, 0, -720822, 1, 0, -720821, 1, 0, -720820, 1, 0, -720819, 1, 0, -720818, 1, 0, -720817, 1, 0, -720816, 1, 0, -327610, 1, 0, -327611, 1, 0, -262075, 1, 0, -262076, 1, 0, -196540, 1, 0, -196541, 1, 0, -131005, 1, 0, -131006, 1, 0, -65470, 1, 0, -65471, 1, 0, 65, 1, 0, 66, 1, 0, 67, 1, 0, 68, 1, 0, 69, 1, 0, 70, 1, 0, -65466, 1, 0, -131002, 1, 0, -196538, 1, 0, -262074, 1, 0, -196539, 1, 0, -131004, 1, 0, -65468, 1, 0, -65469, 1, 0, -65467, 1, 0, -131003, 1, 0)
 
 [node name="ParedeEsquerda" type="StaticBody2D" parent="."]
 position = Vector2(-2, 290)
@@ -208,44 +210,3 @@ physics_material_override = SubResource("PhysicsMaterial_o4bjq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsquerda"]
 shape = SubResource("WorldBoundaryShape2D_vvie0")
-
-[node name="ParedeDireita" type="StaticBody2D" parent="."]
-position = Vector2(1125, 286)
-physics_material_override = SubResource("PhysicsMaterial_o4bjq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDireita"]
-position = Vector2(26, 1)
-shape = SubResource("WorldBoundaryShape2D_o4bjq")
-
-[node name="LabelPontosJogador1" type="Label" parent="."]
-offset_left = 108.0
-offset_top = 45.0
-offset_right = 148.0
-offset_bottom = 77.0
-size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("5_x10q8")
-theme_override_font_sizes/font_size = 32
-text = "0"
-
-[node name="LabelPontosJogador2" type="Label" parent="."]
-offset_left = 970.0
-offset_top = 47.0
-offset_right = 1010.0
-offset_bottom = 79.0
-theme_override_fonts/font = ExtResource("5_x10q8")
-theme_override_font_sizes/font_size = 32
-text = "0"
-
-[node name="LabelTempo" type="Label" parent="."]
-offset_left = 470.0
-offset_top = 35.0
-offset_right = 608.0
-offset_bottom = 59.0
-theme_override_fonts/font = ExtResource("5_x10q8")
-theme_override_font_sizes/font_size = 24
-text = "Tempo: "
-
-[node name="TempoJogo" type="Timer" parent="."]
-wait_time = 32.0
-
-[connection signal="timeout" from="TempoJogo" to="." method="_on_tempo_jogo_timeout"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvhptbeojtc8u"]
+[gd_scene load_steps=18 format=3 uid="uid://bvhptbeojtc8u"]
 
 [ext_resource type="Script" uid="uid://bmuwpndysa32s" path="res://scripts/jogador_luta_base.gd" id="1_bg7jp"]
 [ext_resource type="Texture2D" uid="uid://ncj1grehkvat" path="res://assets/sprites/escudo.jpg" id="2_6hld4"]
 [ext_resource type="AudioStream" uid="uid://du6fmpm685fuv" path="res://assets/sounds/knockback.wav" id="3_4mkhl"]
+[ext_resource type="AudioStream" uid="uid://dqjagnqr5e5rl" path="res://assets/sounds/tap.wav" id="4_egdff"]
 [ext_resource type="AudioStream" uid="uid://dp0eenx5dexug" path="res://assets/sounds/growl_0.wav" id="5_54i2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4xcnw"]
@@ -73,17 +74,7 @@ animations = [{
 animations = [{
 "frames": [],
 "loop": true,
-"name": &"contradefesa",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"dash",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"defesa",
+"name": &"deslize",
 "speed": 5.0
 }, {
 "frames": [],
@@ -98,7 +89,17 @@ animations = [{
 }, {
 "frames": [],
 "loop": true,
-"name": &"new_animation",
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"win",
 "speed": 5.0
 }]
 
@@ -170,6 +171,9 @@ bus = &"Sounds"
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="Audios"]
 stream = ExtResource("5_54i2a")
 bus = &"Sounds"
+
+[node name="TapSound" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("4_egdff")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]

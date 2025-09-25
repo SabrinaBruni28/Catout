@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://br0j1gpnu4vhj"]
+
+[ext_resource type="Script" uid="uid://kqfux088pcmp" path="res://scripts/jogador_corrida_base.gd" id="1_uwiph"]
+[ext_resource type="AudioStream" uid="uid://du6fmpm685fuv" path="res://assets/sounds/knockback.wav" id="2_4qwp2"]
+[ext_resource type="AudioStream" uid="uid://dp0eenx5dexug" path="res://assets/sounds/growl_0.wav" id="3_eydcp"]
+[ext_resource type="AudioStream" uid="uid://dqjagnqr5e5rl" path="res://assets/sounds/tap.wav" id="4_c52wy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evdde"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"deslize",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"pre-round",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"win",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wnn"]
+size = Vector2(13, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfhf2"]
+size = Vector2(14.1667, 19.1667)
+
+[node name="JogadorCorridaBase" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_uwiph")
+
+[node name="Jogador" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_evdde")
+animation = &"pre-round"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -9.5)
+shape = SubResource("RectangleShape2D_x3wnn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.416667, -9.58333)
+shape = SubResource("RectangleShape2D_gfhf2")
+
+[node name="Audios" type="Node" parent="."]
+
+[node name="KnockbackSound" type="AudioStreamPlayer2D" parent="Audios"]
+scale = Vector2(4, 4)
+stream = ExtResource("2_4qwp2")
+bus = &"Sounds"
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("3_eydcp")
+bus = &"Sounds"
+
+[node name="TapSound" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("4_c52wy")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
