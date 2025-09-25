@@ -44,10 +44,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wnn"]
-size = Vector2(13, 19)
+size = Vector2(15, 16.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfhf2"]
-size = Vector2(14.1667, 19.1667)
+size = Vector2(15, 14)
 
 [node name="JogadorCorridaBase" type="CharacterBody2D"]
 scale = Vector2(4, 4)
@@ -56,7 +56,7 @@ script = ExtResource("1_uwiph")
 [node name="Jogador" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_evdde")
-animation = &"deslize"
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -9.5)
@@ -85,6 +85,10 @@ stream = ExtResource("4_c52wy")
 [node name="Timers" type="Node" parent="."]
 
 [node name="DeslizeTimer" type="Timer" parent="Timers"]
+wait_time = 0.8
+
+[node name="JumpTimer" type="Timer" parent="Timers"]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timers/DeslizeTimer" to="." method="_on_deslize_timer_timeout"]
+[connection signal="timeout" from="Timers/JumpTimer" to="." method="_on_jump_timer_timeout"]

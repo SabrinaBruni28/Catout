@@ -1,94 +1,142 @@
 extends CharacterBody2D
 
+# --- CONSTANTES DE MOVIMENTO ---
 const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
 const DELIZE_VELOCITY = 500.0
-const VELOCITY_MAX = 700.00
+const VELOCITY_MAX = 700.0
 
-var direction
+# --- VARIÁVEIS DE ESTADO ---
+var direction = 0
 var morreu: bool = false
 var ispulando: bool = false
 var isdeslizando: bool = false
-
 var held_item = null
 
-@export var input_prefix: String = "p1_"   # cada jogador muda isso no Inspector
-@export var spawn_point: Vector2 = Vector2(0, 0)
+# --- CONFIGURAÇÕES EXPORTADAS ---
+@export var input_prefix: String = "p1_"   # prefixo do jogador
+@export var spawn_point: Vector2 = Vector2(0,0)
 
+# --- NODES INTERNOS ---
 @onready var player: AnimatedSprite2D = $Jogador
 @onready var deslize_timer: Timer = $Timers/DeslizeTimer
+@onready var jump_timer: Timer = $Timers/JumpTimer
+
+# --- CONTROLE DE ANIMAÇÃO ---
+var current_animation: String = ""
 
 func _ready() -> void:
-	add_to_group("player")
+	add_to_group("player")  # adiciona a um grupo para colisões e itens
 
+# --- PROCESSO PRINCIPAL DE FÍSICA ---
 func _physics_process(delta: float) -> void:
+	# DIREÇÃO HORIZONTAL
 	directions(delta)
+	# PULO
 	jump(delta)
+	# DESLIZE
 	deslizar()
+	# MOVIMENTAÇÃO FINAL
 	move_and_slide()
+	# ITENS
 	jogar_item()
+	
+	# Atualiza animações de acordo com estado atual
+	if isdeslizando:
+		set_animation("deslize")
+	elif not is_on_floor():
+		set_animation("jump")
+	elif direction != 0:
+		set_animation("run")
+	else:
+		set_animation("idle")
 
+# --- PULO ---
 func jump(delta: float) -> void:
+	# Aplica gravidade se não estiver no chão
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		return
+	
+	# Impede pulo enquanto deslizando
 	if isdeslizando:
 		return
-	# Handle jump.
+	
+	# Pulo acionado pelo jogador
 	if Input.is_action_just_pressed(input_prefix + "pular") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		ispulando = true
-		
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	else:
-		ispulando = false
+		set_animation("jump")
+		jump_timer.start()
 
-func deslizar():
+# --- DESLIZE ---
+func deslizar() -> void:
+	# Não desliza enquanto pulando ou já deslizando
 	if ispulando or isdeslizando:
 		return
 	if Input.is_action_just_pressed(input_prefix + "deslize"):
-		player.play("deslize")
 		isdeslizando = true
 		velocity.y = DELIZE_VELOCITY
+		set_animation("deslize")
 		deslize_timer.start()
-		
+
+# --- DIREÇÃO HORIZONTAL ---
+func directions(delta: float) -> void:
+	# Recebe input do jogador (-1 a 1)
+	direction = Input.get_axis(input_prefix + "esquerda", input_prefix + "direita")
+	
+	# Ajusta flip do sprite
+	if direction > 0:
+		player.flip_h = false
+	elif direction < 0:
+		player.flip_h = true
+	
+	# Movimento horizontal limitado por VELOCITY_MAX
+	if direction != 0:
+		velocity.x += direction * SPEED * delta * 2
+		velocity.x = clamp(velocity.x, -VELOCITY_MAX, VELOCITY_MAX)
+	else:
+		# Se não estiver deslizando, desacelera
+		if not isdeslizando:
+			velocity.x = 0
+
+# --- Pegar item ---
 func pegar_item(area: Area2D):
 	held_item = area.get_parent()
 	held_item.pick_up(self)
 
+# --- Jogar item ---
 func jogar_item():
 	if Input.is_action_just_pressed(input_prefix + "jogar") and held_item:
-		held_item.throw_item() # joga na direção que está virado
+		held_item.throw_item()
 		held_item = null
 
-func directions(delta):
-	if isdeslizando:
-		return
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_axis(input_prefix + "esquerda", input_prefix + "direita")
-		
-	if direction > 0: player.flip_h = false
-	elif direction < 0: player.flip_h = true
-	if direction != 0:
-		player.play("run")
-	else:
-		player.play("idle")
-	if direction:
-		if velocity.x < VELOCITY_MAX and velocity.x > -VELOCITY_MAX:
-			velocity.x += direction * SPEED * delta * 2
-	else: velocity.x = 0
-	
+# --- FUNÇÃO PARA MORRER ---
 func morre():
 	if morreu:
 		return
 	morreu = true
-	player.play("die")
+	set_animation("die")
 	queue_free()
 
+# --- FUNÇÃO DE ANIMAÇÃO ---
+func set_animation(anim: String) -> void:
+	if current_animation == anim:
+		return
+	current_animation = anim
+	player.play(anim)
+
+# --- CALLBACK DO TIMER DE DESLIZE ---
 func _on_deslize_timer_timeout() -> void:
 	isdeslizando = false
-	player.play("idle")
+	# A velocidade horizontal volta a ser controlada pelo jogador
+	# Não zeramos velocity.x para evitar travamento
 
+# --- CALLBACK DO TIMER DE PULO ---
+func _on_jump_timer_timeout() -> void:
+	ispulando = false
+
+# --- DETECTA COLISÃO COM ITENS ---
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("item") and not held_item:
 		print("Item em contato")
