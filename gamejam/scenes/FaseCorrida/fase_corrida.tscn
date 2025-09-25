@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://duelttl0hyk0h"]
+[gd_scene load_steps=12 format=3 uid="uid://duelttl0hyk0h"]
 
 [ext_resource type="PackedScene" uid="uid://csplp1krf1pob" path="res://scenes/FaseCorrida/jogador_1.tscn" id="2_0glfh"]
 [ext_resource type="Script" uid="uid://clklmhuqfcy7j" path="res://scripts/camera_2d.gd" id="2_2mx4m"]
+[ext_resource type="Texture2D" uid="uid://c06qe3ew7rdgf" path="res://assets/sprites/Background-Cidade.png" id="2_3jyo5"]
 [ext_resource type="PackedScene" uid="uid://diwhvjk06diif" path="res://scenes/FaseCorrida/jogador_2.tscn" id="3_2mx4m"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="4_3i0xp"]
 [ext_resource type="PackedScene" uid="uid://dj542qdln0l78" path="res://scenes/FaseCorrida/Objetos/lan.tscn" id="5_2mx4m"]
@@ -190,6 +191,14 @@ distance = -1.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 323)
 script = ExtResource("2_2mx4m")
+
+[node name="Background" type="TextureRect" parent="Camera2D"]
+offset_left = -627.0
+offset_top = -1101.0
+offset_right = 397.0
+offset_bottom = -77.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_3jyo5")
 
 [node name="Jogador_1" parent="." instance=ExtResource("2_0glfh")]
 position = Vector2(61, 470)

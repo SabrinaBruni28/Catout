@@ -5,6 +5,8 @@ extends Camera2D
 @onready var objetos: Node = $"../Objetos"
 @export var smooth_speed: float = 5.0
 
+@export var vertical_offset: float = 200.0  # quanto acima do jogador a câmera ficará
+
 func _process(delta: float) -> void:
 	var target: Node2D = null
 
@@ -18,17 +20,14 @@ func _process(delta: float) -> void:
 	else:
 		return  # nenhum jogador ativo
 
-	# move a câmera suavemente até ele
-	global_position = global_position.lerp(target.global_position, smooth_speed * delta)
+	# Move a câmera suavemente até ele, com offset vertical
+	var target_position = target.global_position - Vector2(0, vertical_offset)
+	global_position = global_position.lerp(target_position, smooth_speed * delta)
 
-	# verifica se algum jogador saiu da tela
+	# Verifica se algum jogador saiu da tela
 	for player in [jogador_1, jogador_2]:
 		if player and not is_player_visible(player):
 			player.morre()
-			
-	#for obj in objetos:
-	#	if obj and not is_object_visible(obj):
-	#		obj.queue_free()
 
 # verifica se o jogador está visível na câmera
 func is_player_visible(player: Node2D) -> bool:
