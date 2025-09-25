@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv83jmfd72eka"]
+[gd_scene load_steps=3 format=3 uid="uid://dv83jmfd72eka"]
 
 [ext_resource type="PackedScene" uid="uid://mm7endc3mrl0" path="res://scenes/Screens/base_screen.tscn" id="1_7nsfq"]
 [ext_resource type="Script" uid="uid://u3nnvbd6vv13" path="res://scripts/inicial_screen.gd" id="2_6yyev"]
-[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="3_qu5om"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qu5om"]
 
 [node name="InicialScreen" instance=ExtResource("1_7nsfq")]
 script = ExtResource("2_6yyev")
@@ -15,28 +12,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -118.0
-offset_top = -63.5
-offset_right = 118.0
-offset_bottom = 63.5
+offset_left = -248.0
+offset_top = -175.0
+offset_right = 224.0
+offset_bottom = 269.0
 grow_vertical = 2
 
 [node name="VBoxContainer" parent="MarginContainer/HBoxContainer" index="0"]
 theme_override_constants/separation = 25
 
 [node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
-theme_override_fonts/font = ExtResource("3_qu5om")
-theme_override_font_sizes/font_size = 80
-text = "SpeedCat"
+text = "Speed Cat"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
-layout_mode = 2
-size_flags_stretch_ratio = 5.0
-theme_override_constants/separation = 80
-theme_override_styles/separator = SubResource("StyleBoxEmpty_qu5om")
+[node name="HSeparator2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
+theme_override_constants/separation = 100
 
 [node name="Button1" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
+theme_override_font_sizes/font_size = 32
 text = "Jogar"
+
+[node name="Button2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="3"]
+theme_override_font_sizes/font_size = 32
 
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]

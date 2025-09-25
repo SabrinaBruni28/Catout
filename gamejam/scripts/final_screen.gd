@@ -1,11 +1,14 @@
 extends Control
-@onready var click_sound: AudioStreamPlayer2D = $ClickSound
-@onready var hover_sound: AudioStreamPlayer2D = $HoverSound
+@onready var click_sound: AudioStreamPlayer2D = $Audios/ClickSound
+@onready var hover_sound: AudioStreamPlayer2D = $Audios/HoverSound
+
+func _ready():
+	pass
 
 func _on_button_1_pressed() -> void:
 	click_sound.play()
 	await  click_sound.finished
-	get_tree().change_scene_to_file("res://scenes/FaseLuta/fase_luta.tscn")
+	get_tree().change_scene_to_file("res://scenes/Screens/inicial_screen.tscn")
 
 func _on_button_2_pressed() -> void:
 	click_sound.play()

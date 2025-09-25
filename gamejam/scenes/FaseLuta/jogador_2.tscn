@@ -12,5 +12,6 @@ position = Vector2(-2.75, -8.75)
 
 [node name="Jogador" parent="." index="1"]
 sprite_frames = ExtResource("2_xj03y")
+animation = &"contradefesa"
 frame_progress = 0.542896
 flip_h = true
