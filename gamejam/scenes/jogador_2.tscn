@@ -1,6 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbbpr7b6xrji8"]
+[gd_scene load_steps=11 format=3 uid="uid://bbbpr7b6xrji8"]
 
 [ext_resource type="PackedScene" uid="uid://bvhptbeojtc8u" path="res://scenes/jogador_luta_base.tscn" id="1_pym6c"]
+[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="2_rldvg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rldvg"]
+atlas = ExtResource("2_rldvg")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7c0g"]
+atlas = ExtResource("2_rldvg")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apsaf"]
+atlas = ExtResource("2_rldvg")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad6b7"]
+atlas = ExtResource("2_rldvg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4b87"]
+atlas = ExtResource("2_rldvg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xcnw"]
+atlas = ExtResource("2_rldvg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koovj"]
+atlas = ExtResource("2_rldvg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7c0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rldvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7c0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apsaf")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ad6b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4b87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xcnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koovj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
 
 [node name="Jogador2" instance=ExtResource("1_pym6c")]
 input_prefix = "p2_"
@@ -10,4 +73,6 @@ spawn_point = Vector2(1000, 0)
 position = Vector2(-2.75, -8.75)
 
 [node name="Jogador" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_j7c0g")
+frame_progress = 0.978105
 flip_h = true
