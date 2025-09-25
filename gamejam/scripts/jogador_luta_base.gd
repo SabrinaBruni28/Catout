@@ -93,7 +93,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()
 	if not isdashing and parent.isdashing and not isdefesa:
 		morrer()
-	elif isdefesa and parent.isdashing:
+	elif isdefesa:
 		var direcao_knockback = -1 * parent.dash_direction
 		parent.isdashing = false
 		parent.velocity.x = direcao_knockback * DASH_SPEED

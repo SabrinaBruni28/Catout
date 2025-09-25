@@ -1,7 +1,190 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvhptbeojtc8u"]
+[gd_scene load_steps=23 format=3 uid="uid://bvhptbeojtc8u"]
 
 [ext_resource type="Script" uid="uid://bmuwpndysa32s" path="res://scripts/jogador_luta_base.gd" id="1_bg7jp"]
+[ext_resource type="Texture2D" uid="uid://ncj1grehkvat" path="res://assets/sprites/escudo.jpg" id="2_6hld4"]
+[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="3_x3wnn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xcnw"]
+atlas = ExtResource("2_6hld4")
+region = Rect2(231, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koovj"]
+atlas = ExtResource("2_6hld4")
+region = Rect2(128, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7c0g"]
+atlas = ExtResource("2_6hld4")
+region = Rect2(25, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apsaf"]
+atlas = ExtResource("2_6hld4")
+region = Rect2(231, 25, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iloh"]
+atlas = ExtResource("2_6hld4")
+region = Rect2(231, 25, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxhb4"]
+atlas = ExtResource("2_6hld4")
+region = Rect2(25, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kok0"]
+atlas = ExtResource("2_6hld4")
+region = Rect2(128, 122, 103, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg0ym"]
+atlas = ExtResource("2_6hld4")
+region = Rect2(231, 122, 103, 97)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bg7jp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xcnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koovj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7c0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apsaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iloh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxhb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kok0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg0ym")
+}],
+"loop": true,
+"name": &"escudo",
+"speed": 20.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bybnt"]
+atlas = ExtResource("3_x3wnn")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6aq4"]
+atlas = ExtResource("3_x3wnn")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3cuy"]
+atlas = ExtResource("3_x3wnn")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr248"]
+atlas = ExtResource("3_x3wnn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lgld"]
+atlas = ExtResource("3_x3wnn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y10ef"]
+atlas = ExtResource("3_x3wnn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgi5u"]
+atlas = ExtResource("3_x3wnn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6hld4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bybnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6aq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3cuy")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr248")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lgld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y10ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgi5u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wnn"]
+size = Vector2(13, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfhf2"]
+size = Vector2(14.1667, 19.1667)
 
 [node name="JogadorLutaBase" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_bg7jp")
+
+[node name="Escudo" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3.5, -9)
+scale = Vector2(0.22, 0.22)
+sprite_frames = SubResource("SpriteFrames_bg7jp")
+animation = &"escudo"
+
+[node name="Jogador" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_6hld4")
+animation = &"die"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -9.5)
+shape = SubResource("RectangleShape2D_x3wnn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.416667, -9.58333)
+shape = SubResource("RectangleShape2D_gfhf2")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="DashTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+
+[node name="MorteTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="DefesaTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AcaoTimer1" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="AcaoTimer2" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="AcaoTimer3" type="Timer" parent="Timers"]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Timers/MorteTimer" to="." method="_on_morte_timer_timeout"]
+[connection signal="timeout" from="Timers/DefesaTimer" to="." method="_on_defesa_timer_timeout"]
