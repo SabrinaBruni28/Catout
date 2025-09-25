@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://duelttl0hyk0h"]
+[gd_scene load_steps=11 format=3 uid="uid://duelttl0hyk0h"]
 
 [ext_resource type="PackedScene" uid="uid://csplp1krf1pob" path="res://scenes/FaseCorrida/jogador_1.tscn" id="2_0glfh"]
 [ext_resource type="Script" uid="uid://clklmhuqfcy7j" path="res://scripts/camera_2d.gd" id="2_2mx4m"]
 [ext_resource type="PackedScene" uid="uid://diwhvjk06diif" path="res://scenes/FaseCorrida/jogador_2.tscn" id="3_2mx4m"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="4_3i0xp"]
 [ext_resource type="PackedScene" uid="uid://dj542qdln0l78" path="res://scenes/FaseCorrida/Objetos/lan.tscn" id="5_2mx4m"]
+[ext_resource type="PackedScene" uid="uid://cdvar3bm4imc0" path="res://scenes/FaseCorrida/ObjetosMovimentos/carro.tscn" id="5_sq5gx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pr2i"]
 texture = ExtResource("4_3i0xp")
@@ -187,8 +188,7 @@ distance = -1.0
 [node name="FaseCorrida" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(326, 396)
-zoom = Vector2(1.5, 1.5)
+position = Vector2(578, 323)
 script = ExtResource("2_2mx4m")
 
 [node name="Jogador_1" parent="." instance=ExtResource("2_0glfh")]
@@ -212,7 +212,10 @@ shape = SubResource("WorldBoundaryShape2D_vvie0")
 
 [node name="Objetos" type="Node" parent="."]
 
+[node name="Carro" parent="Objetos" instance=ExtResource("5_sq5gx")]
+position = Vector2(2568, 574)
+scale = Vector2(3, 3)
+
 [node name="Lan" parent="Objetos" instance=ExtResource("5_2mx4m")]
 position = Vector2(1312, 570)
-scale = Vector2(2, 2)
 direction = 1
