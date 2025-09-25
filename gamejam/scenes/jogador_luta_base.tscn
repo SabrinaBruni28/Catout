@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvhptbeojtc8u"]
+
+[ext_resource type="Script" uid="uid://bmuwpndysa32s" path="res://scripts/jogador_luta_base.gd" id="1_bg7jp"]
+
+[node name="JogadorLutaBase" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_bg7jp")

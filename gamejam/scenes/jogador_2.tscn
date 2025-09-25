@@ -145,14 +145,14 @@ position = Vector2(1.66667, -9.16667)
 scale = Vector2(0.22, 0.22)
 sprite_frames = SubResource("SpriteFrames_lmh3o")
 animation = &"escudo"
-frame_progress = 0.102658
+frame_progress = 0.836658
 
 [node name="Jogador" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_bybnt")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.497082
+frame_progress = 0.863983
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
