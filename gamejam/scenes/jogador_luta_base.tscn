@@ -175,16 +175,21 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[node name="AcaoTimer1" type="Timer" parent="Timers"]
+[node name="ContraDefesaTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
 one_shot = true
 
-[node name="AcaoTimer2" type="Timer" parent="Timers"]
+[node name="AcaoTimerDash" type="Timer" parent="Timers"]
 one_shot = true
 
-[node name="AcaoTimer3" type="Timer" parent="Timers"]
+[node name="AcaoTimerDefesa" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="AcaoTimerContraDefesa" type="Timer" parent="Timers"]
 one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/MorteTimer" to="." method="_on_morte_timer_timeout"]
 [connection signal="timeout" from="Timers/DefesaTimer" to="." method="_on_defesa_timer_timeout"]
+[connection signal="timeout" from="Timers/ContraDefesaTimer" to="." method="_on_contra_defesa_timer_timeout"]
