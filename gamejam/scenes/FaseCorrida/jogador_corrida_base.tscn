@@ -56,7 +56,7 @@ script = ExtResource("1_uwiph")
 [node name="Jogador" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_evdde")
-animation = &"pre-round"
+animation = &"deslize"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -9.5)
@@ -82,4 +82,9 @@ bus = &"Sounds"
 [node name="TapSound" type="AudioStreamPlayer2D" parent="Audios"]
 stream = ExtResource("4_c52wy")
 
+[node name="Timers" type="Node" parent="."]
+
+[node name="DeslizeTimer" type="Timer" parent="Timers"]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timers/DeslizeTimer" to="." method="_on_deslize_timer_timeout"]

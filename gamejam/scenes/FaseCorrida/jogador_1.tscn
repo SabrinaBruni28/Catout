@@ -1,7 +1,23 @@
-[gd_scene load_steps=27 format=3 uid="uid://csplp1krf1pob"]
+[gd_scene load_steps=31 format=3 uid="uid://csplp1krf1pob"]
 
 [ext_resource type="PackedScene" uid="uid://br0j1gpnu4vhj" path="res://scenes/FaseCorrida/jogador_corrida_base.tscn" id="1_xjoe1"]
 [ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="2_ltnmy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p24h7"]
+atlas = ExtResource("2_ltnmy")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1q5n"]
+atlas = ExtResource("2_ltnmy")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1sr4"]
+atlas = ExtResource("2_ltnmy")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y2c0"]
+atlas = ExtResource("2_ltnmy")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ltnmy"]
 atlas = ExtResource("2_ltnmy")
@@ -97,10 +113,22 @@ region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xjoe1"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p24h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1q5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1sr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y2c0")
+}],
 "loop": true,
 "name": &"deslize",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -196,5 +224,5 @@ animations = [{
 
 [node name="Jogador" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xjoe1")
-animation = &"die"
 autoplay = "idle"
+frame_progress = 0.209866
