@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400.0
 const DELIZE_VELOCITY = 500.0
 
 var direction
+var morreu: bool = false
 
 @export var input_prefix: String = "p1_"   # cada jogador muda isso no Inspector
 @export var spawn_point: Vector2 = Vector2(0, 0)
@@ -38,7 +39,9 @@ func directions():
 		player.play("idle")
 	velocity.x = direction * SPEED if direction else move_toward(velocity.x, 0, SPEED)
 	
-func morreu():
+func morre():
+	if morreu:
+		return
+	morreu = true
 	player.play("die")
-	await player.animation_finished
 	queue_free()

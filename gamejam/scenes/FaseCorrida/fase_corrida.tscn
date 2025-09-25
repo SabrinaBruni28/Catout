@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://duelttl0hyk0h"]
+[gd_scene load_steps=9 format=3 uid="uid://duelttl0hyk0h"]
 
-[ext_resource type="Script" uid="uid://bxv1bhlf5xic7" path="res://scripts/fase_corrida.gd" id="1_0glfh"]
 [ext_resource type="PackedScene" uid="uid://csplp1krf1pob" path="res://scenes/FaseCorrida/jogador_1.tscn" id="2_0glfh"]
 [ext_resource type="Script" uid="uid://clklmhuqfcy7j" path="res://scripts/camera_2d.gd" id="2_2mx4m"]
 [ext_resource type="PackedScene" uid="uid://diwhvjk06diif" path="res://scenes/FaseCorrida/jogador_2.tscn" id="3_2mx4m"]
@@ -185,7 +184,6 @@ normal = Vector2(1, 0)
 distance = -1.0
 
 [node name="FaseCorrida" type="Node2D"]
-script = ExtResource("1_0glfh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(326, 396)

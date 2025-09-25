@@ -6,11 +6,34 @@ extends Camera2D
 @export var smooth_speed: float = 5.0
 
 func _process(delta: float) -> void:
-	if not jogador_1 or not jogador_2:
-		return
+	var target: Node2D = null
 
-	# escolhe o jogador mais à frente (maior x)
-	var target: Node2D = jogador_1 if jogador_1.global_position.x > jogador_2.global_position.x else jogador_2
+	# Verifica se os jogadores ainda existem
+	if jogador_1 and jogador_2:
+		target = jogador_1 if jogador_1.global_position.x > jogador_2.global_position.x else jogador_2
+	elif jogador_1:
+		target = jogador_1
+	elif jogador_2:
+		target = jogador_2
+	else:
+		return  # nenhum jogador ativo
 
 	# move a câmera suavemente até ele
 	global_position = global_position.lerp(target.global_position, smooth_speed * delta)
+
+	# verifica se algum jogador saiu da tela
+	for player in [jogador_1, jogador_2]:
+		if player and not is_player_visible(player):
+			print("Saiu da tela:", player.name)
+			player.morre()
+
+# verifica se o jogador está visível na câmera
+func is_player_visible(player: Node2D) -> bool:
+	var viewport_size = get_viewport_rect().size/zoom
+	var viewport_rect = Rect2(
+		global_position - viewport_size * 0.5,
+		viewport_size
+	)
+	
+	# considera a posição central do jogador (ou o tamanho se quiser)
+	return viewport_rect.has_point(player.global_position)

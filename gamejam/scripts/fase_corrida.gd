@@ -14,9 +14,6 @@ func _process(delta: float) -> void:
 			player.morreu()
 
 func is_player_visible(player: Node2D) -> bool:
-	if not player or not camera_2d:
-		return false
-
 	var viewport_rect = Rect2(
 		camera_2d.global_position - camera_2d.get_viewport_rect().size * 0.5 * camera_2d.zoom,
 		camera_2d.get_viewport_rect().size * camera_2d.zoom
