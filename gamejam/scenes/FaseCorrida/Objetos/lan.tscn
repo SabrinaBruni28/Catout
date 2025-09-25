@@ -3,4 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://r07anwiqf5tf" path="res://scenes/FaseCorrida/Objetos/objetos.tscn" id="1_yok0f"]
 
 [node name="Lan" instance=ExtResource("1_yok0f")]
-direction = -1
+altura = 400.0
+throw_direction = Vector2(-5, -3)

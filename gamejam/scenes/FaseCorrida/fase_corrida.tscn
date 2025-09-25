@@ -218,4 +218,3 @@ scale = Vector2(3, 3)
 
 [node name="Lan" parent="Objetos" instance=ExtResource("5_2mx4m")]
 position = Vector2(1312, 570)
-direction = 1
