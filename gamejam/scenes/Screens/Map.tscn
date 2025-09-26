@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://c63u3edn7krvy"]
+
+[ext_resource type="PackedScene" path="res://Layer_4_0.tscn" id="0_id"]
+[ext_resource type="PackedScene" uid="uid://dhqhk6elw3ayk" path="res://scenes/Screens/Fundo.tscn" id="1_id"]
+[ext_resource type="PackedScene" uid="uid://cphvnas5bs0wg" path="res://scenes/Screens/Chão.tscn" id="2_id"]
+[ext_resource type="PackedScene" path="res://Layer_2_3.tscn" id="3_id"]
+[ext_resource type="PackedScene" uid="uid://bqfdbidkv45bd" path="res://scenes/Screens/Chão_deslizar.tscn" id="4_id"]
+
+[node name="map" type="Node2D"]
+
+[node name="Layer_3_4" parent="." instance=ExtResource("4_id")]
+
+[node name="Layer_2_3" parent="." instance=ExtResource("3_id")]
+
+[node name="Layer_0_2" parent="." instance=ExtResource("2_id")]
+
+[node name="Layer_11_1" parent="." instance=ExtResource("1_id")]
+
+[node name="Layer_4_0" parent="." instance=ExtResource("0_id")]
