@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdvar3bm4imc0"]
+
+[ext_resource type="PackedScene" uid="uid://b2tgmyjliua7a" path="res://scenes/objetos_movimento/objetos_movimento.tscn" id="1_j3svh"]
+
+[node name="Carro" instance=ExtResource("1_j3svh")]

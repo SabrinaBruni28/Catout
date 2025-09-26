@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://cle6y3v6ew47y"]
+
+[ext_resource type="Script" uid="uid://blnyeillroi8j" path="res://scripts/fases/fase_luta.gd" id="1_mka8o"]
+[ext_resource type="PackedScene" uid="uid://dv1xt5rdg7c0q" path="res://scenes/cenario/mapa_luta.tscn" id="2_mka8o"]
+[ext_resource type="PackedScene" uid="uid://dnjk0ba3xyl0k" path="res://scenes/fase_luta/jogador_1.tscn" id="2_yo6y5"]
+[ext_resource type="PackedScene" uid="uid://bbbpr7b6xrji8" path="res://scenes/fase_luta/jogador_2.tscn" id="3_we0pj"]
+[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="5_x10q8"]
+[ext_resource type="AudioStream" uid="uid://bw2g6kldt230b" path="res://assets/music/luta.mp3" id="6_yo6y5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o4bjq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o4bjq"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vvie0"]
+normal = Vector2(1, 0)
+distance = -1.0
+
+[node name="FaseLuta" type="Node2D"]
+script = ExtResource("1_mka8o")
+
+[node name="MapaLuta" parent="." instance=ExtResource("2_mka8o")]
+position = Vector2(-5, -60)
+
+[node name="Jogador1" parent="." instance=ExtResource("2_yo6y5")]
+position = Vector2(226, 327)
+scale = Vector2(6, 6)
+
+[node name="Jogador2" parent="." instance=ExtResource("3_we0pj")]
+position = Vector2(852, 316)
+scale = Vector2(6, 6)
+
+[node name="TempoJogo" type="Timer" parent="."]
+wait_time = 32.0
+one_shot = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yo6y5")
+autoplay = true
+bus = &"Music2"
+parameters/looping = true
+
+[node name="ParedeDireita" type="StaticBody2D" parent="."]
+position = Vector2(1125, 286)
+physics_material_override = SubResource("PhysicsMaterial_o4bjq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeDireita"]
+position = Vector2(26, 1)
+shape = SubResource("WorldBoundaryShape2D_o4bjq")
+
+[node name="ParedeEsquerda" type="StaticBody2D" parent="."]
+position = Vector2(-2, 290)
+physics_material_override = SubResource("PhysicsMaterial_o4bjq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedeEsquerda"]
+shape = SubResource("WorldBoundaryShape2D_vvie0")
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="LabelPontosJogador1" type="Label" parent="Labels"]
+offset_left = 108.0
+offset_top = 45.0
+offset_right = 148.0
+offset_bottom = 77.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("5_x10q8")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="LabelPontosJogador2" type="Label" parent="Labels"]
+offset_left = 970.0
+offset_top = 47.0
+offset_right = 1010.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("5_x10q8")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="LabelTempo" type="Label" parent="Labels"]
+offset_left = 470.0
+offset_top = 35.0
+offset_right = 608.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("5_x10q8")
+theme_override_font_sizes/font_size = 24
+text = "Tempo: "
+
+[connection signal="timeout" from="TempoJogo" to="." method="_on_tempo_jogo_timeout"]

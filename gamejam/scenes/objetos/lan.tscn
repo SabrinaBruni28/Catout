@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://dj542qdln0l78"]
+
+[ext_resource type="PackedScene" uid="uid://r07anwiqf5tf" path="res://scenes/objetos/objetos.tscn" id="1_yok0f"]
+[ext_resource type="Texture2D" uid="uid://bct030hnhs6c5" path="res://assets/sprites/bola_de_la.png" id="2_8mmtl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm2y1"]
+atlas = ExtResource("2_8mmtl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crkqx"]
+atlas = ExtResource("2_8mmtl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vri21"]
+atlas = ExtResource("2_8mmtl")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvotr"]
+atlas = ExtResource("2_8mmtl")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blkgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm2y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crkqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vri21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvotr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8mmtl"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qm2y1"]
+radius = 17.0294
+
+[node name="Lan" instance=ExtResource("1_yok0f")]
+altura = 200.0
+throw_direction = Vector2(-40, -1)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(4.76837e-07, -17)
+scale = Vector2(1.5, 1.40625)
+sprite_frames = SubResource("SpriteFrames_blkgc")
+frame = 2
+frame_progress = 0.9993
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_8mmtl")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_qm2y1")

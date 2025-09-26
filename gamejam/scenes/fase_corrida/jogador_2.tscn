@@ -1,0 +1,127 @@
+[gd_scene load_steps=17 format=3 uid="uid://diwhvjk06diif"]
+
+[ext_resource type="PackedScene" uid="uid://br0j1gpnu4vhj" path="res://scenes/fase_corrida/jogador_corrida_base.tscn" id="1_dtdiv"]
+[ext_resource type="Texture2D" uid="uid://cmyei7ah8oii5" path="res://assets/sprites/gato2_corrida.png" id="2_t42jo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de30m"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cii54"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp2ra"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qnup"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(0, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0iku"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(64, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqskv"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(128, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r0bf"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(192, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrt5"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(0, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t42jo"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ppu5"]
+atlas = ExtResource("2_t42jo")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ppu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de30m")
+}],
+"loop": true,
+"name": &"deslize",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cii54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp2ra")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_6qnup")
+}, {
+"duration": 0.01,
+"texture": SubResource("AtlasTexture_f0iku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqskv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r0bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrt5")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t42jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ppu5")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t42jo"]
+size = Vector2(14.75, 14.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mp2ra"]
+size = Vector2(15.75, 8.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cii54"]
+size = Vector2(15.75, 14)
+
+[node name="Jogador_2" instance=ExtResource("1_dtdiv")]
+input_prefix = "p2_"
+
+[node name="Jogador" parent="." index="0"]
+position = Vector2(0, -9.5)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_7ppu5")
+animation = &"run"
+
+[node name="CollisionNormal" parent="." index="1"]
+position = Vector2(-0.125, -7.125)
+shape = SubResource("RectangleShape2D_t42jo")
+
+[node name="CollisionDeslize" parent="." index="2"]
+position = Vector2(-0.125, -4.125)
+shape = SubResource("RectangleShape2D_mp2ra")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-0.125, -7)
+shape = SubResource("RectangleShape2D_cii54")

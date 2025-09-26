@@ -1,0 +1,145 @@
+[gd_scene load_steps=13 format=3 uid="uid://cj2fbn6luyiv8"]
+
+[ext_resource type="PackedScene" uid="uid://mm7endc3mrl0" path="res://scenes/screens/base_screen.tscn" id="1_3u8iu"]
+[ext_resource type="Script" uid="uid://cxlkpxiaxnaau" path="res://scripts/screens/final_screen.gd" id="2_ofgb8"]
+[ext_resource type="Texture2D" uid="uid://myxmh6clsm2i" path="res://assets/sprites/gato1_corrida.png" id="3_ghldo"]
+[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="3_ofgb8"]
+[ext_resource type="Texture2D" uid="uid://cmyei7ah8oii5" path="res://assets/sprites/gato2_corrida.png" id="5_luggc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sql6j"]
+atlas = ExtResource("3_ghldo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dme57"]
+atlas = ExtResource("3_ghldo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1mgr"]
+atlas = ExtResource("3_ghldo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_luggc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sql6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dme57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1mgr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o31ob"]
+atlas = ExtResource("5_luggc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xn77"]
+atlas = ExtResource("5_luggc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_654u5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o31ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xn77")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="FinalScreen" instance=ExtResource("1_3u8iu")]
+script = ExtResource("2_ofgb8")
+
+[node name="NomeFase" type="Label" parent="." index="1"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 259.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_ofgb8")
+theme_override_font_sizes/font_size = 32
+text = "Fase Luta"
+
+[node name="Jogador1" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(175, 515)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_luggc")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Label" type="Label" parent="Jogador1" index="0"]
+offset_left = -26.6667
+offset_top = 32.6667
+offset_right = 33.3333
+offset_bottom = 55.6667
+theme_override_fonts/font = ExtResource("3_ofgb8")
+theme_override_font_sizes/font_size = 8
+text = "Jogador 1"
+
+[node name="Jogador2" type="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(961, 518)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_654u5")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="Label" type="Label" parent="Jogador2" index="0"]
+offset_left = -27.6667
+offset_top = 32.0
+offset_right = 32.3333
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_ofgb8")
+theme_override_font_sizes/font_size = 8
+text = "Jogador 2"
+
+[node name="Pontos1" type="Label" parent="." index="4"]
+layout_mode = 2
+offset_left = 285.0
+offset_top = 227.0
+offset_right = 1437.0
+offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("3_ofgb8")
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="Pontos2" type="Label" parent="." index="5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.674479
+anchor_top = 0.350309
+anchor_right = 1.67448
+anchor_bottom = 0.449075
+theme_override_fonts/font = ExtResource("3_ofgb8")
+theme_override_font_sizes/font_size = 64
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 48
+text = "Jogador 1 venceu"
+
+[node name="HSeparator2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
+theme_override_constants/separation = 300
+
+[node name="Button1" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
+size_flags_horizontal = 4
+
+[node name="Button2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="3"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
