@@ -20,7 +20,6 @@ position = Vector2(0, -9.5)
 scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("2_t42jo")
 animation = &"andando"
-autoplay = "idle"
 
 [node name="CollisionNormal" parent="." index="1"]
 position = Vector2(-0.125, -7.125)

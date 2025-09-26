@@ -3,7 +3,6 @@ extends RigidBody2D
 @export var throw_force: float = 1000.0
 @export var altura: float = 500.0
 @export var throw_direction: Vector2 = Vector2(1, -1)  # padrão, pode editar no Inspector
-@export var velocidade: bool = false
 
 var held_by: Node = null
 var is_held: bool = false
@@ -33,11 +32,6 @@ func _physics_process(delta: float) -> void:
 
 func pick_up(player: Node) -> void:
 	if lancado or is_held:
-		return
-	if velocidade:
-		collision_shape.disabled = true
-		player.knockfront()
-		queue_free()
 		return
 	
 	is_held = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://dvoaxy646f2jy" path="res://scenes/tres/tileset.tres" id="1_lo4wk"]
 [ext_resource type="Texture2D" uid="uid://0xx3tvsbbqj" path="res://assets/sprites/ceu.png" id="2_j7qso"]
-[ext_resource type="Texture2D" uid="uid://c06qe3ew7rdgf" path="res://assets/sprites/Background-Cidade.png" id="3_glghe"]
+[ext_resource type="Texture2D" uid="uid://c71ncmg3oqy3b" path="res://assets/sprites/Background-Cidade.png" id="3_glghe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rfop"]
 texture = ExtResource("2_j7qso")
