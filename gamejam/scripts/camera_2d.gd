@@ -30,6 +30,8 @@ func _process(delta: float) -> void:
 	var viewport_rect: Rect2 = Rect2(global_position - viewport_size * 0.5, viewport_size)
 	var left_bound: float = viewport_rect.position.x - left_kill_margin
 
+	var dead_player: CharacterBody2D = null
+
 	for player in [jogador_1, jogador_2]:
 		if not player:
 			continue
@@ -46,20 +48,19 @@ func _process(delta: float) -> void:
 				var circle: CircleShape2D = cs.shape as CircleShape2D
 				leftmost_x = player.global_position.x - circle.radius * abs(player.global_scale.x)
 
-		# Se a borda esquerda do jogador passou do limite da tela → morre
+		# Se passou do limite → morreu
 		if leftmost_x < left_bound:
 			if player.has_method("morre"):
 				player.morre()
-				get_tree().change_scene_to_file("res://scenes/Screens/final_screen.tscn")
+				dead_player = player
 
-# --- Funções utilitárias ---
-func is_player_visible(player: Node2D) -> bool:
-	var viewport_size: Vector2 = get_viewport_rect().size / zoom
-	var viewport_rect: Rect2 = Rect2(
-		global_position - viewport_size * 0.5,
-		viewport_size
-	)
-	return viewport_rect.has_point(player.global_position)
+	# Depois de verificar quem morreu, define o vencedor
+	if dead_player:
+		# Se o jogador 1 não morreu, ele venceu
+		if jogador_1 != dead_player:
+			Global.player_win = 1
+		else:
+			Global.player_win = 2
 
-func is_object_visible(objeto: RigidBody2D) -> bool:
-	return false
+		# Muda para a tela final
+		get_tree().change_scene_to_file("res://scenes/Screens/pass_screen.tscn")

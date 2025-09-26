@@ -2,6 +2,10 @@ extends Control
 
 @onready var hover_sound: AudioStreamPlayer2D = $Audios/HoverSound
 @onready var click_sound: AudioStreamPlayer2D = $Audios/ClickSound
+@onready var title: Label = $MarginContainer/HBoxContainer/VBoxContainer/Title
+
+func _ready() -> void:
+	title.text = "Jogador " + str(Global.player_win)+ " Venceu"
 
 func _on_button_1_pressed() -> void:
 	click_sound.play()
