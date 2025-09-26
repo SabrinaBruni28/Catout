@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://duelttl0hyk0h"]
+[gd_scene load_steps=16 format=4 uid="uid://duelttl0hyk0h"]
 
 [ext_resource type="PackedScene" uid="uid://cbmxermfagagb" path="res://scenes/FaseCorrida/jogador_1.tscn" id="2_0glfh"]
 [ext_resource type="Script" uid="uid://clklmhuqfcy7j" path="res://scripts/camera_2d.gd" id="2_2mx4m"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dj542qdln0l78" path="res://scenes/FaseCorrida/Objetos/lan.tscn" id="5_2mx4m"]
 [ext_resource type="Texture2D" uid="uid://0xx3tvsbbqj" path="res://assets/sprites/ceu.png" id="5_3i0xp"]
 [ext_resource type="PackedScene" uid="uid://cdvar3bm4imc0" path="res://scenes/FaseCorrida/ObjetosMovimentos/carro.tscn" id="5_sq5gx"]
+[ext_resource type="Script" uid="uid://bwmgkpssl618a" path="res://scripts/linha_chegada.gd" id="9_4ngo5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ngo5"]
 texture = ExtResource("5_3i0xp")
@@ -223,6 +224,9 @@ sources/0 = SubResource("TileSetAtlasSource_4ngo5")
 normal = Vector2(1, 0)
 distance = -1.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3i0xp"]
+normal = Vector2(-1, 0)
+
 [node name="FaseCorrida" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
@@ -278,3 +282,10 @@ scale = Vector2(3, 3)
 
 [node name="Lan" parent="Objetos" instance=ExtResource("5_2mx4m")]
 position = Vector2(1312, 570)
+
+[node name="LinhaChegada" type="Area2D" parent="."]
+position = Vector2(6302, 484)
+script = ExtResource("9_4ngo5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinhaChegada"]
+shape = SubResource("WorldBoundaryShape2D_3i0xp")

@@ -50,6 +50,7 @@ func _process(delta: float) -> void:
 		if leftmost_x < left_bound:
 			if player.has_method("morre"):
 				player.morre()
+				get_tree().change_scene_to_file("res://scenes/Screens/final_screen.tscn")
 
 # --- Funções utilitárias ---
 func is_player_visible(player: Node2D) -> bool:
