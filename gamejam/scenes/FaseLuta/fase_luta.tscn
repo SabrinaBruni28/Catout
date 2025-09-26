@@ -80,7 +80,7 @@ one_shot = true
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_yo6y5")
 autoplay = true
-bus = &"Music"
+bus = &"Music2"
 parameters/looping = true
 
 [connection signal="timeout" from="TempoJogo" to="." method="_on_tempo_jogo_timeout"]

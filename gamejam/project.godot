@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/Global.gd"
 
+[display]
+
+window/size/viewport_width=1150
+window/size/viewport_height=647
+window/stretch/mode="viewport"
+
 [input]
 
 p1_esquerda={
