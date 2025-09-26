@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 
 func pick_up(player: Node) -> void:
-	if lancado:
+	if lancado or is_held:
 		return
 	is_held = true
 	held_by = player

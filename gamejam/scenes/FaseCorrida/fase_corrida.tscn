@@ -40,6 +40,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_3jyo5")
 
 [node name="nuvens" parent="." instance=ExtResource("2_g2fdo")]
+position = Vector2(-17, -172)
 scale = Vector2(3, 3)
 
 [node name="mapa_corrida" parent="." instance=ExtResource("3_51v1q")]
