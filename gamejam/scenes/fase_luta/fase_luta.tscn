@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cle6y3v6ew47y"]
+[gd_scene load_steps=11 format=3 uid="uid://cle6y3v6ew47y"]
 
 [ext_resource type="Script" uid="uid://blnyeillroi8j" path="res://scripts/fases/fase_luta.gd" id="1_mka8o"]
 [ext_resource type="PackedScene" uid="uid://dv1xt5rdg7c0q" path="res://scenes/cenario/mapa_luta.tscn" id="2_mka8o"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbbpr7b6xrji8" path="res://scenes/fase_luta/jogador_2.tscn" id="3_we0pj"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="5_x10q8"]
 [ext_resource type="AudioStream" uid="uid://bw2g6kldt230b" path="res://assets/music/luta.mp3" id="6_yo6y5"]
+[ext_resource type="Script" uid="uid://owiuf21vam6l" path="res://scripts/componentes/label.gd" id="7_3k3gu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o4bjq"]
 
@@ -84,5 +85,6 @@ offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("5_x10q8")
 theme_override_font_sizes/font_size = 24
 text = "Tempo: "
+script = ExtResource("7_3k3gu")
 
 [connection signal="timeout" from="TempoJogo" to="." method="_on_tempo_jogo_timeout"]

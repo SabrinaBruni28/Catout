@@ -12,8 +12,6 @@ func _ready():
 		title.text = "Jogador 1 Venceu"
 	elif Global.pontos[0] < Global.pontos[1]:
 		title.text = "Jogador 2 Venceu"
-	else:
-		title.text = "Empate"
 
 func _on_button_1_pressed() -> void:
 	click_sound.play()
