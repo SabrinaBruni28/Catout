@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2tgmyjliua7a"]
+[gd_scene load_steps=9 format=3 uid="uid://b2tgmyjliua7a"]
 
 [ext_resource type="Script" uid="uid://b34jnqwcxk4xs" path="res://scripts/objetos_movimento.gd" id="1_cylq0"]
 [ext_resource type="Texture2D" uid="uid://bqf32vae1uwjs" path="res://assets/sprites/Carro.png" id="1_thaol"]
@@ -47,9 +47,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5p3p"]
-size = Vector2(52, 25)
-
 [node name="ObjetosMovimento" type="CharacterBody2D"]
 texture_filter = 1
 texture_repeat = 1
@@ -70,6 +67,6 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.168496
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionPolygon2D" parent="."]
 position = Vector2(2, -12.5)
-shape = SubResource("RectangleShape2D_u5p3p")
+polygon = PackedVector2Array(1, -11.5, 12, -5.5, 19, -4.5, 25, 0.5, 25, 7.5, 22, 7.5, 21, 9.5, 19, 12.5, 16, 10.5, 14, 7.5, -13, 8.5, -17, 11.5, -22, 8.5, -26, 8.5, -26, 1.5, -21, -4.5, -15, -5.5, -10, -11.5)

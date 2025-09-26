@@ -5,6 +5,7 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
 const DELIZE_VELOCITY = 500.0
 const VELOCITY_MAX = 700.0
+const KNOCKBACK_SPEED = 1000.0
 
 # --- VARIÁVEIS DE ESTADO ---
 var direction = 0
@@ -119,6 +120,11 @@ func jogar_item():
 	if Input.is_action_just_pressed(input_prefix + "jogar") and held_item:
 		held_item.throw_item()
 		held_item = null
+		
+func knockback():
+	var direcao_knockback = -1
+	velocity.x = direcao_knockback * KNOCKBACK_SPEED
+	velocity.y = -200
 
 # --- FUNÇÃO PARA MORRER ---
 func morre():
