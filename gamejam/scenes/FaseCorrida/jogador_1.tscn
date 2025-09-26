@@ -18,7 +18,7 @@ size = Vector2(16.25, 14.5)
 position = Vector2(0, -9.75)
 scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("2_ltnmy")
-animation = &"idle"
+animation = &"andando"
 autoplay = "idle"
 
 [node name="CollisionNormal" parent="." index="1"]

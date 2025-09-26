@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" path="res://scenes/Screens/background.tscn" id="1_2pr2i"]
 [ext_resource type="PackedScene" uid="uid://cbmxermfagagb" path="res://scenes/FaseCorrida/jogador_1.tscn" id="2_0glfh"]
 [ext_resource type="Script" uid="uid://clklmhuqfcy7j" path="res://scripts/camera_2d.gd" id="2_2mx4m"]
-[ext_resource type="Texture2D" uid="uid://c06qe3ew7rdgf" path="res://assets/sprites/Background-Cidade.png" id="2_3jyo5"]
+[ext_resource type="Texture2D" uid="uid://c71ncmg3oqy3b" path="res://assets/sprites/Background-Cidade.png" id="2_3jyo5"]
 [ext_resource type="PackedScene" path="res://scenes/Screens/nuvens.tscn" id="2_g2fdo"]
 [ext_resource type="PackedScene" uid="uid://diwhvjk06diif" path="res://scenes/FaseCorrida/jogador_2.tscn" id="3_2mx4m"]
 [ext_resource type="PackedScene" path="res://scenes/Screens/mapa_corrida.tscn" id="3_51v1q"]

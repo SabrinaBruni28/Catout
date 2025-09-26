@@ -51,7 +51,7 @@ script = ExtResource("1_bg7jp")
 [node name="Jogador" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_6hld4")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -71,6 +71,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="MorteTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
 one_shot = true
 
 [node name="DefesaTimer" type="Timer" parent="Timers"]

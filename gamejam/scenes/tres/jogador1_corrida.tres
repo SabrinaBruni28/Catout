@@ -1,7 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://cmaowedgp3hft"]
+[gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://cmaowedgp3hft"]
 
 [ext_resource type="Texture2D" uid="uid://myxmh6clsm2i" path="res://assets/sprites/gato1_corrida.png" id="1_itrt8"]
-[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="2_i60ny"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ncunj"]
 atlas = ExtResource("1_itrt8")
@@ -22,18 +21,6 @@ region = Rect2(192, 128, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nb1yk"]
 atlas = ExtResource("1_itrt8")
 region = Rect2(0, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ltnmy"]
-atlas = ExtResource("2_i60ny")
-region = Rect2(64, 224, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jsec7"]
-atlas = ExtResource("2_i60ny")
-region = Rect2(64, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x6mqm"]
-atlas = ExtResource("2_i60ny")
-region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwa7s"]
 atlas = ExtResource("1_itrt8")
@@ -104,20 +91,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ltnmy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jsec7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x6mqm")
-}],
-"loop": true,
-"name": &"die",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_vwa7s")
 }, {
 "duration": 1.0,
@@ -160,9 +133,4 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 10.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"win",
-"speed": 5.0
 }]

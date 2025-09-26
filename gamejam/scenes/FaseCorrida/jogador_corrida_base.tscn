@@ -36,11 +36,6 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"win",
-"speed": 5.0
 }]
 
 [node name="JogadorCorridaBase" type="CharacterBody2D"]
@@ -50,7 +45,8 @@ script = ExtResource("1_uwiph")
 [node name="Jogador" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_evdde")
-animation = &"jump"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionNormal" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -9.5)
