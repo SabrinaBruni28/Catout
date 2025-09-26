@@ -18,13 +18,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsqem"]
-size = Vector2(25, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmmhv"]
+radius = 7.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neicn"]
 size = Vector2(27, 18)
 
 [node name="peixe" instance=ExtResource("1_jmmhv")]
+velocidade = true
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -8)
@@ -32,8 +33,8 @@ sprite_frames = SubResource("SpriteFrames_yyfb5")
 frame_progress = 0.0
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-0.5, -8)
-shape = SubResource("RectangleShape2D_tsqem")
+position = Vector2(1, -8)
+shape = SubResource("CircleShape2D_jmmhv")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-0.5, -8)

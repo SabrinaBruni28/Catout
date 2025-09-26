@@ -18,7 +18,7 @@ texture_repeat = 1
 position = Vector2(-1, -9.75)
 scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("2_3dbl6")
-frame_progress = 0.961441
+animation = &"defesa"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-0.875, -7.625)

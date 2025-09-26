@@ -25,8 +25,8 @@ radius = 13.0
 radius = 14.0357
 
 [node name="sardinha" instance=ExtResource("1_bf5de")]
-altura = 300.0
-throw_direction = Vector2(10, -1)
+altura = 200.0
+throw_direction = Vector2(-40, -1)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_lrugf")

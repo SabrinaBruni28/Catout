@@ -63,4 +63,4 @@ func _process(delta: float) -> void:
 			Global.player_win = 2
 
 		# Muda para a tela final
-		get_tree().change_scene_to_file("res://scenes/Screens/pass_screen.tscn")
+		#get_tree().change_scene_to_file("res://scenes/Screens/pass_screen.tscn")

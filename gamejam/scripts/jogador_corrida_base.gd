@@ -131,6 +131,11 @@ func knockback():
 	velocity.x = direcao_knockback * KNOCKBACK_SPEED
 	velocity.y = -200
 
+func knockfront():
+	var direcao_knockback = 1
+	velocity.x += direcao_knockback * KNOCKBACK_SPEED
+	velocity.y = -200
+
 # --- FUNÇÃO PARA MORRER ---
 func morre():
 	if morreu:
@@ -160,5 +165,4 @@ func _on_jump_timer_timeout() -> void:
 # --- DETECTA COLISÃO COM ITENS ---
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("item") and not held_item:
-		print("Item em contato")
 		pegar_item(area)
