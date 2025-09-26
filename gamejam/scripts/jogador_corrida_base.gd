@@ -29,6 +29,11 @@ var held_item = null
 var current_animation: String = ""
 
 func _ready() -> void:
+	# Coloca o jogador na Layer 1
+	self.collision_layer = 2
+	# Define que ele só colide com a Layer 2 (ex: chão, obstáculos)
+	self.collision_mask = 1
+
 	collision_normal.disabled = false
 	collision_deslize.disabled = true
 	add_to_group("player")  # adiciona a um grupo para colisões e itens
