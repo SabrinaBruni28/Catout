@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://mm7endc3mrl0"]
+[gd_scene load_steps=7 format=3 uid="uid://mm7endc3mrl0"]
 
+[ext_resource type="Texture2D" uid="uid://b18ic41welbig" path="res://assets/sprites/Background.png" id="1_jkdof"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="2_atl4s"]
 [ext_resource type="Theme" uid="uid://blhdcuutacduk" path="res://scenes/tres/button.tres" id="2_ig2w1"]
 [ext_resource type="AudioStream" uid="uid://cibp8cffbyqgx" path="res://assets/sounds/mouse_click.mp3" id="2_yioes"]
@@ -16,9 +17,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_jkdof")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

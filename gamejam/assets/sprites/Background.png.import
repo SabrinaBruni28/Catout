@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://myxmh6clsm2i"
-path="res://.godot/imported/gato1.png-f0825248273b2b55755d0bdfea5a6419.ctex"
+uid="uid://b18ic41welbig"
+path="res://.godot/imported/Background.png-4e7706ef682cc0d3d504c310fedc1216.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/gato1.png"
-dest_files=["res://.godot/imported/gato1.png-f0825248273b2b55755d0bdfea5a6419.ctex"]
+source_file="res://assets/sprites/Background.png"
+dest_files=["res://.godot/imported/Background.png-4e7706ef682cc0d3d504c310fedc1216.ctex"]
 
 [params]
 

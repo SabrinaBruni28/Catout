@@ -22,10 +22,11 @@ grow_vertical = 2
 theme_override_constants/separation = 25
 
 [node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 80
 text = "Speed Cat"
 
 [node name="HSeparator2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
-theme_override_constants/separation = 100
+theme_override_constants/separation = 210
 
 [node name="Button1" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
 theme_override_font_sizes/font_size = 32
@@ -33,6 +34,9 @@ text = "Jogar"
 
 [node name="Button2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="3"]
 theme_override_font_sizes/font_size = 32
+
+[node name="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" index="4"]
+theme_override_constants/separation = 80
 
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]

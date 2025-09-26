@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://mm7endc3mrl0" path="res://scenes/Screens/base_screen.tscn" id="1_f0wv2"]
 [ext_resource type="Script" uid="uid://bmtsm3pmajw1" path="res://scripts/pass_screen.gd" id="2_0pkau"]
-[ext_resource type="Texture2D" uid="uid://myxmh6clsm2i" path="res://assets/sprites/gato1.png" id="3_w3810"]
+[ext_resource type="Texture2D" uid="uid://myxmh6clsm2i" path="res://assets/sprites/gato1_corrida.png" id="3_w3810"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="4_w3810"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sql6j"]
@@ -66,8 +66,8 @@ animations = [{
 [node name="PassScreen" instance=ExtResource("1_f0wv2")]
 script = ExtResource("2_0pkau")
 
-[node name="Jogador1" type="AnimatedSprite2D" parent="." index="0"]
-position = Vector2(154, 419)
+[node name="Jogador1" type="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(168, 518)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7i0g3")
 animation = &"idle"
@@ -75,16 +75,16 @@ autoplay = "idle"
 frame_progress = 0.449629
 
 [node name="Label" type="Label" parent="Jogador1" index="0"]
-offset_left = -26.6667
-offset_top = 37.6667
-offset_right = 33.3333
-offset_bottom = 60.6667
+offset_left = -27.0
+offset_top = 32.0
+offset_right = 33.0
+offset_bottom = 55.0
 theme_override_fonts/font = ExtResource("4_w3810")
 theme_override_font_sizes/font_size = 8
 text = "Jogador 1"
 
-[node name="Jogador2" type="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(968, 424)
+[node name="Jogador2" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(966, 520)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_muy6p")
 animation = &"idle"
@@ -93,10 +93,10 @@ frame_progress = 0.376253
 flip_h = true
 
 [node name="Label" type="Label" parent="Jogador2" index="0"]
-offset_left = -27.0
-offset_top = 39.0
-offset_right = 33.0
-offset_bottom = 62.0
+offset_left = -29.3333
+offset_top = 32.0
+offset_right = 30.6667
+offset_bottom = 55.0
 theme_override_fonts/font = ExtResource("4_w3810")
 theme_override_font_sizes/font_size = 8
 text = "Jogador 2"
@@ -110,6 +110,7 @@ offset_top = -558.0
 offset_right = 424.0
 
 [node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 48
 text = "Jogador 1 Venceu"
 
 [node name="HSeparator2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
