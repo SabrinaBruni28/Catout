@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cle6y3v6ew47y"]
+[gd_scene load_steps=10 format=3 uid="uid://cle6y3v6ew47y"]
 
 [ext_resource type="Script" uid="uid://blnyeillroi8j" path="res://scripts/fase_luta.gd" id="1_mka8o"]
 [ext_resource type="PackedScene" path="res://scenes/Screens/mapa_luta.tscn" id="2_mka8o"]
 [ext_resource type="PackedScene" uid="uid://dnjk0ba3xyl0k" path="res://scenes/FaseLuta/jogador_1.tscn" id="2_yo6y5"]
 [ext_resource type="PackedScene" uid="uid://bbbpr7b6xrji8" path="res://scenes/FaseLuta/jogador_2.tscn" id="3_we0pj"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="5_x10q8"]
+[ext_resource type="AudioStream" uid="uid://bw2g6kldt230b" path="res://assets/music/luta.mp3" id="6_yo6y5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o4bjq"]
 
@@ -75,5 +76,11 @@ text = "Tempo: "
 [node name="TempoJogo" type="Timer" parent="."]
 wait_time = 32.0
 one_shot = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yo6y5")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="timeout" from="TempoJogo" to="." method="_on_tempo_jogo_timeout"]
