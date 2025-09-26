@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cmaowedgp3hft" path="res://scenes/tres/jogador1_corrida.tres" id="2_ltnmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltnmy"]
-size = Vector2(14.75, 16.25)
+size = Vector2(14.75, 14.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwa7s"]
 size = Vector2(16.25, 8.5)
@@ -18,11 +18,11 @@ size = Vector2(16.25, 14.5)
 position = Vector2(0, -9.75)
 scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("2_ltnmy")
-animation = &"deslize"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionNormal" parent="." index="1"]
-position = Vector2(0, -8.25)
+position = Vector2(0, -7.3125)
 shape = SubResource("RectangleShape2D_ltnmy")
 
 [node name="CollisionDeslize" parent="." index="2"]
