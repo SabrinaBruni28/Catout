@@ -16,20 +16,21 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_held and held_by:
 		# Segue o jogador sem colisão
-		global_position = held_by.global_position + Vector2(30 * held_by.scale.x, -20)
+		global_position = held_by.global_position + Vector2(held_by.scale.x, held_by.scale.y * -18)
 		linear_velocity = Vector2.ZERO
 		angular_velocity = 0
 
 func pick_up(player: Node) -> void:
 	is_held = true
 	held_by = player
-	freeze = true
 	collision_shape.disabled = true
+	set_collision_layer_value(1, false)  # tira de layer
+	set_collision_mask_value(1, false)   # não colide com nada
 
 func throw_item() -> void:
 	is_held = false
 	held_by = null
-	freeze = false
 	collision_shape.disabled = false
-	# Aplica a direção do export
+	set_collision_layer_value(1, true)
+	set_collision_mask_value(1, true)
 	linear_velocity = throw_direction.normalized() * throw_force
