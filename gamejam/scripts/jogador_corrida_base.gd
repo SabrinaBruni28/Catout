@@ -89,6 +89,8 @@ func deslizar():
 
 # --- DIREÇÃO HORIZONTAL ---
 func directions(delta: float) -> void:
+	if isdeslizando:
+		return
 	# Recebe input do jogador (-1 a 1)
 	direction = Input.get_axis(input_prefix + "esquerda", input_prefix + "direita")
 	
