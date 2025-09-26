@@ -23,20 +23,20 @@ func _process(delta: float) -> void:
 	label_tempo.text = "Tempo: " + str(int(tempo_jogo.time_left)) + " s"# mostra só a parte inteira em segundos
 
 func _on_jogador_1_morreu():
-	jogador1_tomar_dano(10)
+	jogador1_tomar_dano(1)
 
 func _on_jogador_2_morreu():
-	jogador2_tomar_dano(10)
+	jogador2_tomar_dano(1)
 
 func jogador1_tomar_dano(dano: int) -> void:
-	pontos_jogador2 += 1
+	pontos_jogador2 += dano
 	label_pontos_jogador_2.text = str(pontos_jogador2)
 
 func jogador2_tomar_dano(dano: int) -> void:
-	pontos_jogador1 += 1
+	pontos_jogador1 += dano
 	label_pontos_jogador_1.text = str(pontos_jogador1)
 
 func _on_tempo_jogo_timeout() -> void:
 	Global.pontos[0] = pontos_jogador1
 	Global.pontos[1] = pontos_jogador2
-	get_tree().change_scene_to_file("res://scenes/final_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/Screens/final_screen.tscn")

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+const SPEED = 500.0
 const DASH_SPEED = 3000.0
-const KNOCKBACK_SPEED = 3000.0
+const KNOCKBACK_SPEED = 5000.0
 
 @export var input_prefix: String = "p1_"   # cada jogador muda isso no Inspector
 @export var spawn_point: Vector2 = Vector2(0, 0)
@@ -19,7 +19,6 @@ const KNOCKBACK_SPEED = 3000.0
 ]
 
 @onready var player: AnimatedSprite2D = $Jogador
-@onready var escudo: AnimatedSprite2D = $Escudo
 
 @onready var tap_sound: AudioStreamPlayer2D = $Audios/TapSound
 @onready var hurt_sound: AudioStreamPlayer2D = $Audios/HurtSound
@@ -37,7 +36,6 @@ var ismorrendo: bool = false
 var iscontradefesa: bool = false
 
 func _ready() -> void:
-	escudo.hide()
 	for i in range(acao_timers.size()):
 		acao_timers[i].connect("timeout", Callable(self, "resetar_acao").bind(i))
 
@@ -88,8 +86,6 @@ func dash():
 func defesa():
 	if isdefesa or isdashing or iscontradefesa or not flags[1]: return
 	if Input.is_action_just_pressed(input_prefix + "defesa"):
-		escudo.show()
-		escudo.play("escudo")
 		defesa_timer.start()
 		isdefesa = true
 		player.play("defesa")
@@ -116,7 +112,7 @@ func morrer():
 	player.play("die")
 	emit_signal("morreu")
 	morte_timer.start()
-	await player.animation_finished and hurt_sound.finished
+	await player.animation_finished
 	hide()
 	$CollisionShape2D.disabled = true
 	
@@ -170,7 +166,6 @@ func _on_morte_timer_timeout() -> void:
 
 func _on_defesa_timer_timeout() -> void:
 	isdefesa = false
-	escudo.hide()
 	player.play("idle")
 
 func _on_contra_defesa_timer_timeout() -> void:

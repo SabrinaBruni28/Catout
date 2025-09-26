@@ -192,9 +192,11 @@ script = ExtResource("1_mka8o")
 
 [node name="Jogador1" parent="." instance=ExtResource("2_yo6y5")]
 position = Vector2(226, 327)
+scale = Vector2(6, 6)
 
 [node name="Jogador2" parent="." instance=ExtResource("3_we0pj")]
 position = Vector2(852, 316)
+scale = Vector2(6, 6)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)

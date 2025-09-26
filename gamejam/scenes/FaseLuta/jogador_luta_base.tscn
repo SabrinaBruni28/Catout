@@ -1,74 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvhptbeojtc8u"]
+[gd_scene load_steps=8 format=3 uid="uid://bvhptbeojtc8u"]
 
 [ext_resource type="Script" uid="uid://bmuwpndysa32s" path="res://scripts/jogador_luta_base.gd" id="1_bg7jp"]
-[ext_resource type="Texture2D" uid="uid://ncj1grehkvat" path="res://assets/sprites/escudo.jpg" id="2_6hld4"]
 [ext_resource type="AudioStream" uid="uid://du6fmpm685fuv" path="res://assets/sounds/knockback.wav" id="3_4mkhl"]
 [ext_resource type="AudioStream" uid="uid://dqjagnqr5e5rl" path="res://assets/sounds/tap.wav" id="4_egdff"]
 [ext_resource type="AudioStream" uid="uid://dp0eenx5dexug" path="res://assets/sounds/growl_0.wav" id="5_54i2a"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xcnw"]
-atlas = ExtResource("2_6hld4")
-region = Rect2(231, 122, 103, 97)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_koovj"]
-atlas = ExtResource("2_6hld4")
-region = Rect2(128, 122, 103, 97)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7c0g"]
-atlas = ExtResource("2_6hld4")
-region = Rect2(25, 122, 103, 97)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apsaf"]
-atlas = ExtResource("2_6hld4")
-region = Rect2(231, 25, 103, 97)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2iloh"]
-atlas = ExtResource("2_6hld4")
-region = Rect2(231, 25, 103, 97)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bxhb4"]
-atlas = ExtResource("2_6hld4")
-region = Rect2(25, 122, 103, 97)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3kok0"]
-atlas = ExtResource("2_6hld4")
-region = Rect2(128, 122, 103, 97)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qg0ym"]
-atlas = ExtResource("2_6hld4")
-region = Rect2(231, 122, 103, 97)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bg7jp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4xcnw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_koovj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j7c0g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_apsaf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2iloh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bxhb4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3kok0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qg0ym")
-}],
-"loop": true,
-"name": &"escudo",
-"speed": 20.0
-}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6hld4"]
 animations = [{
@@ -104,25 +39,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wnn"]
-size = Vector2(13, 19)
+size = Vector2(15.25, 14.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfhf2"]
-size = Vector2(14.1667, 19.1667)
+size = Vector2(15.25, 14.7917)
 
 [node name="JogadorLutaBase" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_bg7jp")
 
-[node name="Escudo" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3.5, -9)
-scale = Vector2(0.22, 0.22)
-sprite_frames = SubResource("SpriteFrames_bg7jp")
-animation = &"escudo"
-
 [node name="Jogador" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_6hld4")
-animation = &"new_animation"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

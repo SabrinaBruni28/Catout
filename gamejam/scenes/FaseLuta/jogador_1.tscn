@@ -1,25 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnjk0ba3xyl0k"]
+[gd_scene load_steps=5 format=3 uid="uid://dnjk0ba3xyl0k"]
 
 [ext_resource type="PackedScene" uid="uid://bvhptbeojtc8u" path="res://scenes/FaseLuta/jogador_luta_base.tscn" id="1_jaomx"]
 [ext_resource type="SpriteFrames" uid="uid://dw3hv3ovcu28q" path="res://scenes/tres/jogador1_luta.tres" id="2_3dbl6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dbl6"]
+size = Vector2(15.75, 14.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbdtu"]
+size = Vector2(17.25, 14.75)
+
 [node name="Jogador1" instance=ExtResource("1_jaomx")]
 spawn_point = Vector2(150, 0)
 
-[node name="Escudo" parent="." index="0"]
-visible = false
-position = Vector2(-3.25, -9)
-
-[node name="Jogador" parent="." index="1"]
+[node name="Jogador" parent="." index="0"]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(-1, -9.5)
+position = Vector2(-1, -9.75)
 scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("2_3dbl6")
-animation = &"idle"
+frame_progress = 0.187658
 
-[node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(-0.75, -9.5)
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-0.875, -7.625)
+shape = SubResource("RectangleShape2D_3dbl6")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(-0.5, -9.5)
+position = Vector2(-0.875, -7.625)
+shape = SubResource("RectangleShape2D_jbdtu")
