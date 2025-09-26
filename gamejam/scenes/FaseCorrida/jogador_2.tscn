@@ -1,20 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://diwhvjk06diif"]
+[gd_scene load_steps=6 format=3 uid="uid://diwhvjk06diif"]
 
 [ext_resource type="PackedScene" uid="uid://br0j1gpnu4vhj" path="res://scenes/FaseCorrida/jogador_corrida_base.tscn" id="1_dtdiv"]
 [ext_resource type="SpriteFrames" uid="uid://cmaowedgp3hft" path="res://scenes/tres/jogador1_corrida.tres" id="2_t42jo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t42jo"]
+size = Vector2(14.75, 16.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mp2ra"]
+size = Vector2(15.75, 8.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cii54"]
+size = Vector2(15.75, 14)
 
 [node name="Jogador_2" instance=ExtResource("1_dtdiv")]
 input_prefix = "p2_"
 
 [node name="Jogador" parent="." index="0"]
-position = Vector2(0, -10.25)
+position = Vector2(0, -9.5)
 scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("2_t42jo")
-animation = &"idle"
+animation = &"deslize"
 autoplay = "idle"
 
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -8.5)
+[node name="CollisionNormal" parent="." index="1"]
+position = Vector2(-0.125, -8.125)
+shape = SubResource("RectangleShape2D_t42jo")
+
+[node name="CollisionDeslize" parent="." index="2"]
+position = Vector2(-0.125, -4.125)
+shape = SubResource("RectangleShape2D_mp2ra")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(0.25, -8)
+position = Vector2(-0.125, -7)
+shape = SubResource("RectangleShape2D_cii54")

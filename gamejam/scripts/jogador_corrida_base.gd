@@ -21,11 +21,15 @@ var held_item = null
 @onready var player: AnimatedSprite2D = $Jogador
 @onready var deslize_timer: Timer = $Timers/DeslizeTimer
 @onready var jump_timer: Timer = $Timers/JumpTimer
+@onready var collision_normal: CollisionShape2D = $CollisionNormal
+@onready var collision_deslize: CollisionShape2D = $CollisionDeslize
 
 # --- CONTROLE DE ANIMAÇÃO ---
 var current_animation: String = ""
 
 func _ready() -> void:
+	collision_normal.disabled = false
+	collision_deslize.disabled = true
 	add_to_group("player")  # adiciona a um grupo para colisões e itens
 
 # --- PROCESSO PRINCIPAL DE FÍSICA ---
@@ -70,8 +74,7 @@ func jump(delta: float) -> void:
 		jump_timer.start()
 
 # --- DESLIZE ---
-func deslizar() -> void:
-	# Não desliza enquanto pulando ou já deslizando
+func deslizar():
 	if ispulando or isdeslizando:
 		return
 	if Input.is_action_just_pressed(input_prefix + "deslize"):
@@ -79,6 +82,10 @@ func deslizar() -> void:
 		velocity.y = DELIZE_VELOCITY
 		set_animation("deslize")
 		deslize_timer.start()
+		
+		# troca a colisão para a menor
+		collision_normal.disabled = true
+		collision_deslize.disabled = false
 
 # --- DIREÇÃO HORIZONTAL ---
 func directions(delta: float) -> void:
@@ -129,8 +136,9 @@ func set_animation(anim: String) -> void:
 # --- CALLBACK DO TIMER DE DESLIZE ---
 func _on_deslize_timer_timeout() -> void:
 	isdeslizando = false
-	# A velocidade horizontal volta a ser controlada pelo jogador
-	# Não zeramos velocity.x para evitar travamento
+	# volta para a colisão normal
+	collision_normal.disabled = false
+	collision_deslize.disabled = true
 
 # --- CALLBACK DO TIMER DE PULO ---
 func _on_jump_timer_timeout() -> void:

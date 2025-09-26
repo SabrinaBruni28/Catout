@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://br0j1gpnu4vhj"]
+[gd_scene load_steps=6 format=3 uid="uid://br0j1gpnu4vhj"]
 
 [ext_resource type="Script" uid="uid://kqfux088pcmp" path="res://scripts/jogador_corrida_base.gd" id="1_uwiph"]
 [ext_resource type="AudioStream" uid="uid://du6fmpm685fuv" path="res://assets/sounds/knockback.wav" id="2_4qwp2"]
@@ -43,12 +43,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wnn"]
-size = Vector2(15, 16.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfhf2"]
-size = Vector2(15, 14)
-
 [node name="JogadorCorridaBase" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_uwiph")
@@ -58,15 +52,16 @@ position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_evdde")
 animation = &"jump"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionNormal" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -9.5)
-shape = SubResource("RectangleShape2D_x3wnn")
+
+[node name="CollisionDeslize" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -9.5)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.416667, -9.58333)
-shape = SubResource("RectangleShape2D_gfhf2")
 
 [node name="Audios" type="Node" parent="."]
 
