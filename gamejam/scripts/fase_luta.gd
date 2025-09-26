@@ -37,4 +37,6 @@ func jogador2_tomar_dano(dano: int) -> void:
 	label_pontos_jogador_1.text = str(pontos_jogador1)
 
 func _on_tempo_jogo_timeout() -> void:
+	Global.pontos[0] = pontos_jogador1
+	Global.pontos[1] = pontos_jogador2
 	get_tree().change_scene_to_file("res://scenes/final_screen.tscn")
