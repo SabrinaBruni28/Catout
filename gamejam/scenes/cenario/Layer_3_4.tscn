@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=4 uid="uid://c7pxsn2mo5exa"]
-
-[ext_resource type="TileSet" uid="uid://cnef0gxv880ht" path="res://scenes/tres/tileset.tres" id="tileset_id"]
-
-[node name="Layer_3_4" type="TileMapLayer"]
-tile_map_data = PackedByteArray("AAAPAAMAAAAHAAkAAAAQAAMAAAAHAAkAAAAPAAQAAAAHAAkAAAAQAAQAAAAHAAkAAAAPAAUAAAAHAAkAAAAQAAUAAAAHAAkAAAAPAAYAAAAHAAkAAAAQAAYAAAAHAAkAAAAPAAcAAAAHAAkAAAAQAAcAAAAHAAkAAAAPAAgAAAAHAAkAAAAQAAgAAAAHAAkAAAAPAAkAAAAHAAkAAAAQAAkAAAAHAAkAAAAPAAoAAAAHAAkAAAAQAAoAAAAHAAkAAAAPAAsAAAAHAAkAAAAQAAsAAAAHAAkAAAA=")
-tile_set = ExtResource("tileset_id")
-collision_enabled = false

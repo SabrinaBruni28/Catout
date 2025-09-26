@@ -10,7 +10,7 @@ size = Vector2(14.75, 16.25)
 size = Vector2(16.25, 8.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1i6i"]
-size = Vector2(15.5, 14.5)
+size = Vector2(16.25, 14.5)
 
 [node name="Jogador_1" instance=ExtResource("1_xjoe1")]
 
@@ -33,5 +33,5 @@ shape = SubResource("RectangleShape2D_vwa7s")
 position = Vector2(0.5, 2)
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(-0.5, -9.25)
+position = Vector2(-0.625, -9.25)
 shape = SubResource("RectangleShape2D_u1i6i")
