@@ -34,16 +34,22 @@ func jogador1_tomar_dano(dano: int) -> void:
 	pontos_jogador2 += dano
 	label_pontos_jogador_2.text = str(pontos_jogador2)
 	if morte_subita:
+		# Espera 2 segundos antes de trocar de cena
+		await get_tree().create_timer(0.5).timeout
 		acaba_jogo()
 
 func jogador2_tomar_dano(dano: int) -> void:
 	pontos_jogador1 += dano
 	label_pontos_jogador_1.text = str(pontos_jogador1)
 	if morte_subita:
+		# Espera 2 segundos antes de trocar de cena
+		await get_tree().create_timer(1.0).timeout
 		acaba_jogo()
 
 func _on_tempo_jogo_timeout() -> void:
 	if pontos_jogador1 != pontos_jogador2:
+		# Espera 2 segundos antes de trocar de cena
+		await get_tree().create_timer(0.2).timeout
 		acaba_jogo()
 	else:
 		label_tempo.text = "Morte Súbita"
