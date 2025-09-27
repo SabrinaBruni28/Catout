@@ -15,7 +15,7 @@ func _on_button_1_pressed() -> void:
 func _on_button_2_pressed() -> void:
 	click_sound.play()
 	await click_sound.finished
-	get_tree().quit()
+	get_tree().change_scene_to_file(Global.tela_inicial)
 
 func _on_button_3_pressed() -> void:
 	click_sound.play()

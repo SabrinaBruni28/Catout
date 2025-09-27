@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnjk0ba3xyl0k"]
 
 [ext_resource type="PackedScene" uid="uid://bvhptbeojtc8u" path="res://scenes/fase_luta/jogador_luta_base.tscn" id="1_jaomx"]
-[ext_resource type="SpriteFrames" uid="uid://dw3hv3ovcu28q" path="res://tres/jogador1_luta.tres" id="2_3dbl6"]
+[ext_resource type="SpriteFrames" uid="uid://cl33vs4wmyk44" path="res://tres/gato_marrom/gato_luta.tres" id="2_ckk6r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dbl6"]
 size = Vector2(16.25, 14.75)
@@ -17,7 +17,7 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(-1, -9.75)
 scale = Vector2(0.3, 0.3)
-sprite_frames = ExtResource("2_3dbl6")
+sprite_frames = ExtResource("2_ckk6r")
 animation = &"dash"
 
 [node name="CollisionShape2D" parent="." index="1"]

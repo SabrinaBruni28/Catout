@@ -1,45 +1,45 @@
-[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://cmiiwrjcmyc7c"]
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://ux67ssibilm4"]
 
-[ext_resource type="Texture2D" uid="uid://cmyei7ah8oii5" path="res://assets/sprites/gato2_corrida.png" id="1_wwauk"]
+[ext_resource type="Texture2D" uid="uid://cmyei7ah8oii5" path="res://assets/sprites/gato2_corrida.png" id="1_pt5ky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_de30m"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(0, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cii54"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mp2ra"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qnup"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(0, 384, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f0iku"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(64, 384, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqskv"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(128, 384, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8r0bf"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(192, 384, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrt5"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(0, 384, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t42jo"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(256, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ppu5"]
-atlas = ExtResource("1_wwauk")
+atlas = ExtResource("1_pt5ky")
 region = Rect2(320, 128, 64, 64)
 
 [resource]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://8y0lkj3thnau"]
+
+[ext_resource type="PackedScene" uid="uid://mm7endc3mrl0" path="res://scenes/screens/base_screen.tscn" id="1_1n2bf"]
+[ext_resource type="Script" uid="uid://bi5d4phdypcno" path="res://scripts/screens/opcoes_screen.gd" id="2_2atps"]
+[ext_resource type="SpriteFrames" uid="uid://bkpwhe1fbrkrr" path="res://tres/gato_marrom/gato_corrida.tres" id="3_2atps"]
+[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="3_7xddr"]
+[ext_resource type="SpriteFrames" uid="uid://ux67ssibilm4" path="res://tres/gato_preto/gato_corrida.tres" id="4_e5aaf"]
+[ext_resource type="ButtonGroup" uid="uid://bmxk2ot7nh4r6" path="res://tres/buttons/jogador1.tres" id="4_hbp0l"]
+[ext_resource type="ButtonGroup" uid="uid://bcivrwb8c1xf8" path="res://tres/buttons/jogador2.tres" id="7_1xwvy"]
+
+[node name="OpcoesScreen" instance=ExtResource("1_1n2bf")]
+script = ExtResource("2_2atps")
+
+[node name="Gatinho1" type="Label" parent="." index="1"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 590.0
+offset_right = 318.0
+offset_bottom = 622.0
+theme_override_fonts/font = ExtResource("3_7xddr")
+theme_override_font_sizes/font_size = 24
+text = "Gatinho 1"
+
+[node name="Gatinho2" type="Label" parent="." index="2"]
+layout_mode = 0
+offset_left = 861.0
+offset_top = 592.0
+offset_right = 1061.0
+offset_bottom = 624.0
+theme_override_fonts/font = ExtResource("3_7xddr")
+theme_override_font_sizes/font_size = 24
+text = "Gatinho 2"
+
+[node name="OpcoesJogador1" type="Node" parent="." index="3"]
+
+[node name="GatoMarromJogador1" type="Button" parent="OpcoesJogador1" index="0"]
+offset_left = 146.0
+offset_top = 235.0
+offset_right = 256.0
+offset_bottom = 345.0
+toggle_mode = true
+button_group = ExtResource("4_hbp0l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="OpcoesJogador1/GatoMarromJogador1" index="0"]
+position = Vector2(57, 44)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_2atps")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="GatoPretoJogador1" type="Button" parent="OpcoesJogador1" index="1"]
+offset_left = 145.0
+offset_top = 409.0
+offset_right = 255.0
+offset_bottom = 519.0
+toggle_mode = true
+button_group = ExtResource("4_hbp0l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="OpcoesJogador1/GatoPretoJogador1" index="0"]
+position = Vector2(51, 43)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_e5aaf")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="OpcoesJogador2" type="Node" parent="." index="4"]
+
+[node name="GatoMarromJogador2" type="Button" parent="OpcoesJogador2" index="0"]
+offset_left = 879.0
+offset_top = 239.0
+offset_right = 989.0
+offset_bottom = 349.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("7_1xwvy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="OpcoesJogador2/GatoMarromJogador2" index="0"]
+position = Vector2(55.9999, 41)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_2atps")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="GatoPretoJogador2" type="Button" parent="OpcoesJogador2" index="1"]
+offset_left = 880.0
+offset_top = 410.0
+offset_right = 990.0
+offset_bottom = 520.0
+toggle_mode = true
+button_group = ExtResource("7_1xwvy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="OpcoesJogador2/GatoPretoJogador2" index="0"]
+position = Vector2(55, 43)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_e5aaf")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+text = "Selecione"
+
+[node name="HSeparator2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
+theme_override_constants/separation = 320
+
+[node name="Button1" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
+text = "Continuar"
+
+[node name="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" index="4"]
+theme_override_constants/separation = 25
+
+[connection signal="mouse_entered" from="OpcoesJogador1/GatoMarromJogador1" to="." method="_on_gato_marrom_jogador_1_mouse_entered"]
+[connection signal="pressed" from="OpcoesJogador1/GatoMarromJogador1" to="." method="_on_gato_marrom_jogador_1_pressed"]
+[connection signal="mouse_entered" from="OpcoesJogador1/GatoPretoJogador1" to="." method="_on_gato_preto_jogador_1_mouse_entered"]
+[connection signal="pressed" from="OpcoesJogador1/GatoPretoJogador1" to="." method="_on_gato_preto_jogador_1_pressed"]
+[connection signal="mouse_entered" from="OpcoesJogador2/GatoMarromJogador2" to="." method="_on_gato_marrom_jogador_2_mouse_entered"]
+[connection signal="pressed" from="OpcoesJogador2/GatoMarromJogador2" to="." method="_on_gato_marrom_jogador_2_pressed"]
+[connection signal="mouse_entered" from="OpcoesJogador2/GatoPretoJogador2" to="." method="_on_gato_preto_jogador_2_mouse_entered"]
+[connection signal="pressed" from="OpcoesJogador2/GatoPretoJogador2" to="." method="_on_gato_preto_jogador_2_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

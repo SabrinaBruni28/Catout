@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://duelttl0hyk0h"]
+[gd_scene load_steps=18 format=3 uid="uid://duelttl0hyk0h"]
 
+[ext_resource type="Script" uid="uid://b58qeaxeshldf" path="res://scripts/fases/fase_corrida.gd" id="1_00exl"]
 [ext_resource type="PackedScene" uid="uid://dj7dg5440ru2m" path="res://scenes/cenario/background.tscn" id="1_2pr2i"]
 [ext_resource type="PackedScene" uid="uid://cbmxermfagagb" path="res://scenes/fase_corrida/jogador_1.tscn" id="2_0glfh"]
 [ext_resource type="Script" uid="uid://clklmhuqfcy7j" path="res://scripts/componentes/camera.gd" id="2_2mx4m"]
@@ -20,6 +21,7 @@
 normal = Vector2(-1, 0)
 
 [node name="FaseCorrida" type="Node2D"]
+script = ExtResource("1_00exl")
 
 [node name="Background" parent="." instance=ExtResource("1_2pr2i")]
 scale = Vector2(2, 2)

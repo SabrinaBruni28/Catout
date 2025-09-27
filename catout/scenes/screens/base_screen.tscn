@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b18ic41welbig" path="res://assets/sprites/background.png" id="1_jkdof"]
 [ext_resource type="PackedScene" uid="uid://b61ocd4kqlnl4" path="res://scenes/cenario/efeito_matriz.tscn" id="2_0ivcs"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="2_atl4s"]
-[ext_resource type="Theme" uid="uid://blhdcuutacduk" path="res://tres/button.tres" id="2_ig2w1"]
+[ext_resource type="Theme" uid="uid://blhdcuutacduk" path="res://tres/buttons/button.tres" id="2_ig2w1"]
 [ext_resource type="AudioStream" uid="uid://cibp8cffbyqgx" path="res://assets/sounds/mouse_click.mp3" id="2_yioes"]
 [ext_resource type="AudioStream" uid="uid://cg81mojeb5kmy" path="res://assets/sounds/mouse_hover.mp3" id="3_py8tu"]
 

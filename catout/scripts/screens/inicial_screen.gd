@@ -8,7 +8,7 @@ func _on_button_1_pressed() -> void:
 	click_sound.play()
 	music.stop()
 	await  click_sound.finished
-	get_tree().change_scene_to_file(Global.fase_corrida)
+	get_tree().change_scene_to_file(Global.tela_opcoes)
 
 func _on_button_2_pressed() -> void:
 	click_sound.play()
