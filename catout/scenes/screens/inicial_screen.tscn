@@ -24,10 +24,10 @@ theme_override_constants/separation = 25
 
 [node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
 theme_override_font_sizes/font_size = 80
-text = "Speed Cat"
+text = "Catout"
 
 [node name="HSeparator2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
-theme_override_constants/separation = 210
+theme_override_constants/separation = 200
 
 [node name="Button1" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
 theme_override_font_sizes/font_size = 32
@@ -37,7 +37,7 @@ text = "Jogar"
 theme_override_font_sizes/font_size = 32
 
 [node name="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" index="4"]
-theme_override_constants/separation = 80
+theme_override_constants/separation = 78
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Audios" index="2"]
 stream = ExtResource("3_qu5om")

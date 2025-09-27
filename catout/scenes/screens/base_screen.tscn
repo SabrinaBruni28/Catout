@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://mm7endc3mrl0"]
+[gd_scene load_steps=8 format=3 uid="uid://mm7endc3mrl0"]
 
 [ext_resource type="Texture2D" uid="uid://b18ic41welbig" path="res://assets/sprites/background.png" id="1_jkdof"]
+[ext_resource type="PackedScene" uid="uid://b61ocd4kqlnl4" path="res://scenes/cenario/efeito_matriz.tscn" id="2_0ivcs"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="2_atl4s"]
 [ext_resource type="Theme" uid="uid://blhdcuutacduk" path="res://tres/button.tres" id="2_ig2w1"]
 [ext_resource type="AudioStream" uid="uid://cibp8cffbyqgx" path="res://assets/sounds/mouse_click.mp3" id="2_yioes"]
@@ -26,6 +27,18 @@ grow_vertical = 2
 size_flags_horizontal = 0
 texture = ExtResource("1_jkdof")
 expand_mode = 1
+
+[node name="EfeitoMatriz" parent="Background" instance=ExtResource("2_0ivcs")]
+layout_mode = 0
+offset_left = -23.0
+offset_right = -23.0
+
+[node name="EfeitoMatriz2" parent="Background" instance=ExtResource("2_0ivcs")]
+layout_mode = 0
+offset_left = 1161.0
+offset_top = 3.0
+offset_right = 1161.0
+offset_bottom = 3.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

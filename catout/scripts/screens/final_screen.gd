@@ -9,9 +9,15 @@ func _ready():
 	pontos_1.text = str(Global.pontos[0])
 	pontos_2.text = str(Global.pontos[1])
 	if Global.pontos[0] > Global.pontos[1]:
-		title.text = "Jogador 1 Venceu"
+		if Global.player_win == 1:
+			title.text = "Gatinho 1 Venceu"
+		else:
+			title.text = "Os dois ficaram presos"
 	elif Global.pontos[0] < Global.pontos[1]:
-		title.text = "Jogador 2 Venceu"
+		if Global.player_win == 2:
+			title.text = "Gatinho 2 Venceu"
+		else:
+			title.text = "Os dois ficaram presos"
 
 func _on_button_1_pressed() -> void:
 	click_sound.play()

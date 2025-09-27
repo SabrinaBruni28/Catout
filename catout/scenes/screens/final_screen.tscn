@@ -62,10 +62,10 @@ script = ExtResource("2_ofgb8")
 
 [node name="NomeFase" type="Label" parent="." index="1"]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 23.0
-offset_right = 259.0
-offset_bottom = 55.0
+offset_left = 94.0
+offset_top = 24.0
+offset_right = 330.0
+offset_bottom = 56.0
 theme_override_fonts/font = ExtResource("3_ofgb8")
 theme_override_font_sizes/font_size = 32
 text = "Fase Luta"
@@ -84,7 +84,7 @@ offset_right = 33.3333
 offset_bottom = 55.6667
 theme_override_fonts/font = ExtResource("3_ofgb8")
 theme_override_font_sizes/font_size = 8
-text = "Jogador 1"
+text = "Gatinho 1"
 
 [node name="Jogador2" type="AnimatedSprite2D" parent="." index="3"]
 position = Vector2(961, 518)
@@ -101,7 +101,7 @@ offset_right = 32.3333
 offset_bottom = 55.0
 theme_override_fonts/font = ExtResource("3_ofgb8")
 theme_override_font_sizes/font_size = 8
-text = "Jogador 2"
+text = "Gatinho 2"
 
 [node name="Pontos1" type="Label" parent="." index="4"]
 layout_mode = 2
@@ -127,7 +127,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
 theme_override_font_sizes/font_size = 48
-text = "Jogador 1 venceu"
+text = "Gatinho 1 venceu"
 
 [node name="HSeparator2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
 theme_override_constants/separation = 300

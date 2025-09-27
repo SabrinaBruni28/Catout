@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://b61ocd4kqlnl4"]
+
+[ext_resource type="Texture2D" uid="uid://y2d73avb7cre" path="res://assets/sprites/matrix .png" id="1_hsiq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boyed"]
+atlas = ExtResource("1_hsiq0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5tlh"]
+atlas = ExtResource("1_hsiq0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac3b3"]
+atlas = ExtResource("1_hsiq0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3up2"]
+atlas = ExtResource("1_hsiq0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u47ew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boyed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5tlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac3b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3up2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="EfeitoMatriz" type="TextureRect"]
+
+[node name="NuvemBits0" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -51)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits1" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 46)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits2" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 142)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits3" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, 238)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits4" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 331)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits5" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 427)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits6" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, 523)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits7" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 618)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits8" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 715)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits9" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 811)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"
+
+[node name="NuvemBits10" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, 907)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u47ew")
+autoplay = "default"

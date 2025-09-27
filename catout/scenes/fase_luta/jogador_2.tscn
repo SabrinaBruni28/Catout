@@ -121,26 +121,29 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xj03y"]
-size = Vector2(15, 14.75)
+size = Vector2(16.25, 14.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odg0h"]
-size = Vector2(16.25, 14.75)
+size = Vector2(17.25, 14.75)
 
 [node name="Jogador2" instance=ExtResource("1_pym6c")]
 input_prefix = "p2_"
 spawn_point = Vector2(1000, 0)
 
 [node name="Jogador" parent="." index="0"]
-position = Vector2(-0.25, -9.75)
+position = Vector2(-1.5, -9.75)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_gdjon")
-animation = &"contradefesa"
+animation = &"run"
 flip_h = true
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0.25, -7.625)
+position = Vector2(-1.625, -7.5)
 shape = SubResource("RectangleShape2D_xj03y")
 
+[node name="Area2D" parent="." index="2"]
+position = Vector2(-1, 0.25)
+
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(0.125, -7.625)
+position = Vector2(-0.375, -7.625)
 shape = SubResource("RectangleShape2D_odg0h")

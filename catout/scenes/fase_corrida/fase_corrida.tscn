@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://duelttl0hyk0h"]
+[gd_scene load_steps=18 format=3 uid="uid://duelttl0hyk0h"]
 
 [ext_resource type="PackedScene" uid="uid://dj7dg5440ru2m" path="res://scenes/cenario/background.tscn" id="1_2pr2i"]
 [ext_resource type="PackedScene" uid="uid://cbmxermfagagb" path="res://scenes/fase_corrida/jogador_1.tscn" id="2_0glfh"]
@@ -7,49 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://b2ir8178oror4" path="res://scenes/cenario/nuvens.tscn" id="2_g2fdo"]
 [ext_resource type="PackedScene" uid="uid://diwhvjk06diif" path="res://scenes/fase_corrida/jogador_2.tscn" id="3_2mx4m"]
 [ext_resource type="PackedScene" uid="uid://dhc42j6x1sljt" path="res://scenes/cenario/mapa_corrida.tscn" id="3_51v1q"]
-[ext_resource type="Texture2D" uid="uid://y2d73avb7cre" path="res://assets/sprites/matrix .png" id="4_cbmdj"]
 [ext_resource type="PackedScene" uid="uid://dj542qdln0l78" path="res://scenes/objetos/lan.tscn" id="5_2mx4m"]
 [ext_resource type="PackedScene" uid="uid://cdvar3bm4imc0" path="res://scenes/objetos_movimento/carro.tscn" id="5_sq5gx"]
 [ext_resource type="Script" uid="uid://bwmgkpssl618a" path="res://scripts/componentes/linha_chegada.gd" id="9_4ngo5"]
+[ext_resource type="PackedScene" uid="uid://b61ocd4kqlnl4" path="res://scenes/cenario/efeito_matriz.tscn" id="9_cdcyt"]
 [ext_resource type="PackedScene" uid="uid://jg3npjj2ct00" path="res://scenes/objetos/peixe.tscn" id="10_51v1q"]
 [ext_resource type="PackedScene" uid="uid://se5bf5ktn2kl" path="res://scenes/objetos/sardinha.tscn" id="11_cbmdj"]
 [ext_resource type="AudioStream" uid="uid://bunxxye7nqw16" path="res://assets/music/corrida.mp3" id="14_boyed"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_boyed"]
-atlas = ExtResource("4_cbmdj")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5tlh"]
-atlas = ExtResource("4_cbmdj")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ac3b3"]
-atlas = ExtResource("4_cbmdj")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3up2"]
-atlas = ExtResource("4_cbmdj")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6hbcj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_boyed")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w5tlh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ac3b3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o3up2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o4bjq"]
 
@@ -103,82 +67,11 @@ position = Vector2(60, 385)
 position = Vector2(578, 323)
 script = ExtResource("2_2mx4m")
 
-[node name="NuvemBits0" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-574, -374)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.621401
-
-[node name="NuvemBits1" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-574, -277)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.717752
-
-[node name="NuvemBits2" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-573, -181)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.523942
-
-[node name="NuvemBits3" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-572, -85)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.621401
-
-[node name="NuvemBits4" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-573, 8)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.621401
-
-[node name="NuvemBits5" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-573, 104)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.621401
-
-[node name="NuvemBits6" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-572, 200)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.621401
-
-[node name="NuvemBits7" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-573, 295)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.621401
-
-[node name="NuvemBits8" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-573, 392)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.621401
-
-[node name="NuvemBits9" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-573, 488)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.621401
-
-[node name="NuvemBits10" type="AnimatedSprite2D" parent="CameraMatrix"]
-position = Vector2(-572, 584)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_6hbcj")
-autoplay = "default"
-frame_progress = 0.621401
+[node name="EfeitoMatriz" parent="CameraMatrix" instance=ExtResource("9_cdcyt")]
+offset_left = -562.0
+offset_top = -414.0
+offset_right = -562.0
+offset_bottom = -414.0
 
 [node name="ParedeEsquerda" type="StaticBody2D" parent="."]
 position = Vector2(-2, 290)
