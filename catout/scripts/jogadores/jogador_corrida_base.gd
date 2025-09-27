@@ -118,7 +118,7 @@ func directions(delta: float) -> void:
 # --- Pegar item ---
 func pegar_item(area: Area2D):
 	var parent = area.get_parent()
-	if not parent.is_held:
+	if not parent.is_held and not parent.lancado:
 		held_item = parent
 		held_item.pick_up(self)
 
