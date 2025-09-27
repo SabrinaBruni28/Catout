@@ -81,8 +81,10 @@ Durante a corrida, os gatinhos podem coletar itens especiais:
 
 ## 👥 Equipe de Desenvolvimento
 Criado com 💜, garras afiadas 🐾 e muita criatividade por:  
-**[Nome da Equipe]** 😺✨  
-
+- [Sabrina Bruni](https://github.com/SabrinaBruni28)
+- [Breno Júnio](https://github.com/BMPlays)
+- [Edgar Alves](https://github.com/EdgarAlvesUFV)
+- [Luiz Guilherme](https://github.com/Jon-Lemmon)
 ---
 
 ## 🚀 Como Jogar
