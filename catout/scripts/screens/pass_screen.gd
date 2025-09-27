@@ -1,11 +1,23 @@
 extends Control
 
+@onready var jogador_1: AnimatedSprite2D = $Jogador1
+@onready var jogador_2: AnimatedSprite2D = $Jogador2
 @onready var hover_sound: AudioStreamPlayer2D = $Audios/HoverSound
 @onready var click_sound: AudioStreamPlayer2D = $Audios/ClickSound
 @onready var title: Label = $MarginContainer/HBoxContainer/VBoxContainer/Title
 
 func _ready() -> void:
+	set_personagem(Global.gato1_corrida(), jogador_1)
+	set_personagem(Global.gato2_corrida(), jogador_2)
 	title.text = "Gatinho " + str(Global.player_win)+ " Venceu"
+
+func set_personagem(caminho_tres: String, player) -> void:
+	var sprite_frames = load(caminho_tres) as SpriteFrames
+	if sprite_frames:
+		player.frames = sprite_frames
+		player.play("idle")  # animação inicial
+	else:
+		push_error("Falha ao carregar o .tres: " + caminho_tres)
 
 func _on_button_1_pressed() -> void:
 	click_sound.play()

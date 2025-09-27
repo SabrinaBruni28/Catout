@@ -5,6 +5,5 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Conecta sinais (Godot 4)
 	jogador_1.set_personagem(Global.gato1_corrida())
 	jogador_2.set_personagem(Global.gato2_corrida())
