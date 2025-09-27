@@ -1,0 +1,145 @@
+[gd_scene load_steps=14 format=3 uid="uid://d3ksu1wb4dqp5"]
+
+[ext_resource type="PackedScene" uid="uid://mm7endc3mrl0" path="res://scenes/screens/base_screen.tscn" id="1_f0wv2"]
+[ext_resource type="Script" uid="uid://bmtsm3pmajw1" path="res://scripts/screens/pass_screen.gd" id="2_0pkau"]
+[ext_resource type="Texture2D" uid="uid://myxmh6clsm2i" path="res://assets/sprites/gato1_corrida.png" id="3_w3810"]
+[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="4_w3810"]
+[ext_resource type="Texture2D" uid="uid://cmyei7ah8oii5" path="res://assets/sprites/gato2_corrida.png" id="5_sql6j"]
+[ext_resource type="Theme" uid="uid://blhdcuutacduk" path="res://tres/button.tres" id="6_cli0h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sql6j"]
+atlas = ExtResource("3_w3810")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dme57"]
+atlas = ExtResource("3_w3810")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1mgr"]
+atlas = ExtResource("3_w3810")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7i0g3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sql6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dme57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1mgr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57iqm"]
+atlas = ExtResource("5_sql6j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl21v"]
+atlas = ExtResource("5_sql6j")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_muy6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57iqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl21v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="PassScreen" instance=ExtResource("1_f0wv2")]
+script = ExtResource("2_0pkau")
+
+[node name="NomeFase" type="Label" parent="." index="1"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 26.0
+offset_right = 400.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_w3810")
+theme_override_font_sizes/font_size = 32
+text = "Fase Corrida"
+
+[node name="Jogador1" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(168, 518)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_7i0g3")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.449629
+
+[node name="Label" type="Label" parent="Jogador1" index="0"]
+offset_left = -27.0
+offset_top = 32.0
+offset_right = 33.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("4_w3810")
+theme_override_font_sizes/font_size = 8
+text = "Gatinho 1"
+
+[node name="Jogador2" type="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(966, 520)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_muy6p")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.376253
+flip_h = true
+
+[node name="Label" type="Label" parent="Jogador2" index="0"]
+offset_left = -29.3333
+offset_top = 32.0
+offset_right = 30.6667
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("4_w3810")
+theme_override_font_sizes/font_size = 8
+text = "Gatinho 2"
+
+[node name="MarginContainer" parent="." index="4"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -424.0
+offset_top = -558.0
+offset_right = 424.0
+
+[node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 48
+text = "Gatinho 1 Venceu"
+
+[node name="HSeparator2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
+theme_override_constants/separation = 250
+
+[node name="Button1" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
+size_flags_horizontal = 4
+text = "Próximo nível"
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_cli0h")
+theme_override_fonts/font = ExtResource("4_w3810")
+theme_override_font_sizes/font_size = 24
+text = "Jogar Novamente"
+
+[node name="Button2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="4"]
+size_flags_horizontal = 4
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=4 uid="uid://bqfdbidkv45bd"]
+
+[ext_resource type="TileSet" uid="uid://dvoaxy646f2jy" path="res://tres/tileset.tres" id="tileset_id"]
+
+[node name="ChaoDeslizar" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAAPAAMAAAAHAAkAAAAQAAMAAAAHAAkAAAAPAAQAAAAHAAkAAAAQAAQAAAAHAAkAAAAPAAUAAAAHAAkAAAAQAAUAAAAHAAkAAAAPAAYAAAAHAAkAAAAQAAYAAAAHAAkAAAAPAAcAAAAHAAkAAAAQAAcAAAAHAAkAAAAPAAgAAAAHAAkAAAAQAAgAAAAHAAkAAAAPAAkAAAAHAAkAAAAQAAkAAAAHAAkAAAAPAAoAAAAHAAkAAAAQAAoAAAAHAAkAAAAPAAsAAAAHAAkAAAAQAAsAAAAHAAkAAAA=")
+tile_set = ExtResource("tileset_id")
+collision_enabled = false

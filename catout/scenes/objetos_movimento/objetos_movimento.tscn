@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2tgmyjliua7a"]
+
+[ext_resource type="Script" uid="uid://b34jnqwcxk4xs" path="res://scripts/componentes/objetos_movimento.gd" id="1_cylq0"]
+[ext_resource type="Texture2D" uid="uid://bqf32vae1uwjs" path="res://assets/sprites/carro.png" id="1_thaol"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cylq0"]
+atlas = ExtResource("1_thaol")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5p3p"]
+atlas = ExtResource("1_thaol")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ib52d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cylq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5p3p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rs8t"]
+atlas = ExtResource("1_thaol")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db3ar"]
+atlas = ExtResource("1_thaol")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkfxj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rs8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db3ar")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="ObjetosMovimento" type="CharacterBody2D"]
+texture_filter = 1
+texture_repeat = 1
+script = ExtResource("1_cylq0")
+
+[node name="ParteFrente" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ib52d")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.797019
+
+[node name="ParteTras" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(-16, -10)
+sprite_frames = SubResource("SpriteFrames_dkfxj")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.168496
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(2, -12.5)
+polygon = PackedVector2Array(1, -11.5, 12, -5.5, 19, -4.5, 25, 0.5, 25, 7.5, 22, 7.5, 21, 9.5, 19, 12.5, 16, 10.5, 14, 7.5, -13, 8.5, -17, 11.5, -22, 8.5, -26, 8.5, -26, 1.5, -21, -4.5, -15, -5.5, -10, -11.5)
