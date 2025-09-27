@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b61ocd4kqlnl4"]
+[gd_scene load_steps=8 format=3 uid="uid://b61ocd4kqlnl4"]
 
 [ext_resource type="Texture2D" uid="uid://y2d73avb7cre" path="res://assets/sprites/matrix .png" id="1_hsiq0"]
 
@@ -38,70 +38,82 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="EfeitoMatriz" type="TextureRect"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hsiq0"]
+normal = Vector2(0.999851, -0.0172388)
 
-[node name="NuvemBits0" type="AnimatedSprite2D" parent="."]
+[node name="EfeitoMatriz" type="Area2D"]
+
+[node name="Matriz" type="TextureRect" parent="."]
+offset_left = -23.0
+offset_top = 1.0
+offset_right = -23.0
+offset_bottom = 1.0
+
+[node name="NuvemBits0" type="AnimatedSprite2D" parent="Matriz"]
 position = Vector2(4, -51)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits1" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 46)
+[node name="NuvemBits1" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 45)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits2" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 142)
+[node name="NuvemBits2" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 141)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits3" type="AnimatedSprite2D" parent="."]
-position = Vector2(6, 238)
+[node name="NuvemBits3" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 237)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits4" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 331)
+[node name="NuvemBits4" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 331)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits5" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 427)
+[node name="NuvemBits5" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 426)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits6" type="AnimatedSprite2D" parent="."]
-position = Vector2(6, 523)
+[node name="NuvemBits6" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 522)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits7" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 618)
+[node name="NuvemBits7" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 617)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits8" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 715)
+[node name="NuvemBits8" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 712)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits9" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 811)
+[node name="NuvemBits9" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 807)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
 
-[node name="NuvemBits10" type="AnimatedSprite2D" parent="."]
-position = Vector2(6, 907)
+[node name="NuvemBits10" type="AnimatedSprite2D" parent="Matriz"]
+position = Vector2(4, 902)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_u47ew")
 autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_hsiq0")

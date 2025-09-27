@@ -30,8 +30,6 @@ func _process(delta: float) -> void:
 	var viewport_rect: Rect2 = Rect2(global_position - viewport_size * 0.5, viewport_size)
 	var left_bound: float = viewport_rect.position.x - left_kill_margin
 
-	var dead_player: CharacterBody2D = null
-
 	for player in [jogador_1, jogador_2]:
 		if not player:
 			continue
@@ -52,15 +50,14 @@ func _process(delta: float) -> void:
 		if leftmost_x < left_bound:
 			if player.has_method("morre"):
 				player.morre()
-				dead_player = player
-
-	# Depois de verificar quem morreu, define o vencedor
-	if dead_player:
-		# Se o jogador 1 não morreu, ele venceu
-		if jogador_1 != dead_player:
-			Global.player_win = 1
-		else:
-			Global.player_win = 2
-
-		# Muda para a tela final
-		get_tree().change_scene_to_file(Global.tela_pass)
+				dead(player)
+		
+func dead(dead_player):
+	# Se o jogador 1 não morreu, ele venceu
+	if jogador_1 != dead_player:
+		Global.player_win = 1
+	else:
+		Global.player_win = 2
+	# Muda para a tela final
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file(Global.tela_pass)

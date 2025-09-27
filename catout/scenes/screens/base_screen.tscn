@@ -29,16 +29,10 @@ texture = ExtResource("1_jkdof")
 expand_mode = 1
 
 [node name="EfeitoMatriz" parent="Background" instance=ExtResource("2_0ivcs")]
-layout_mode = 0
-offset_left = -23.0
-offset_right = -23.0
+position = Vector2(33, 1)
 
 [node name="EfeitoMatriz2" parent="Background" instance=ExtResource("2_0ivcs")]
-layout_mode = 0
-offset_left = 1161.0
-offset_top = 3.0
-offset_right = 1161.0
-offset_bottom = 3.0
+position = Vector2(1151, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
