@@ -14,6 +14,8 @@ var lancado: bool = false
 func _ready() -> void:
 	# começa parado
 	add_to_group("item")
+	self.collision_layer = 2
+	self.collision_mask = 1
 
 func _physics_process(delta: float) -> void:
 	if is_held and held_by:
@@ -41,6 +43,7 @@ func pick_up(player: Node) -> void:
 	set_collision_mask_value(1, false)   # não colide com nada
 
 func throw_item() -> void:
+	self.collision_layer = 1
 	lancado = true
 	is_held = false
 	held_by = null
