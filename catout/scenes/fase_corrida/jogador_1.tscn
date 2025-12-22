@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbmxermfagagb"]
 
 [ext_resource type="PackedScene" uid="uid://br0j1gpnu4vhj" path="res://scenes/fase_corrida/jogador_corrida_base.tscn" id="1_xjoe1"]
-[ext_resource type="SpriteFrames" uid="uid://cmaowedgp3hft" path="res://tres/jogador1_corrida.tres" id="2_ltnmy"]
+[ext_resource type="SpriteFrames" uid="uid://bkpwhe1fbrkrr" path="res://tres/gato_marrom/gato_corrida.tres" id="2_b6g7t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltnmy"]
 size = Vector2(14.75, 14.375)
@@ -17,7 +17,7 @@ size = Vector2(16.25, 14.5)
 [node name="Jogador" parent="." index="0"]
 position = Vector2(0, -9.75)
 scale = Vector2(0.3, 0.3)
-sprite_frames = ExtResource("2_ltnmy")
+sprite_frames = ExtResource("2_b6g7t")
 animation = &"run"
 
 [node name="CollisionNormal" parent="." index="1"]

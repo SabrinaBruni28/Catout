@@ -36,6 +36,7 @@ func _ready() -> void:
 
 	collision_normal.disabled = false
 	collision_deslize.disabled = true
+	
 	add_to_group("player")  # adiciona a um grupo para colisões e itens
 
 # --- PROCESSO PRINCIPAL DE FÍSICA ---
@@ -118,7 +119,7 @@ func directions(delta: float) -> void:
 # --- Pegar item ---
 func pegar_item(area: Area2D):
 	var parent = area.get_parent()
-	if not parent.is_held:
+	if not parent.is_held and not parent.lancado:
 		held_item = parent
 		held_item.pick_up(self)
 
@@ -152,6 +153,14 @@ func set_animation(anim: String) -> void:
 		return
 	current_animation = anim
 	player.play(anim)
+
+func set_personagem(caminho_tres: String) -> void:
+	var sprite_frames = load(caminho_tres) as SpriteFrames
+	if sprite_frames:
+		player.frames = sprite_frames
+		player.play("idle")  # animação inicial
+	else:
+		push_error("Falha ao carregar o .tres: " + caminho_tres)
 
 # --- CALLBACK DO TIMER DE DESLIZE ---
 func _on_deslize_timer_timeout() -> void:

@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────
+# Godot engine
+# ─────────────────────────────────────────────
+
+# Arquivos importados (gerados automaticamente)
+.import/
+*.import
+.godot/
+*.godot/
+# Godot 4 UID files
+*.uid
+
+# Ocultos do sistema
+.*.swp
+.DS_Store
+Thumbs.db
+
+# Cache do editor
+.cache/
+.editor_settings-3.tres
+.editor_settings-4.tres
+
+# Logs
+logs/
+*.log
+
+# Pasta de builds
+/bin/
+build/
+dist/
+exports/
+
+# Python virtual env (caso use)
+venv/
+
+# ─────────────────────────────────────────────
+# IDEs / Ferramentas
+# ─────────────────────────────────────────────
+
+# VSCode
+.vscode/
+.history/
+
+# JetBrains (Rider / CLion)
+.idea/
+
+# Mono
+.mono/
+data_*/
+
+# C#
+*.dll
+*.exe
+*.mdb
+*.pdb
+

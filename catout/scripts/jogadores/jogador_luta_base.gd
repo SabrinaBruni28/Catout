@@ -6,6 +6,7 @@ const KNOCKBACK_SPEED = 5000.0
 
 @export var input_prefix: String = "p1_"   # cada jogador muda isso no Inspector
 @export var spawn_point: Vector2 = Vector2(0, 0)
+@export var anim_sprite_resource: SpriteFrames
 
 @onready var dash_timer: Timer = $Timers/DashTimer
 @onready var morte_timer: Timer = $Timers/MorteTimer
@@ -130,6 +131,14 @@ func iniciar_acao(indice: int) -> void:
 
 func resetar_acao(indice: int) -> void:
 	flags[indice] = true
+	
+func set_personagem(caminho_tres: String) -> void:
+	var sprite_frames = load(caminho_tres) as SpriteFrames
+	if sprite_frames:
+		player.frames = sprite_frames
+		player.play("idle")  # animação inicial
+	else:
+		push_error("Falha ao carregar o .tres: " + caminho_tres)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()
