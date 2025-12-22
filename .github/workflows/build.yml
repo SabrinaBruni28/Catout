@@ -1,0 +1,116 @@
+name: Godot Multi-Platform Build
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Godot 4.5 Headless
+      - name: Download Godot Headless
+        run: |
+          wget https://github.com/godotengine/godot/releases/download/4.4-stable/Godot_v4.4-stable_linux.x86_64.zip -O godot.zip
+          unzip godot.zip -d godot
+          chmod +x godot/Godot_v4.4-stable_linux.x86_64
+
+      # Export Templates
+      - name: Download Export Templates
+        run: |
+          wget https://github.com/godotengine/godot/releases/download/4.4-stable/Godot_v4.4-stable_export_templates.tpz -O templates.tpz
+          mkdir -p ~/.local/share/godot/export_templates/4.4.stable
+          unzip -q templates.tpz -d /tmp/templates
+          cp -r /tmp/templates/templates/* ~/.local/share/godot/export_templates/4.4.stable/
+
+      # Pastas
+      - name: Prepare directories
+        run: |
+          mkdir -p build/windows build/linux build/web
+
+      # IMPORTAÇÃO (obrigatória)
+      - name: Import assets
+        working-directory: catout
+        run: |
+          ../godot/Godot_v4.4-stable_linux.x86_64 \
+            --headless \
+            --path . \
+            --import
+
+      # Windows
+      - name: Export Windows
+        working-directory: catout
+        run: |
+          ../godot/Godot_v4.4-stable_linux.x86_64 \
+            --headless \
+            --export-release "Windows Desktop" ../build/windows/Catout.exe
+
+      # Linux
+      - name: Export Linux
+        working-directory: catout
+        run: |
+          ../godot/Godot_v4.4-stable_linux.x86_64 \
+            --headless \
+            --export-release "Linux" ../build/linux/Catout.x86_64
+
+      # Web
+      - name: Export Web
+        working-directory: catout
+        run: |
+          ../godot/Godot_v4.4-stable_linux.x86_64 \
+            --headless \
+            --export-release "Web" ../build/web/index.html
+
+      # Upload Windows
+      - name: Upload Windows build
+        uses: actions/upload-artifact@v4
+        with:
+          name: catout-windows
+          path: |
+            build/windows/Catout.exe
+            build/windows/Catout.pck
+
+      # Upload Linux
+      - name: Upload Linux build
+        uses: actions/upload-artifact@v4
+        with:
+          name: catout-linux
+          path: |
+            build/linux/Catout.x86_64
+            build/linux/Catout.pck
+
+      # Upload Web
+      - name: Upload Web build
+        uses: actions/upload-artifact@v4
+        with:
+          name: catout-web
+          path: build/web
+
+      # Upload Web (GitHub Pages)
+      - name: Upload Web Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy-web:
+    needs: export
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
