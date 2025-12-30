@@ -21,3 +21,5 @@ stream = ExtResource("4_ch8s7")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
