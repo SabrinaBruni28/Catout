@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4r3jwpv7jw3a"]
+
+[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="1_fwrwf"]
+[ext_resource type="Script" uid="uid://ej2ia5ny0bka" path="res://scripts/componentes/button.gd" id="1_sea7j"]
+
+[sub_resource type="Theme" id="Theme_fwrwf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8d2wp"]
+font = ExtResource("1_fwrwf")
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(120, 30)
+offset_right = 120.0
+offset_bottom = 30.0
+theme = SubResource("Theme_fwrwf")
+theme_override_fonts/font = ExtResource("1_fwrwf")
+theme_override_font_sizes/font_size = 16
+script = ExtResource("1_sea7j")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -16.0
+offset_right = 106.0
+text = "Controle"
+label_settings = SubResource("LabelSettings_8d2wp")
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

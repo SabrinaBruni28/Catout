@@ -5,5 +5,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	jogador_1.set_personagem(Global.gato1_corrida())
-	jogador_2.set_personagem(Global.gato2_corrida())
+	Audios.music.stop()
+	jogador_1.set_personagem(Global.get_gato_anim(1, "corrida"))
+	jogador_2.set_personagem(Global.get_gato_anim(2, "corrida"))

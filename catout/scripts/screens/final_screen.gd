@@ -1,6 +1,5 @@
 extends Control
-@onready var click_sound: AudioStreamPlayer2D = $Audios/ClickSound
-@onready var hover_sound: AudioStreamPlayer2D = $Audios/HoverSound
+
 @onready var title: Label = $MarginContainer/HBoxContainer/VBoxContainer/Title
 @onready var pontos_1: Label = $Pontos1
 @onready var pontos_2: Label = $Pontos2
@@ -8,8 +7,8 @@ extends Control
 @onready var jogador_2: AnimatedSprite2D = $Jogador2
 
 func _ready():
-	set_personagem(Global.gato1_corrida(), jogador_1)
-	set_personagem(Global.gato2_corrida(), jogador_2)
+	set_personagem(Global.get_gato_anim(1, "corrida"), jogador_1)
+	set_personagem(Global.get_gato_anim(2, "corrida"), jogador_2)
 	pontos_1.text = str(Global.pontos[0])
 	pontos_2.text = str(Global.pontos[1])
 	if Global.pontos[0] > Global.pontos[1]:
@@ -32,17 +31,17 @@ func set_personagem(caminho_tres: String, player) -> void:
 		push_error("Falha ao carregar o .tres: " + caminho_tres)
 
 func _on_button_1_pressed() -> void:
-	click_sound.play()
-	await  click_sound.finished
-	get_tree().change_scene_to_file(Global.tela_inicial)
+	Audios.click_sound.play()
+	await  Audios.click_sound.finished
+	get_tree().change_scene_to_file(Global.fase_luta)
 
 func _on_button_2_pressed() -> void:
-	click_sound.play()
-	await  click_sound.finished
-	get_tree().quit()
+	Audios.click_sound.play()
+	await  Audios.click_sound.finished
+	get_tree().change_scene_to_file(Global.tela_inicial)
 
 func _on_button_1_mouse_entered() -> void:
-	hover_sound.play()
+	Audios.hover_sound.play()
 
 func _on_button_2_mouse_entered() -> void:
-	hover_sound.play()
+	Audios.hover_sound.play()

@@ -138,6 +138,7 @@ size_flags_horizontal = 4
 [node name="Button2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="3"]
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Menu"
 
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]

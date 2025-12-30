@@ -1,46 +1,47 @@
 extends Node
 
-var gato1
-var gato2
-var player_win = 0
-var pontos: Array = [0, 0]
+# Gatos escolhidos (guarda o PATH BASE)
+var gatos_jogador := {
+	1: "res://tres/gato_marrom/",
+	2: "res://tres/gato_preto/"
+}
 
-# Telas do Jogo
-const  tela_inicial = "res://scenes/screens/inicial_screen.tscn"
+var player_win := 0
+var pontos := [0, 0]
+
+# Telas
+const tela_inicial = "res://scenes/screens/inicial_screen.tscn"
 const tela_final = "res://scenes/screens/final_screen.tscn"
 const tela_pass = "res://scenes/screens/pass_screen.tscn"
 const tela_opcoes = "res://scenes/screens/opcoes_screen.tscn"
+const tela_controles = "res://scenes/screens/controles_screen.tscn"
 
-# Fases do jogo
+# Fases
 const fase_luta = "res://scenes/fase_luta/fase_luta.tscn"
 const fase_corrida = "res://scenes/fase_corrida/fase_corrida.tscn"
 
+# Gatos disponíveis
+var gatos := {
+	"marrom": "res://tres/gato_marrom/",
+	"preto":  "res://tres/gato_preto/",
+}
 
-func _ready() -> void:
-	gato1 = "res://tres/gato_marrom/"
-	gato2 = "res://tres/gato_preto/"
+func _ready():
+	# valores padrão
+	gatos_jogador[1] = gatos["marrom"]
+	gatos_jogador[2] = gatos["preto"]
 
-# Escolha de gato
-func gato_preto():
-	return "res://tres/gato_preto/"
-	
-func gato_marrom():
-	return "res://tres/gato_marrom/"
+func get_gato_anim(jogador: int, fase: String) -> String:
+	var base_path = gatos_jogador[jogador]
 
-func gato1_luta():
-	return gato1 + "gato_luta.tres"
+	match fase:
+		"luta":
+			return base_path + "gato_luta.tres"
+		"corrida":
+			return base_path + "gato_corrida.tres"
+		_:
+			push_error("Fase inválida: " + fase)
+			return ""
 
-func gato2_luta():
-	return gato2 + "gato_luta.tres"
-	
-func gato1_corrida():
-	return gato1 + "gato_corrida.tres"
-
-func gato2_corrida():
-	return gato2 + "gato_corrida.tres"
-	
-func decide_gato1(gato):
-	gato1 = gato
-	
-func decide_gato2(gato):
-	gato2 = gato
+func decide_gato(jogador: int, gato_path: String):
+	gatos_jogador[jogador] = gato_path

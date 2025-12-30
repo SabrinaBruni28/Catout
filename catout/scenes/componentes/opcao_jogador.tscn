@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmpbuxeq8wlgb"]
+
+[ext_resource type="Texture2D" uid="uid://74nnkxjy4mp3" path="res://assets/sprites/matriz2.png" id="1_tndxm"]
+[ext_resource type="Script" uid="uid://dg0fovrgipk60" path="res://scripts/componentes/opcao_jogador.gd" id="2_utenl"]
+[ext_resource type="SpriteFrames" uid="uid://bkpwhe1fbrkrr" path="res://tres/gato_marrom/gato_corrida.tres" id="3_lxdlx"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_tndxm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tndxm"]
+bg_color = Color(0.439216, 0.439216, 0.439216, 0.631373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utenl"]
+bg_color = Color(0.233926, 0.233925, 0.233925, 0.623529)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxdlx"]
+bg_color = Color(0, 0, 0, 0.607843)
+
+[sub_resource type="Theme" id="Theme_tndxm"]
+CheckButton/icons/checked = ExtResource("1_tndxm")
+CheckButton/icons/unchecked = SubResource("ImageTexture_tndxm")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_tndxm")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_utenl")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_lxdlx")
+
+[node name="OpcaoJogador" type="CheckButton"]
+custom_minimum_size = Vector2(110, 110)
+offset_right = 110.0
+offset_bottom = 110.0
+theme = SubResource("Theme_tndxm")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_utenl")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(57, 44)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_lxdlx")
+animation = &"idle"
+autoplay = "idle"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,182 @@
+[gd_scene load_steps=5 format=3 uid="uid://b86dc66mxvgt1"]
+
+[ext_resource type="PackedScene" uid="uid://mm7endc3mrl0" path="res://scenes/screens/base_screen.tscn" id="1_6pagn"]
+[ext_resource type="Script" uid="uid://cta1rjtv1piep" path="res://scripts/screens/controles_screen.gd" id="2_ekw7j"]
+[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="3_auu3p"]
+[ext_resource type="PackedScene" uid="uid://b4r3jwpv7jw3a" path="res://scenes/componentes/button.tscn" id="4_5t2kv"]
+
+[node name="ControlesScreen" instance=ExtResource("1_6pagn")]
+mouse_filter = 1
+script = ExtResource("2_ekw7j")
+
+[node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+text = "Controles"
+
+[node name="HSeparator2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
+theme_override_constants/separation = 400
+
+[node name="Button1" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
+text = "Jogar"
+
+[node name="Button2" parent="MarginContainer/HBoxContainer/VBoxContainer" index="3"]
+text = "Menu"
+
+[node name="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" index="4"]
+theme_override_constants/separation = 25
+
+[node name="Configuracao" type="MarginContainer" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -187.0
+offset_right = 392.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Configuracao" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Titulos" type="HBoxContainer" parent="Configuracao/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Gatinho1" type="Label" parent="Configuracao/VBoxContainer/Titulos" index="0"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_auu3p")
+theme_override_font_sizes/font_size = 24
+text = "Gatinho 1"
+
+[node name="Gatinho2" type="Label" parent="Configuracao/VBoxContainer/Titulos" index="1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_auu3p")
+theme_override_font_sizes/font_size = 24
+text = "Gatinho 2"
+
+[node name="Botoes" type="HBoxContainer" parent="Configuracao/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="OpcoesJogador1" type="GridContainer" parent="Configuracao/VBoxContainer/Botoes" index="0"]
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 2
+
+[node name="Esquerda" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador1" index="0" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "esquerda"
+action_name = "esquerda"
+player = "p1"
+
+[node name="Direita" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador1" index="1" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "direita"
+action_name = "direita"
+player = "p1"
+
+[node name="Pular" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador1" index="2" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "pular"
+action_name = "pular"
+player = "p1"
+
+[node name="Deslize" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador1" index="3" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "deslize"
+action_name = "deslize"
+player = "p1"
+
+[node name="Defesa" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador1" index="4" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "defesa"
+action_name = "defesa"
+player = "p1"
+
+[node name="ContraDefesa" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador1" index="5" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "contradefesa"
+action_name = "contradefesa"
+player = "p1"
+
+[node name="Jogar" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador1" index="6" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "jogar"
+action_name = "jogar"
+player = "p1"
+
+[node name="Dash" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador1" index="7" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "dash"
+action_name = "dash"
+player = "p1"
+
+[node name="OpcoesJogador2" type="GridContainer" parent="Configuracao/VBoxContainer/Botoes" index="1"]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 2
+
+[node name="Esquerda" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador2" index="0" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "esquerda"
+action_name = "esquerda"
+player = "p2"
+
+[node name="Direita" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador2" index="1" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "direita"
+action_name = "direita"
+player = "p2"
+
+[node name="Pular" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador2" index="2" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "pular"
+action_name = "pular"
+player = "p2"
+
+[node name="Deslize" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador2" index="3" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "deslize"
+action_name = "deslize"
+player = "p2"
+
+[node name="Defesa" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador2" index="4" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "defesa"
+action_name = "defesa"
+player = "p2"
+
+[node name="ContraDefesa" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador2" index="5" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "contradefesa"
+action_name = "contradefesa"
+player = "p2"
+
+[node name="Jogar" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador2" index="6" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "jogar"
+action_name = "jogar"
+player = "p2"
+
+[node name="Dash" parent="Configuracao/VBoxContainer/Botoes/OpcoesJogador2" index="7" instance=ExtResource("4_5t2kv")]
+layout_mode = 2
+text = "dash"
+action_name = "dash"
+player = "p2"
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

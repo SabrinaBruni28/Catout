@@ -15,9 +15,10 @@ var pontos_jogador2: int = 0
 
 # no script principal
 func _ready() -> void:
+	Audios.music.stop()
 	# Conecta sinais (Godot 4)
-	jogador_1.set_personagem(Global.gato1_luta())
-	jogador_2.set_personagem(Global.gato2_luta())
+	jogador_1.set_personagem( Global.get_gato_anim(1, "luta"))
+	jogador_2.set_personagem( Global.get_gato_anim(2, "luta"))
 
 	jogador_1.connect("morreu", Callable(self, "_on_jogador_1_morreu"))
 	jogador_2.connect("morreu", Callable(self, "_on_jogador_2_morreu"))
