@@ -66,14 +66,25 @@ func atualizar_texto():
 		text = limitar_texto(eventos[0].as_text(), 15)
 
 func limitar_texto(texto: String, limite_por_linha: int) -> String:
+	var max_chars := limite_por_linha * 3
+
+	# Cabe tudo em uma linha
 	if texto.length() <= limite_por_linha:
 		return texto
 
-	var primeira_linha := texto.substr(0, limite_por_linha)
+	# Cabe em até 3 linhas sem cortar
+	if texto.length() <= max_chars:
+		var linhas := []
+		for i in range(0, texto.length(), limite_por_linha):
+			linhas.append(texto.substr(i, limite_por_linha))
+		return "\n".join(linhas)
 
-	if texto.length() <= limite_por_linha * 2:
-		var segunda_linha := texto.substr(limite_por_linha)
-		return primeira_linha + "\n" + segunda_linha
+	# Texto grande demais → corta e adiciona …
+	var linhas := []
+	for i in range(0, limite_por_linha * 2, limite_por_linha):
+		linhas.append(texto.substr(i, limite_por_linha))
 
-	var segunda_linha := texto.substr(limite_por_linha, limite_por_linha - 1) + "…"
-	return primeira_linha + "\n" + segunda_linha
+	var ultima := texto.substr(limite_por_linha * 2, limite_por_linha - 1) + "…"
+	linhas.append(ultima)
+
+	return "\n".join(linhas)

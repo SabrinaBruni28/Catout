@@ -45,7 +45,7 @@ alignment = 1
 
 [node name="Titulos" type="HBoxContainer" parent="Configuracao/VBoxContainer" index="0"]
 layout_mode = 2
-theme_override_constants/separation = 300
+theme_override_constants/separation = 400
 alignment = 1
 
 [node name="Gatinho1" type="Label" parent="Configuracao/VBoxContainer/Titulos" index="0"]
@@ -63,7 +63,7 @@ text = "Gatinho 2"
 [node name="Botoes" type="HBoxContainer" parent="Configuracao/VBoxContainer" index="1"]
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 80
 alignment = 1
 
 [node name="OpcoesJogador1" type="GridContainer" parent="Configuracao/VBoxContainer/Botoes" index="0"]
