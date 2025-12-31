@@ -65,7 +65,15 @@ func atualizar_texto():
 	else:
 		text = limitar_texto(eventos[0].as_text(), 15)
 
-func limitar_texto(texto: String, limite: int) -> String:
-	if texto.length() <= limite:
+func limitar_texto(texto: String, limite_por_linha: int) -> String:
+	if texto.length() <= limite_por_linha:
 		return texto
-	return texto.substr(0, limite - 1) + "…"
+
+	var primeira_linha := texto.substr(0, limite_por_linha)
+
+	if texto.length() <= limite_por_linha * 2:
+		var segunda_linha := texto.substr(limite_por_linha)
+		return primeira_linha + "\n" + segunda_linha
+
+	var segunda_linha := texto.substr(limite_por_linha, limite_por_linha - 1) + "…"
+	return primeira_linha + "\n" + segunda_linha
