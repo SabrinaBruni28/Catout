@@ -63,7 +63,7 @@ func atualizar_texto():
 	if eventos.is_empty():
 		text = "Não configurado"
 	else:
-		text = limitar_texto(eventos[0].as_text(), 20)
+		text = limitar_texto(eventos[0].as_text(), 15)
 
 func limitar_texto(texto: String, limite_por_linha: int) -> String:
 	if texto.length() <= limite_por_linha:
