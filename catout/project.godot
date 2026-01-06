@@ -13,7 +13,7 @@ config_version=5
 config/name="Catout"
 run/main_scene="uid://dv83jmfd72eka"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dn3grhyamc1kl"
 
 [audio]
 

@@ -4,7 +4,6 @@
 
 # Arquivos importados (gerados automaticamente)
 .import/
-*.import
 .godot/
 *.godot/
 # Godot 4 UID files
