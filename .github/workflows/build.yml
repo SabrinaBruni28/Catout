@@ -136,7 +136,7 @@ jobs:
 
           # Linux (tar.gz preserva permissão)
           chmod +x release/catout-linux/Catout.x86_64
-          tar -czvf release/Catout-Linux.tar.gz -C release/catout-linux .
+          tar -czf release/Catout-Linux.tar.gz -C release/catout-linux Catout.x86_64
 
           # Web
           cd release/catout-web
