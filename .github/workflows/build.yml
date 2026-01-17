@@ -134,9 +134,9 @@ jobs:
           # Windows
           mv release/catout-windows/Catout.exe release/Catout-Windows.exe
 
-          # Linux
-          mv release/catout-linux/Catout.x86_64 release/Catout-Linux.x86_64
-          chmod +x release/Catout-Linux.x86_64
+          # Linux (tar.gz preserva permissão)
+          chmod +x release/catout-linux/Catout.x86_64
+          tar -czvf release/Catout-Linux.tar.gz -C release/catout-linux .
 
           # Web
           cd release/catout-web
