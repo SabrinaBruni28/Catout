@@ -150,5 +150,6 @@ jobs:
           name: Catout v${{ github.run_number }}
           files: |
             release/Catout-Windows.exe
-            release/Catout-Linux.x86_64
+            release/Catout-Linux.tar.gz
             release/Catout-Web.zip
+
