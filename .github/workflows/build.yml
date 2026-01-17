@@ -114,3 +114,41 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: export
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release
+
+      - name: Prepare files
+        run: |
+          # Windows
+          mv release/catout-windows/Catout.exe release/Catout-Windows.exe
+
+          # Linux
+          mv release/catout-linux/Catout.x86_64 release/Catout-Linux.x86_64
+          chmod +x release/Catout-Linux.x86_64
+
+          # Web
+          cd release/catout-web
+          zip -r ../Catout-Web.zip .
+          cd ../..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Catout v${{ github.run_number }}
+          files: |
+            release/Catout-Windows.exe
+            release/Catout-Linux.x86_64
+            release/Catout-Web.zip
