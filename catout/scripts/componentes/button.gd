@@ -13,7 +13,6 @@ func _ready():
 	label.text = action_name
 	atualizar_texto()
 
-
 func _on_pressed():
 	esperando_input = true
 	text = "Pressione\numa tecla..."
@@ -43,7 +42,7 @@ func _input(event):
 			return
 
 func atribuir_evento(event: InputEvent):
-	var action := player + "_" + action_name
+	var action := player + "_" + action_name if player else action_name
 
 	InputMap.action_erase_events(action)
 	InputMap.action_add_event(action, event.duplicate())
@@ -57,7 +56,7 @@ func atribuir_evento(event: InputEvent):
 	get_viewport().set_input_as_handled()
 
 func atualizar_texto():
-	var action := player + "_" + action_name
+	var action := player + "_" + action_name if player else action_name
 	var eventos = InputMap.action_get_events(action)
 
 	if eventos.is_empty():

@@ -1,11 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://cges6x3ext2i3"]
 
-[ext_resource type="Script" uid="uid://d35sfqqnadnms" path="res://scripts/componentes/audios.gd" id="1_rp41d"]
+[ext_resource type="Script" uid="uid://i25hwgx8e6af" path="res://scripts/componentes/audios.gd" id="1_rp41d"]
 [ext_resource type="AudioStream" uid="uid://cg81mojeb5kmy" path="res://assets/sounds/mouse_hover.mp3" id="2_xnkli"]
 [ext_resource type="AudioStream" uid="uid://cibp8cffbyqgx" path="res://assets/sounds/mouse_click.mp3" id="3_y7yqu"]
 [ext_resource type="AudioStream" uid="uid://cimih030x2md7" path="res://assets/music/intro.mp3" id="4_ch8s7"]
 
 [node name="Audios" type="Node"]
+process_mode = 3
 script = ExtResource("1_rp41d")
 
 [node name="HoverSound" type="AudioStreamPlayer2D" parent="."]

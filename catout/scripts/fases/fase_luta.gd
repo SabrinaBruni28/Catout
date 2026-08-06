@@ -8,6 +8,7 @@ extends Node2D
 
 @onready var tempo_jogo: Timer = $TempoJogo
 @onready var label_tempo: Label = $Labels/LabelTempo
+@onready var pause_screen: Control = $PauseScreen
 
 var morte_subita: bool = false
 var pontos_jogador1: int = 0
@@ -25,6 +26,10 @@ func _ready() -> void:
 	tempo_jogo.start()
 	
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		pause_screen.visible = true
+		get_tree().paused = true
+	
 	if not morte_subita:
 		label_tempo.text = "Tempo: " + str(int(tempo_jogo.time_left)) + " s"# mostra só a parte inteira em segundos
 

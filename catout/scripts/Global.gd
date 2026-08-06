@@ -15,6 +15,7 @@ const tela_final = "res://scenes/screens/final_screen.tscn"
 const tela_pass = "res://scenes/screens/pass_screen.tscn"
 const tela_opcoes = "res://scenes/screens/opcoes_screen.tscn"
 const tela_controles = "res://scenes/screens/controles_screen.tscn"
+const tela_pause = "res://scenes/screens/pause_screen.tscn"
 
 # Fases
 const fase_luta = "res://scenes/fase_luta/fase_luta.tscn"

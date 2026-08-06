@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dkt8rqcsywm1o"]
+
+[ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_f4jea"]
+
+[resource]
+Label/constants/line_spacing = 5
+Label/constants/outline_size = 20
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("1_f4jea")

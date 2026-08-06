@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://csgisfr2vdo6h"]
+
+[ext_resource type="Texture2D" uid="uid://y2d73avb7cre" path="res://assets/sprites/matrix .png" id="1_28cnx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boyed"]
+atlas = ExtResource("1_28cnx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5tlh"]
+atlas = ExtResource("1_28cnx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac3b3"]
+atlas = ExtResource("1_28cnx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3up2"]
+atlas = ExtResource("1_28cnx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f8uw2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boyed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5tlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac3b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3up2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="NuvemBits" type="AnimatedSprite2D"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_f8uw2")
+autoplay = "default"

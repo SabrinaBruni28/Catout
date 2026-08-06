@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://br0j1gpnu4vhj"]
 
-[ext_resource type="Script" uid="uid://kqfux088pcmp" path="res://scripts/jogadores/jogador_corrida_base.gd" id="1_uwiph"]
+[ext_resource type="Script" uid="uid://gcybjdv77gk4" path="res://scripts/jogadores/jogador_corrida_base.gd" id="1_uwiph"]
 [ext_resource type="AudioStream" uid="uid://du6fmpm685fuv" path="res://assets/sounds/knockback.wav" id="2_4qwp2"]
 [ext_resource type="AudioStream" uid="uid://dp0eenx5dexug" path="res://assets/sounds/growl_0.wav" id="3_eydcp"]
 [ext_resource type="AudioStream" uid="uid://dqjagnqr5e5rl" path="res://assets/sounds/tap.wav" id="4_c52wy"]

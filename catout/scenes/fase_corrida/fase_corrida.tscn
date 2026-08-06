@@ -1,24 +1,26 @@
-[gd_scene load_steps=18 format=3 uid="uid://duelttl0hyk0h"]
+[gd_scene load_steps=19 format=3 uid="uid://duelttl0hyk0h"]
 
-[ext_resource type="Script" uid="uid://b58qeaxeshldf" path="res://scripts/fases/fase_corrida.gd" id="1_00exl"]
+[ext_resource type="Script" uid="uid://chpconlwn7n1i" path="res://scripts/fases/fase_corrida.gd" id="1_00exl"]
 [ext_resource type="PackedScene" uid="uid://dj7dg5440ru2m" path="res://scenes/cenario/background.tscn" id="1_2pr2i"]
 [ext_resource type="PackedScene" uid="uid://cbmxermfagagb" path="res://scenes/fase_corrida/jogador_1.tscn" id="2_0glfh"]
-[ext_resource type="Script" uid="uid://clklmhuqfcy7j" path="res://scripts/componentes/camera.gd" id="2_2mx4m"]
+[ext_resource type="Script" uid="uid://dni8injq70pfm" path="res://scripts/componentes/camera.gd" id="2_2mx4m"]
 [ext_resource type="Texture2D" uid="uid://c71ncmg3oqy3b" path="res://assets/sprites/background_cidade.png" id="2_3jyo5"]
 [ext_resource type="PackedScene" uid="uid://b2ir8178oror4" path="res://scenes/cenario/nuvens.tscn" id="2_g2fdo"]
 [ext_resource type="PackedScene" uid="uid://diwhvjk06diif" path="res://scenes/fase_corrida/jogador_2.tscn" id="3_2mx4m"]
 [ext_resource type="PackedScene" uid="uid://dhc42j6x1sljt" path="res://scenes/cenario/mapa_corrida.tscn" id="3_51v1q"]
 [ext_resource type="PackedScene" uid="uid://dj542qdln0l78" path="res://scenes/objetos/lan.tscn" id="5_2mx4m"]
 [ext_resource type="PackedScene" uid="uid://cdvar3bm4imc0" path="res://scenes/objetos_movimento/carro.tscn" id="5_sq5gx"]
-[ext_resource type="Script" uid="uid://bwmgkpssl618a" path="res://scripts/componentes/linha_chegada.gd" id="9_4ngo5"]
+[ext_resource type="Script" uid="uid://cg5hwxjp8jymw" path="res://scripts/componentes/linha_chegada.gd" id="9_4ngo5"]
 [ext_resource type="PackedScene" uid="uid://b61ocd4kqlnl4" path="res://scenes/cenario/efeito_matriz.tscn" id="9_cdcyt"]
-[ext_resource type="Script" uid="uid://crej8kx05vuxl" path="res://scripts/componentes/camera_matrix.gd" id="9_pi4li"]
 [ext_resource type="PackedScene" uid="uid://jg3npjj2ct00" path="res://scenes/objetos/peixe.tscn" id="10_51v1q"]
 [ext_resource type="PackedScene" uid="uid://se5bf5ktn2kl" path="res://scenes/objetos/sardinha.tscn" id="11_cbmdj"]
 [ext_resource type="AudioStream" uid="uid://bunxxye7nqw16" path="res://assets/music/corrida.mp3" id="14_boyed"]
+[ext_resource type="Texture2D" uid="uid://b4vxcgib2a3ai" path="res://assets/sprites/bandeira.png" id="16_00exl"]
+[ext_resource type="PackedScene" uid="uid://dkkh34syw78xp" path="res://scenes/screens/pause_screen.tscn" id="17_v246p"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3i0xp"]
 normal = Vector2(-1, 0)
+distance = -2.0
 
 [node name="FaseCorrida" type="Node2D"]
 script = ExtResource("1_00exl")
@@ -45,6 +47,13 @@ offset_right = 397.0
 offset_bottom = -77.0
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_3jyo5")
+
+[node name="PauseScreen" parent="CameraPrincipal" instance=ExtResource("17_v246p")]
+visible = false
+offset_left = -565.0
+offset_top = -319.0
+offset_right = -565.0
+offset_bottom = -319.0
 
 [node name="Nuvens" parent="." instance=ExtResource("2_g2fdo")]
 position = Vector2(-17, -172)
@@ -75,20 +84,12 @@ position = Vector2(163, 337)
 [node name="Jogador_2" parent="." instance=ExtResource("3_2mx4m")]
 position = Vector2(161, 395)
 
-[node name="CameraMatrix" type="Camera2D" parent="."]
-position = Vector2(578, 323)
-script = ExtResource("9_pi4li")
-
-[node name="EfeitoMatriz" parent="CameraMatrix" instance=ExtResource("9_cdcyt")]
+[node name="EfeitoMatriz" parent="." instance=ExtResource("9_cdcyt")]
 z_index = 2
-position = Vector2(-536, -380)
-
-[node name="MatrizTimer" type="Timer" parent="CameraMatrix"]
-wait_time = 5.0
-autostart = true
+position = Vector2(-1635, 212)
 
 [node name="LinhaChegada" type="Area2D" parent="."]
-position = Vector2(11628, 772)
+position = Vector2(11548, 772)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("9_4ngo5")
@@ -96,5 +97,13 @@ script = ExtResource("9_4ngo5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LinhaChegada"]
 shape = SubResource("WorldBoundaryShape2D_3i0xp")
 
-[connection signal="area_entered" from="CameraMatrix/EfeitoMatriz" to="CameraMatrix" method="_on_efeito_matriz_area_entered"]
-[connection signal="timeout" from="CameraMatrix/MatrizTimer" to="CameraMatrix" method="_on_matriz_timer_timeout"]
+[node name="TextureRect" type="TextureRect" parent="LinhaChegada"]
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 158.0
+offset_bottom = 154.0
+texture = ExtResource("16_00exl")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="area_entered" from="EfeitoMatriz" to="." method="_on_efeito_matriz_area_entered"]

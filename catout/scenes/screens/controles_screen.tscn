@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b86dc66mxvgt1"]
 
 [ext_resource type="PackedScene" uid="uid://mm7endc3mrl0" path="res://scenes/screens/base_screen.tscn" id="1_6pagn"]
-[ext_resource type="Script" uid="uid://cta1rjtv1piep" path="res://scripts/screens/controles_screen.gd" id="2_ekw7j"]
-[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="3_auu3p"]
+[ext_resource type="Script" uid="uid://dw6saandudkqi" path="res://scripts/screens/controles_screen.gd" id="2_ekw7j"]
+[ext_resource type="Theme" uid="uid://dylrmft3ftnpi" path="res://tres/texto.tres" id="3_78w0w"]
 [ext_resource type="PackedScene" uid="uid://b4r3jwpv7jw3a" path="res://scenes/componentes/button.tscn" id="4_5t2kv"]
 
 [node name="ControlesScreen" instance=ExtResource("1_6pagn")]
@@ -50,14 +50,12 @@ alignment = 1
 
 [node name="Gatinho1" type="Label" parent="Configuracao/VBoxContainer/Titulos" index="0"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_auu3p")
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("3_78w0w")
 text = "Gatinho 1"
 
 [node name="Gatinho2" type="Label" parent="Configuracao/VBoxContainer/Titulos" index="1"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_auu3p")
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("3_78w0w")
 text = "Gatinho 2"
 
 [node name="Botoes" type="HBoxContainer" parent="Configuracao/VBoxContainer" index="1"]
@@ -175,6 +173,15 @@ layout_mode = 2
 text = "dash"
 action_name = "dash"
 player = "p2"
+
+[node name="Pause" parent="." index="3" instance=ExtResource("4_5t2kv")]
+layout_mode = 0
+offset_left = 898.0
+offset_top = 573.0
+offset_right = 1048.0
+offset_bottom = 603.0
+text = "pause"
+action_name = "pause"
 
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]

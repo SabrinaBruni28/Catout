@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://mm7endc3mrl0"]
+[gd_scene load_steps=9 format=4 uid="uid://mm7endc3mrl0"]
 
 [ext_resource type="Texture2D" uid="uid://b18ic41welbig" path="res://assets/sprites/background.png" id="1_jkdof"]
-[ext_resource type="PackedScene" uid="uid://b61ocd4kqlnl4" path="res://scenes/cenario/efeito_matriz.tscn" id="2_0ivcs"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="2_atl4s"]
+[ext_resource type="PackedScene" uid="uid://csgisfr2vdo6h" path="res://scenes/componentes/nuvem_bits.tscn" id="2_crpnj"]
 [ext_resource type="Theme" uid="uid://blhdcuutacduk" path="res://tres/buttons/button.tres" id="2_ig2w1"]
+[ext_resource type="Theme" uid="uid://dkt8rqcsywm1o" path="res://tres/title.tres" id="3_75hnk"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_75hnk"]
+scenes/1/scene = ExtResource("2_crpnj")
+
+[sub_resource type="TileSet" id="TileSet_0ivcs"]
+sources/0 = SubResource("TileSetScenesCollectionSource_75hnk")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_py8tu"]
 
@@ -26,11 +33,10 @@ size_flags_horizontal = 0
 texture = ExtResource("1_jkdof")
 expand_mode = 1
 
-[node name="EfeitoMatriz" parent="Background" instance=ExtResource("2_0ivcs")]
-position = Vector2(33, 1)
-
-[node name="EfeitoMatriz2" parent="Background" instance=ExtResource("2_0ivcs")]
-position = Vector2(1151, 1)
+[node name="TileMapLayer" type="TileMapLayer" parent="Background"]
+position = Vector2(-35, 0)
+tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAQACAAgAAAAAAAAAAQACAA4AAAAAAAAAAQACABQAAAAAAAAAAQACABoAAAAAAAAAAQACACAAAAAAAAAAAQACACYAAAAAAAAAAQBJACUAAAAAAAAAAQBJACAAAAAAAAAAAQBJABoAAAAAAAAAAQBJABQAAAAAAAAAAQBJAA4AAAAAAAAAAQBJAAgAAAAAAAAAAQBJAAIAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_0ivcs")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,8 +60,7 @@ theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_atl4s")
-theme_override_font_sizes/font_size = 64
+theme = ExtResource("3_75hnk")
 text = "Titulo"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]

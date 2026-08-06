@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://8y0lkj3thnau"]
 
 [ext_resource type="PackedScene" uid="uid://mm7endc3mrl0" path="res://scenes/screens/base_screen.tscn" id="1_1n2bf"]
-[ext_resource type="Script" uid="uid://bi5d4phdypcno" path="res://scripts/screens/opcoes_screen.gd" id="2_2atps"]
-[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="3_7xddr"]
+[ext_resource type="Script" uid="uid://b02ckxb4fmwrq" path="res://scripts/screens/opcoes_screen.gd" id="2_2atps"]
+[ext_resource type="Theme" uid="uid://dylrmft3ftnpi" path="res://tres/texto.tres" id="3_e5aaf"]
 
 [node name="OpcoesScreen" instance=ExtResource("1_1n2bf")]
 script = ExtResource("2_2atps")
@@ -13,8 +13,7 @@ offset_left = 101.0
 offset_top = 590.0
 offset_right = 301.0
 offset_bottom = 622.0
-theme_override_fonts/font = ExtResource("3_7xddr")
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("3_e5aaf")
 text = "Gatinho 1"
 
 [node name="Gatinho2" type="Label" parent="." index="2"]
@@ -23,8 +22,7 @@ offset_left = 873.0
 offset_top = 592.0
 offset_right = 1073.0
 offset_bottom = 624.0
-theme_override_fonts/font = ExtResource("3_7xddr")
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("3_e5aaf")
 text = "Gatinho 2"
 
 [node name="Title" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]

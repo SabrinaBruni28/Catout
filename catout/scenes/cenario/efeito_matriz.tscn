@@ -1,119 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://b61ocd4kqlnl4"]
+[gd_scene load_steps=6 format=4 uid="uid://b61ocd4kqlnl4"]
 
-[ext_resource type="Texture2D" uid="uid://y2d73avb7cre" path="res://assets/sprites/matrix .png" id="1_hsiq0"]
+[ext_resource type="PackedScene" uid="uid://csgisfr2vdo6h" path="res://scenes/componentes/nuvem_bits.tscn" id="1_hsiq0"]
+[ext_resource type="Script" uid="uid://0pi4srb1f1yk" path="res://scripts/componentes/efeito_matriz.gd" id="1_u47ew"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_boyed"]
-atlas = ExtResource("1_hsiq0")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_u47ew"]
+scenes/1/scene = ExtResource("1_hsiq0")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5tlh"]
-atlas = ExtResource("1_hsiq0")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="TileSet" id="TileSet_almy4"]
+sources/0 = SubResource("TileSetScenesCollectionSource_u47ew")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ac3b3"]
-atlas = ExtResource("1_hsiq0")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3up2"]
-atlas = ExtResource("1_hsiq0")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_u47ew"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_boyed")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w5tlh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ac3b3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o3up2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hsiq0"]
-normal = Vector2(0.999851, -0.0172388)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg6bp"]
+size = Vector2(1090, 1437)
 
 [node name="EfeitoMatriz" type="Area2D"]
+script = ExtResource("1_u47ew")
 
-[node name="Matriz" type="TextureRect" parent="."]
-offset_left = -23.0
-offset_top = 1.0
-offset_right = -23.0
-offset_bottom = 1.0
-
-[node name="NuvemBits0" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, -51)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits1" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 45)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits2" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 141)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits3" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 237)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits4" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 331)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits5" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 426)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits6" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 522)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits7" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 617)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits8" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 712)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits9" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 807)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
-
-[node name="NuvemBits10" type="AnimatedSprite2D" parent="Matriz"]
-position = Vector2(4, 902)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_u47ew")
-autoplay = "default"
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-23, 1)
+tile_map_data = PackedByteArray("AAAEAAIAAAAAAAAAAQAKAAIAAAAAAAAAAQAQAAIAAAAAAAAAAQAWAAIAAAAAAAAAAQAcAAIAAAAAAAAAAQAhAAIAAAAAAAAAAQAnAAIAAAAAAAAAAQAtAAIAAAAAAAAAAQAzAAIAAAAAAAAAAQA4AAIAAAAAAAAAAQA+AAIAAAAAAAAAAQBEAAIAAAAAAAAAAQAEAAgAAAAAAAAAAQAJAAgAAAAAAAAAAQAPAAgAAAAAAAAAAQAVAAgAAAAAAAAAAQAbAAgAAAAAAAAAAQAgAAgAAAAAAAAAAQAmAAgAAAAAAAAAAQAsAAgAAAAAAAAAAQAyAAgAAAAAAAAAAQA4AAgAAAAAAAAAAQA+AAgAAAAAAAAAAQBEAAgAAAAAAAAAAQAEAA4AAAAAAAAAAQAKAA4AAAAAAAAAAQAPAA4AAAAAAAAAAQAVAA4AAAAAAAAAAQAbAA4AAAAAAAAAAQAhAA4AAAAAAAAAAQAnAA4AAAAAAAAAAQAtAA4AAAAAAAAAAQAzAA4AAAAAAAAAAQA5AA4AAAAAAAAAAQA+AA4AAAAAAAAAAQBEAA4AAAAAAAAAAQAEABQAAAAAAAAAAQAKABQAAAAAAAAAAQAQABQAAAAAAAAAAQAWABQAAAAAAAAAAQAcABQAAAAAAAAAAQAiABQAAAAAAAAAAQAoABQAAAAAAAAAAQAuABQAAAAAAAAAAQA0ABQAAAAAAAAAAQA6ABQAAAAAAAAAAQBAABQAAAAAAAAAAQBEABQAAAAAAAAAAQAEABoAAAAAAAAAAQAKABoAAAAAAAAAAQAQABoAAAAAAAAAAQAWABoAAAAAAAAAAQAcABoAAAAAAAAAAQAiABoAAAAAAAAAAQAoABoAAAAAAAAAAQAuABoAAAAAAAAAAQA0ABoAAAAAAAAAAQA6ABoAAAAAAAAAAQBAABoAAAAAAAAAAQBEABoAAAAAAAAAAQAEACAAAAAAAAAAAQAKACAAAAAAAAAAAQAQACAAAAAAAAAAAQAWACAAAAAAAAAAAQAcACAAAAAAAAAAAQAiACAAAAAAAAAAAQAoACAAAAAAAAAAAQAuACAAAAAAAAAAAQA0ACAAAAAAAAAAAQA6ACAAAAAAAAAAAQBAACAAAAAAAAAAAQBEACAAAAAAAAAAAQAEACYAAAAAAAAAAQAKACYAAAAAAAAAAQAQACYAAAAAAAAAAQAWACYAAAAAAAAAAQAcACYAAAAAAAAAAQAiACYAAAAAAAAAAQAoACYAAAAAAAAAAQAuACYAAAAAAAAAAQA0ACYAAAAAAAAAAQA6ACYAAAAAAAAAAQBAACYAAAAAAAAAAQBEACYAAAAAAAAAAQAEACwAAAAAAAAAAQAKACwAAAAAAAAAAQAQACwAAAAAAAAAAQAWACwAAAAAAAAAAQAcACwAAAAAAAAAAQAiACwAAAAAAAAAAQAoACwAAAAAAAAAAQAuACwAAAAAAAAAAQA0ACwAAAAAAAAAAQA6ACwAAAAAAAAAAQBAACwAAAAAAAAAAQBEACwAAAAAAAAAAQAEADIAAAAAAAAAAQAKADIAAAAAAAAAAQAQADIAAAAAAAAAAQAWADIAAAAAAAAAAQAcADIAAAAAAAAAAQAiADIAAAAAAAAAAQAoADIAAAAAAAAAAQAuADIAAAAAAAAAAQA0ADIAAAAAAAAAAQA6ADIAAAAAAAAAAQA/ADIAAAAAAAAAAQBEADIAAAAAAAAAAQAEAPz/AAAAAAAAAQAEAPb/AAAAAAAAAQAEAPD/AAAAAAAAAQAEAOr/AAAAAAAAAQAKAPz/AAAAAAAAAQAKAPb/AAAAAAAAAQAKAPD/AAAAAAAAAQAKAOr/AAAAAAAAAQAQAP3/AAAAAAAAAQAQAPf/AAAAAAAAAQAQAPH/AAAAAAAAAQAQAOv/AAAAAAAAAQAWAPz/AAAAAAAAAQAWAPb/AAAAAAAAAQAWAPD/AAAAAAAAAQAWAOr/AAAAAAAAAQAcAP3/AAAAAAAAAQAcAPf/AAAAAAAAAQAcAPH/AAAAAAAAAQAcAOv/AAAAAAAAAQAiAPz/AAAAAAAAAQAiAPb/AAAAAAAAAQAiAPD/AAAAAAAAAQAiAOr/AAAAAAAAAQAoAPz/AAAAAAAAAQAoAPb/AAAAAAAAAQAoAPD/AAAAAAAAAQAoAOr/AAAAAAAAAQAuAPz/AAAAAAAAAQAuAPf/AAAAAAAAAQAuAPH/AAAAAAAAAQAuAOv/AAAAAAAAAQA0AP3/AAAAAAAAAQA0APf/AAAAAAAAAQA0APH/AAAAAAAAAQA0AOv/AAAAAAAAAQA6AP3/AAAAAAAAAQA6APf/AAAAAAAAAQA6APH/AAAAAAAAAQA6AOv/AAAAAAAAAQBAAP3/AAAAAAAAAQBAAPf/AAAAAAAAAQBAAPH/AAAAAAAAAQBAAOv/AAAAAAAAAQBFAPz/AAAAAAAAAQBFAPb/AAAAAAAAAQBFAPD/AAAAAAAAAQBFAOv/AAAAAAAAAQBFAAIAAAAAAAAAAQBFAAgAAAAAAAAAAQBFAA4AAAAAAAAAAQBFABQAAAAAAAAAAQBFABoAAAAAAAAAAQBFACAAAAAAAAAAAQBFACYAAAAAAAAAAQBFACwAAAAAAAAAAQBFADIAAAAAAAAAAQAEADgAAAAAAAAAAQAEAD4AAAAAAAAAAQAKAD4AAAAAAAAAAQAKADgAAAAAAAAAAQAQADgAAAAAAAAAAQAQAD4AAAAAAAAAAQAWAD4AAAAAAAAAAQAWADgAAAAAAAAAAQAcADgAAAAAAAAAAQAcAD4AAAAAAAAAAQAiAD4AAAAAAAAAAQAiADgAAAAAAAAAAQAoADgAAAAAAAAAAQAoAD4AAAAAAAAAAQAuADgAAAAAAAAAAQAuAD4AAAAAAAAAAQA0ADgAAAAAAAAAAQA0AD4AAAAAAAAAAQA6ADgAAAAAAAAAAQA6AD4AAAAAAAAAAQBAADgAAAAAAAAAAQBAAD4AAAAAAAAAAQBFADgAAAAAAAAAAQBFAD4AAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_almy4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_hsiq0")
+position = Vector2(541, 332.5)
+shape = SubResource("RectangleShape2D_pg6bp")
