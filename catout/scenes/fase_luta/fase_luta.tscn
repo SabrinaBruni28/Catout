@@ -36,7 +36,7 @@ scale = Vector2(6, 6)
 wait_time = 32.0
 one_shot = true
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 1
 stream = ExtResource("6_yo6y5")
 autoplay = true
