@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=4 uid="uid://dhc42j6x1sljt"]
+[gd_scene load_steps=11 format=4 uid="uid://dhc42j6x1sljt"]
 
 [ext_resource type="TileSet" uid="uid://dvoaxy646f2jy" path="res://tres/tileset.tres" id="1_rej06"]
 [ext_resource type="PackedScene" uid="uid://bqfdbidkv45bd" path="res://scenes/cenario/chao_deslizar.tscn" id="2_jkvcu"]
 [ext_resource type="PackedScene" uid="uid://dhqhk6elw3ayk" path="res://scenes/cenario/fundo.tscn" id="3_hsv7j"]
+[ext_resource type="PackedScene" uid="uid://dj542qdln0l78" path="res://scenes/objetos/lan.tscn" id="4_03qfx"]
+[ext_resource type="PackedScene" uid="uid://r07anwiqf5tf" path="res://scenes/objetos/objetos.tscn" id="5_rruad"]
+[ext_resource type="PackedScene" uid="uid://jg3npjj2ct00" path="res://scenes/objetos/peixe.tscn" id="6_5q5pe"]
+[ext_resource type="PackedScene" uid="uid://se5bf5ktn2kl" path="res://scenes/objetos/sardinha.tscn" id="7_etrtk"]
+[ext_resource type="PackedScene" uid="uid://cdvar3bm4imc0" path="res://scenes/objetos_movimento/carro.tscn" id="8_5wbwt"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mmqht"]
+scenes/1/scene = ExtResource("4_03qfx")
+scenes/2/scene = ExtResource("5_rruad")
+scenes/3/scene = ExtResource("6_5q5pe")
+scenes/4/scene = ExtResource("7_etrtk")
+scenes/5/scene = ExtResource("8_5wbwt")
+
+[sub_resource type="TileSet" id="TileSet_2ll04"]
+sources/0 = SubResource("TileSetScenesCollectionSource_mmqht")
 
 [node name="MapaCorrida" type="Node2D"]
 
@@ -20,3 +35,6 @@ collision_enabled = true
 position = Vector2(0, 6)
 tile_map_data = PackedByteArray("AAAGAAoAAAAFAAAAAAAGAAsAAAAGAAAAAAAFAAoAAAAHAAAAAAAFAAsAAAAAAAEAAAADAAQAAAADAAEAAAABAAQAAAADAAEAAAABAAYAAAADAAEAAAADAAYAAAADAAEAAAABAAoAAAAEAAEAAAADAAoAAAAEAAEAAAAOAAEAAAAFAAEAAAAIAAEAAAAGAAEAAAAKAAEAAAAGAAEAAAAMAAEAAAAGAAEAAAATAAsAAAABAAIAAAASAAsAAAACAAIAAAAQAAoAAAADAAIAAAAQAAcAAAAEAAIAAAAQAAgAAAAEAAIAAAAQAAkAAAAEAAIAAAAQAAYAAAADAAIAAAAQAAMAAAAEAAIAAAAQAAQAAAAEAAIAAAAQAAUAAAAEAAIAAAAQAAIAAAAFAAIAAAAQAAEAAAAGAAIAAAAQAAAAAAAHAAIAAAAKAAoAAAAAAAAAAAAKAAsAAAACAAAAAAALAAoAAAABAAAAAAALAAsAAAADAAAAAAACAAoAAAABAAAAAAACAAsAAAADAAAAAAAYAAsAAAADAA0AAAAPAAsAAAABAAYAAAAQAAsAAAACAAIAAAARAAsAAAACAAIAAAAPAAoAAAAGAAQAAAAPAAkAAAAEAAQAAAAPAAgAAAAEAAQAAAAPAAcAAAAEAAQAAAAPAAYAAAAGAAQAAAAPAAUAAAAEAAQAAAAPAAQAAAAEAAQAAAAPAAMAAAAEAAQAAAAYAAoAAAAAAA4AAAA=")
 collision_enabled = true
+
+[node name="Objetos" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_2ll04")

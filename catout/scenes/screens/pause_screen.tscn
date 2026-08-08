@@ -43,6 +43,7 @@ tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAQACAAgAAAAAAAAAAQACAA4AAAAAAAA
 tile_set = SubResource("TileSet_0ivcs")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 415.0
 offset_top = 73.5
 offset_right = 735.0
